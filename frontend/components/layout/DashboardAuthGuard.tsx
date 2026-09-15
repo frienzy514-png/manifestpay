@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/useAuthStore';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { Sidebar } from '@/components/layout/Sidebar';
@@ -14,6 +14,7 @@ export function DashboardAuthGuard({ children }: { children: React.ReactNode }) 
 
   const mainRef = React.useRef<HTMLDivElement>(null);
   const scrollPositions = React.useRef<Record<string, number>>({});
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -38,13 +39,17 @@ export function DashboardAuthGuard({ children }: { children: React.ReactNode }) 
     main.scrollTop = saved ?? 0;
   }, [pathname]);
 
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [pathname]);
+
   if (!isAuthenticated) return null;
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
+    <div className="flex h-screen bg-background">
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <div className="flex-1 flex flex-col overflow-hidden lg:ml-64">
-        <Header />
+        <Header onMenuClick={() => setIsSidebarOpen((v) => !v)} />
         <main ref={mainRef} className="flex-1 overflow-y-auto p-4 sm:p-6">
           <ErrorBoundary context="dashboard-page" resetKey={pathname}>
             {children}

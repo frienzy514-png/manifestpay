@@ -130,11 +130,11 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
         <div className="flex h-16 items-center justify-between px-4 sm:px-6">
           {/* LEFT */}
           <div className="flex items-center gap-2 sm:gap-4">
-            <Button variant="ghost" size="icon" className="md:hidden -ml-2" onClick={onMenuClick}>
+            <Button variant="ghost" size="icon" className="lg:hidden -ml-2" onClick={onMenuClick} aria-label="Toggle navigation">
               <Menu className="h-5 w-5" />
             </Button>
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-3">
-              <h1 className="text-base sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate max-w-[100px] sm:max-w-none">
+              <h1 className="text-base sm:text-xl font-bold bg-gradient-to-r from-teal-600 to-amber-500 bg-clip-text text-transparent truncate max-w-[100px] sm:max-w-none">
                 Dashboard
               </h1>
             </div>
@@ -214,7 +214,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center gap-2 h-9 px-1.5 sm:px-2 rounded-full sm:rounded-lg">
                   <Avatar className="h-7 w-7 sm:h-8 sm:w-8">
-                    <AvatarFallback className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-[10px] sm:text-xs">{initials}</AvatarFallback>
+                    <AvatarFallback className="bg-gradient-to-br from-teal-500 to-amber-400 text-white text-[10px] sm:text-xs">{initials}</AvatarFallback>
                   </Avatar>
                   <div className="hidden lg:block text-left">
                     <p className="text-xs font-semibold text-gray-900 dark:text-gray-100">{name || "User"}</p>
