@@ -204,7 +204,7 @@ export default function ProjectsPage() {
       <div className="flex justify-between items-center">
         <p className="text-gray-600 mt-1 dark:text-gray-400">Manage your projects and milestones</p>
         <Link href="/dashboard/projects/new">
-          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <Button className="bg-gradient-to-r from-teal-600 to-amber-500 hover:from-teal-700 hover:to-amber-600">
             <Plus className="h-4 w-4 mr-2" />
             New Project
           </Button>
@@ -254,7 +254,7 @@ export default function ProjectsPage() {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
                 />
               </label>
               <label className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
@@ -263,7 +263,7 @@ export default function ProjectsPage() {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
                 />
               </label>
             </div>
@@ -278,7 +278,7 @@ export default function ProjectsPage() {
                   step="0.01"
                   value={minAmount}
                   onChange={(e) => setMinAmount(e.target.value)}
-                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
                 />
               </label>
               <label className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
@@ -289,7 +289,7 @@ export default function ProjectsPage() {
                   step="0.01"
                   value={maxAmount}
                   onChange={(e) => setMaxAmount(e.target.value)}
-                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
                 />
               </label>
             </div>
@@ -301,7 +301,7 @@ export default function ProjectsPage() {
                 value={presetName}
                 onChange={(e) => setPresetName(e.target.value)}
                 placeholder="Preset name"
-                className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                className="w-full rounded-md border border-gray-200 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
               />
               <div className="grid grid-cols-2 gap-2">
                 <Button type="button" onClick={savePreset} size="sm" className="w-full">
@@ -439,7 +439,7 @@ export default function ProjectsPage() {
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                           <div
-                            className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all"
+                            className="bg-gradient-to-r from-teal-600 to-amber-500 h-2 rounded-full transition-all"
                             style={{ width: `${progressPercent}%` }}
                           />
                         </div>
