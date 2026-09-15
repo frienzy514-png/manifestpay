@@ -1,6 +1,6 @@
 "use client";
 
-import { WizardContainer } from "@/src/components/payments/wizard/WizardContainer";
+import { WizardContainer } from "@/components/payments/wizard/WizardContainer";
 import { PageTransition } from "@/components/ui/page-transition";
 
 export default function CreatePaymentPage() {
