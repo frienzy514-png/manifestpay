@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -168,7 +171,7 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withSentryConfig(bundleAnalyzer(nextConfig), {
+export default withSentryConfig(withNextIntl(bundleAnalyzer(nextConfig)), {
   silent: true,
   org: process.env.SENTRY_ORG || "manifestpay",
   project: process.env.SENTRY_PROJECT || "manifestpay-frontend",
