@@ -1,9 +1,9 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import { VirtualList, type VirtualListItem } from '@/src/components/virtual-list';
+import { VirtualList, type VirtualListItem } from '@/components/virtual-list';
 import { TransactionRow } from '@/components/transaction/TransactionRow';
-import { useRowMeasurementCache } from '@/src/hooks/use-row-measurement-cache';
+import { useRowMeasurementCache } from '@/lib/hooks/use-row-measurement-cache';
 import type { Payment } from '@/lib/types';
 
 interface PaymentListItem extends VirtualListItem, Payment {}
