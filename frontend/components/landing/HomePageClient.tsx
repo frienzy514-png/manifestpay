@@ -18,7 +18,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
   const tMeta = useTranslations('metadata');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-white to-amber-50">
       <Navbar />
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -33,7 +33,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 text-teal-700 text-sm font-medium mb-8"
             >
               <Shield className="h-4 w-4" />
               <span>{t('badge')}</span>
@@ -41,7 +41,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               {t('headline')}
-              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block text-amber-500">
                 {t('headlineAccent')}
               </span>
             </h1>
@@ -50,7 +50,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
               {t('subheadline')}
             </p>
 
-            <div className="grid grid-cols-2 gap-4 rounded-3xl border border-white/70 bg-white/80 p-5 text-left shadow-lg shadow-blue-100/50 backdrop-blur sm:grid-cols-4 mb-12">
+            <div className="grid grid-cols-2 gap-4 rounded-3xl border border-white/70 bg-white/80 p-5 text-left shadow-lg shadow-teal-100/50 backdrop-blur sm:grid-cols-4 mb-12">
               <Metric label={t('activeProjects')} value={String(snapshot.totals.activeProjects)} />
               <Metric label={t('paidInvoices')} value={String(snapshot.totals.paidInvoices)} />
               <Metric label={t('completedPayments')} value={String(snapshot.totals.completedPayments)} />
@@ -61,7 +61,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
               <Link href="/auth" aria-label={tMeta('title')}>
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-teal-600 to-amber-500 hover:from-teal-700 hover:to-amber-600 text-white shadow-lg hover:shadow-xl transition-all"
                 >
                   {tCommon('getStarted')}
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
@@ -76,12 +76,12 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
           <motion.div
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 right-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 blur-xl"
+            className="absolute top-20 right-10 w-20 h-20 bg-teal-200 rounded-full opacity-20 blur-xl"
           />
           <motion.div
             animate={{ y: [0, 20, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 left-10 w-32 h-32 bg-purple-200 rounded-full opacity-20 blur-xl"
+            className="absolute bottom-20 left-10 w-32 h-32 bg-amber-200 rounded-full opacity-20 blur-xl"
           />
         </div>
       </section>
@@ -111,7 +111,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-2"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-500 to-amber-400 flex items-center justify-center mb-6">
                   <feature.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -129,7 +129,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {snapshot.featuredProjects.map((project) => (
                 <div key={project.id} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-blue-200">{project.status}</p>
+                  <p className="text-sm text-teal-200">{project.status}</p>
                   <h3 className="mt-2 text-lg font-semibold">{project.title}</h3>
                   <p className="mt-3 text-sm text-slate-300">
                     {project.amount} {project.currency}
@@ -141,7 +141,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-24 bg-gradient-to-br from-teal-700 to-teal-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -151,11 +151,11 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Join thousands of freelancers getting paid instantly with ManifestPay
             </p>
             <Link href="/auth" aria-label="Start earning with ManifestPay">
-              <Button size="lg" className="text-lg px-8 py-6 bg-white text-blue-600 hover:bg-gray-100 shadow-xl">
+              <Button size="lg" className="text-lg px-8 py-6 bg-white text-teal-700 hover:bg-gray-100 shadow-xl">
                 Start Earning Today
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Button>

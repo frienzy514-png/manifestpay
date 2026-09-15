@@ -50,11 +50,11 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2 group" aria-label="Home">
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg"
+              className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-teal-600 to-amber-500 flex items-center justify-center shadow-lg"
             >
               <Wallet className="h-5 w-5 lg:h-6 lg:w-6 text-white" aria-hidden="true" />
             </motion.div>
-            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-teal-600 to-amber-500 bg-clip-text text-transparent">
               ManifestPay
             </span>
           </Link>
@@ -65,7 +65,7 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                className="text-sm font-medium text-gray-700 transition-colors hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded"
                 aria-current={pathname === link.href ? 'page' : undefined}
               >
                 {link.name}
@@ -78,7 +78,7 @@ export function Navbar() {
             <LocaleSwitcher compact/>
             <Link href="/auth" className="hidden md:block">
               <Button
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="bg-gradient-to-r from-teal-600 to-amber-500 hover:from-teal-700 hover:to-amber-600 text-white shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 aria-label="Get Started"
               >
                 Get Started
@@ -88,7 +88,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -123,7 +123,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-2 text-gray-700 font-medium hover:text-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                    className="block py-2 text-gray-700 font-medium hover:text-teal-600 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded"
                     aria-current={pathname === link.href ? 'page' : undefined}
                   >
                     {link.name}
@@ -139,7 +139,7 @@ export function Navbar() {
                 <LanguageSwitcher compact />
                 <Link href="/auth" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="w-full bg-gradient-to-r from-teal-600 to-amber-500 hover:from-teal-700 hover:to-amber-600 text-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                     aria-label="Get Started"
                   >
                     Get Started
