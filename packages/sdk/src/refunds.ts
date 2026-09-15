@@ -1,8 +1,8 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 import { RefundEvaluationInput, RefundPolicyInput } from './types.js';
 
 export class RefundsApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   setPolicy(input: RefundPolicyInput) {
     return this.client.post('/refunds/policies', input);

@@ -1,7 +1,7 @@
 {
-  "name": "@agenticpay/sdk-testing",
+  "name": "@manifestpay/sdk-testing",
   "version": "0.1.0",
-  "description": "Testing utilities for AgenticPay SDK integrations",
+  "description": "Testing utilities for ManifestPay SDK integrations",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,14 +20,14 @@
     "test": "vitest run --passWithNoTests"
   },
   "keywords": [
-    "agenticpay",
+    "manifestpay",
     "sdk",
     "testing",
     "mock"
   ],
   "license": "MIT",
   "dependencies": {
-    "@agenticpay/sdk": "*"
+    "@manifestpay/sdk": "*"
   },
   "devDependencies": {
     "@types/node": "^22.5.0",

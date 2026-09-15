@@ -27,7 +27,7 @@ const eslintConfig = defineConfig([
   },
   {
     plugins: {
-      agenticpay: {
+      manifestpay: {
         rules: {
           "domain-boundaries": domainBoundariesRule,
         },
@@ -38,7 +38,7 @@ const eslintConfig = defineConfig([
       "react/no-unescaped-entities": "warn",
       "prefer-const": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
-      "agenticpay/domain-boundaries": "error",
+      "manifestpay/domain-boundaries": "error",
       "@typescript-eslint/ban-ts-comment": ["error", {
         "ts-expect-error": "allow-with-description",
         "ts-ignore": "allow-with-description",

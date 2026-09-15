@@ -20,7 +20,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: github.repository == 'Smartdevs17/agenticpay'
+    if: github.repository == 'frienzy514-png/manifestpay'
     steps:
       - uses: actions/checkout@v4
         with:

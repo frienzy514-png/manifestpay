@@ -3,6 +3,6 @@
   "entryPoints": ["src/index.ts"],
   "out": "docs/api",
   "tsconfig": "tsconfig.json",
-  "name": "@agenticpay/types",
+  "name": "@manifestpay/types",
   "includeVersion": true
 }

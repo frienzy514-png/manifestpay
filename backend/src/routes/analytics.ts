@@ -13,9 +13,9 @@ import {
   forecastService,
   buildRevenueForecastWithAccuracy,
 } from '../services/analytics.js';
-import type { AgenticPayWebSocketServer } from '../websocket/server.js';
+import type { ManifestPayWebSocketServer } from '../websocket/server.js';
 
-export function createAnalyticsRouter(wsServer: AgenticPayWebSocketServer) {
+export function createAnalyticsRouter(wsServer: ManifestPayWebSocketServer) {
   const router = Router();
 
   function parseSince(req: Request): Date | undefined {

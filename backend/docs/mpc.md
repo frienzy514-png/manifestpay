@@ -1,6 +1,6 @@
 # MPC threshold signing
 
-AgenticPay signs Stellar transactions with Ed25519 keys. The original
+ManifestPay signs Stellar transactions with Ed25519 keys. The original
 single-key layout is a single point of compromise: any process that
 touches the signer is effectively the signer. This service replaces
 that with an **M-of-N threshold** scheme: the key is generated inside a

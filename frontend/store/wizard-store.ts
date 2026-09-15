@@ -112,7 +112,7 @@ export const useWizardStore = create<WizardState>()(
         };
         try {
           localStorage.setItem(
-            'agenticpay-wizard-draft',
+            'manifestpay-wizard-draft',
             JSON.stringify(draft),
           );
         } catch {
@@ -122,7 +122,7 @@ export const useWizardStore = create<WizardState>()(
 
       loadDraft: () => {
         try {
-          const raw = localStorage.getItem('agenticpay-wizard-draft');
+          const raw = localStorage.getItem('manifestpay-wizard-draft');
           if (!raw) return;
           const draft = JSON.parse(raw);
           set({
@@ -157,7 +157,7 @@ export const useWizardStore = create<WizardState>()(
         }),
     }),
     {
-      name: 'agenticpay-wizard',
+      name: 'manifestpay-wizard',
       partialize: (state) => ({
         currentStep: state.currentStep,
         paymentType: state.paymentType,

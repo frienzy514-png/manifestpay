@@ -2,10 +2,10 @@
 // Queued items are submitted when connectivity returns via the SyncManager API
 // or the useOnlineStatus hook's manual flush trigger.
 
-const DB_NAME = 'agenticpay-offline-db';
+const DB_NAME = 'manifestpay-offline-db';
 const DB_VERSION = 2; // v1 used by sw.js; v2 adds retry_at index
 const TX_STORE = 'offline-payments';
-const SYNC_TAG = 'agenticpay-payment-sync';
+const SYNC_TAG = 'manifestpay-payment-sync';
 
 export type QueuedItemStatus = 'pending' | 'syncing' | 'synced' | 'failed';
 
@@ -125,7 +125,7 @@ export async function flush(apiBaseUrl = ''): Promise<FlushResult> {
     try {
       const res = await fetch(`${apiBaseUrl}${item.endpoint}`, {
         method: item.method,
-        headers: { ...item.headers, 'X-AgenticPay-Offline-Replay': 'true' },
+        headers: { ...item.headers, 'X-ManifestPay-Offline-Replay': 'true' },
         body: item.body,
       });
 
@@ -200,7 +200,7 @@ async function triggerBackgroundSync(): Promise<void> {
   }
 }
 
-const QUEUE_EVENT = 'agenticpay:offline-queue-changed';
+const QUEUE_EVENT = 'manifestpay:offline-queue-changed';
 
 function dispatchQueueEvent(): void {
   if (typeof window !== 'undefined') {

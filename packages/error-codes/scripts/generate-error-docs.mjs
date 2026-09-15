@@ -8,7 +8,7 @@ const rows = Object.values(ERROR_CODE_REGISTRY)
   .map((entry) => `| \`${entry.code}\` | ${entry.category} | ${entry.httpStatus} | ${entry.description} | ${entry.resolution} |`)
   .join('\n');
 
-const markdown = `# AgenticPay Error Codes
+const markdown = `# ManifestPay Error Codes
 
 | Code | Category | HTTP | Description | Resolution |
 | --- | --- | ---: | --- | --- |

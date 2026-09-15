@@ -1,7 +1,7 @@
 import type { EnvironmentOverrides } from './types.js';
 
 export const productionOverrides: EnvironmentOverrides = {
-  CORS_ALLOWED_ORIGINS: 'https://app.agenticpay.io',
+  CORS_ALLOWED_ORIGINS: 'https://app.manifestpay.io',
   STELLAR_NETWORK: 'public',
   JOBS_ENABLED: 'true',
   QUEUE_ENABLED: 'true',
@@ -9,5 +9,5 @@ export const productionOverrides: EnvironmentOverrides = {
   RATE_LIMIT_PRO: '300',
   RATE_LIMIT_ENTERPRISE: '2000',
   AWS_SECRETS_MANAGER_ENABLED: 'true',
-  AWS_SECRETS_MANAGER_SECRET_ID: 'agenticpay-prod-app-secrets',
+  AWS_SECRETS_MANAGER_SECRET_ID: 'manifestpay-prod-app-secrets',
 };

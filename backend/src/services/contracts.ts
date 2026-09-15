@@ -43,7 +43,7 @@ const BASE_TEMPLATES: Record<ContractType, ContractTemplate> = {
       { title: 'Timeline', body: 'The project start date is {{start_date}}. The end date is {{end_date}} or upon completion of all milestones.', order: 4, isRequired: false },
       { title: 'Intellectual Property', body: 'All deliverables become the property of the Client upon full payment.', order: 5, isRequired: true },
       { title: 'Confidentiality', body: 'Both parties agree to keep project details confidential for {{confidentiality_period}} months.', order: 6, isRequired: false },
-      { title: 'Dispute Resolution', body: 'Disputes are resolved through the AgenticPay escrow and dispute process.', order: 7, isRequired: true },
+      { title: 'Dispute Resolution', body: 'Disputes are resolved through the ManifestPay escrow and dispute process.', order: 7, isRequired: true },
       { title: 'Termination', body: 'Either party may terminate with {{termination_notice_days}} days written notice. Outstanding milestones are evaluated for partial payment.', order: 8, isRequired: false },
     ],
     conditionalClauses: [

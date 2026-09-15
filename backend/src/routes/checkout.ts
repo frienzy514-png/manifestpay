@@ -18,7 +18,7 @@ checkoutRouter.post(
     const session = checkoutService.create(req.body);
     res.status(201).json({
       data: session,
-      checkoutUrl: `https://pay.agenticpay.com/checkout/${session.id}`,
+      checkoutUrl: `https://pay.manifestpay.com/checkout/${session.id}`,
     });
   })
 );

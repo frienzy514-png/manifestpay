@@ -1,5 +1,5 @@
 syntax = "proto3";
-package agenticpay.websocket;
+package manifestpay.websocket;
 
 // Server → client: a single event frame
 message WireMessage {

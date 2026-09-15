@@ -383,7 +383,7 @@ if (require.main === module) {
     ),
     implementationWasmPath: join(
       __dirname,
-      "../target/wasm32-unknown-unknown/release/agenticpay.wasm",
+      "../target/wasm32-unknown-unknown/release/manifestpay.wasm",
     ),
   };
 

@@ -62,7 +62,7 @@ export class TestDataSeeder {
       const user: TestUser = {
         id: randomUUID(),
         address: `G${randomUUID().replace(/-/g, '').substring(0, 55)}`,
-        email: `user${i}@sandbox.agenticpay.com`,
+        email: `user${i}@sandbox.manifestpay.com`,
         name: `Test ${role.charAt(0).toUpperCase() + role.slice(1)} ${i}`,
         role,
         walletBalance: Math.random() * 100000,

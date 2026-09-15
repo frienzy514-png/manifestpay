@@ -2,7 +2,7 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 import type { ExtensionPoint, HookContextByExtensionPoint } from './extension-points.js';
 import { extensionPoints } from './extension-points.js';
-import type { AgenticPayPlugin, PluginHookMap } from './types.js';
+import type { ManifestPayPlugin, PluginHookMap } from './types.js';
 
 export interface PluginHostOptions {
   timeoutMs?: number;
@@ -14,8 +14,8 @@ const DEFAULT_OPTIONS: Required<PluginHostOptions> = {
   maxSourceBytes: 256_000,
 };
 
-function assertPlugin(value: unknown): asserts value is AgenticPayPlugin {
-  const plugin = value as Partial<AgenticPayPlugin>;
+function assertPlugin(value: unknown): asserts value is ManifestPayPlugin {
+  const plugin = value as Partial<ManifestPayPlugin>;
   if (!plugin.name || !plugin.version || !plugin.hooks) {
     throw new Error('Plugin must export name, version, and hooks');
   }
@@ -29,13 +29,13 @@ function assertPlugin(value: unknown): asserts value is AgenticPayPlugin {
 
 export class PluginHost {
   private readonly options: Required<PluginHostOptions>;
-  private readonly plugins = new Map<string, AgenticPayPlugin>();
+  private readonly plugins = new Map<string, ManifestPayPlugin>();
 
   constructor(options: PluginHostOptions = {}) {
     this.options = { ...DEFAULT_OPTIONS, ...options };
   }
 
-  async loadFromFile(id: string, source: string): Promise<AgenticPayPlugin> {
+  async loadFromFile(id: string, source: string): Promise<ManifestPayPlugin> {
     const code = await readFile(source, 'utf8');
     if (Buffer.byteLength(code, 'utf8') > this.options.maxSourceBytes) {
       throw new Error('Plugin source exceeds configured size limit');
@@ -56,7 +56,7 @@ export class PluginHost {
     };
 
     const context = vm.createContext(sandbox, {
-      name: `agenticpay-plugin:${id}`,
+      name: `manifestpay-plugin:${id}`,
       codeGeneration: { strings: false, wasm: false },
     });
     const script = new vm.Script(code, { filename: source });

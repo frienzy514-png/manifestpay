@@ -18,10 +18,10 @@ pub use storage::{
 };
 
 #[contract]
-pub struct AgenticPayContract;
+pub struct ManifestPayContract;
 
 #[contractimpl]
-impl AgenticPayContract {
+impl ManifestPayContract {
     // -----------------------------------------------------------------------
     // Gas-optimised lazy storage helpers
     // -----------------------------------------------------------------------
@@ -886,8 +886,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -913,8 +913,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -942,8 +942,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -982,8 +982,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1025,8 +1025,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1086,8 +1086,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1106,8 +1106,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1148,8 +1148,8 @@ mod test {
     #[test]
     fn test_version_returns_current() {
         let env = Env::default();
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         assert_eq!(client.version(), 2);
     }
@@ -1160,8 +1160,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let non_admin = Address::generate(&env);
@@ -1182,8 +1182,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1220,8 +1220,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1257,8 +1257,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1283,8 +1283,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1316,8 +1316,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let non_admin = Address::generate(&env);
@@ -1334,8 +1334,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1373,8 +1373,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let user = Address::generate(&env);
@@ -1409,8 +1409,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let sender = Address::generate(&env);
@@ -1452,8 +1452,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let sender = Address::generate(&env);
@@ -1496,8 +1496,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let sender = Address::generate(&env);
@@ -1531,8 +1531,8 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let client = AgenticPayContractClient::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let client = ManifestPayContractClient::new(&env, &contract_id);
 
         let admin = Address::generate(&env);
         let collector = Address::generate(&env);

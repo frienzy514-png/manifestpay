@@ -1,20 +1,20 @@
-# @agenticpay/types
+# @manifestpay/types
 
-Shared TypeScript types for AgenticPay APIs (payments, projects, pagination, errors).
+Shared TypeScript types for ManifestPay APIs (payments, projects, pagination, errors).
 
 ## Install
 
 ```bash
-npm install @agenticpay/types
+npm install @manifestpay/types
 ```
 
 ## Usage
 
 ```ts
-import type { Payment, ApiError, PaginatedResponse } from '@agenticpay/types';
+import type { Payment, ApiError, PaginatedResponse } from '@manifestpay/types';
 ```
 
-Use with [`@agenticpay/sdk`](../sdk/README.md) for a fully typed client.
+Use with [`@manifestpay/sdk`](../sdk/README.md) for a fully typed client.
 
 ## API reference
 

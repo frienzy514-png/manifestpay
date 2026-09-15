@@ -18,7 +18,7 @@ export function createBenchmarkApp(): express.Application {
   app.get('/health', (_req, res) => {
     res.json({
       status: 'healthy',
-      service: 'agenticpay-backend-benchmark',
+      service: 'manifestpay-backend-benchmark',
       timestamp: new Date().toISOString(),
     });
   });

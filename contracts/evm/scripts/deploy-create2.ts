@@ -14,7 +14,7 @@
  *   SPLITTER_CONTRACT       default SplitterV1
  *   SPLITTER_OWNER          default = deployer
  *   SPLITTER_FEE_BPS        default 250
- *   CREATE2_SALT            default keccak256("agenticpay.splitter.v1")
+ *   CREATE2_SALT            default keccak256("manifestpay.splitter.v1")
  *   CREATE2_FACTORY_ADDRESS default 0x0000000000FFe8B47B3e2130213B802212439497
  */
 import hre from 'hardhat';
@@ -22,7 +22,7 @@ import { appendRecord, readDeployment, writeDeployment } from './lib/deployment-
 import { assertPersistentNetwork, resolveNetwork } from './lib/network';
 
 const DEFAULT_FACTORY = '0x0000000000FFe8B47B3e2130213B802212439497';
-const DEFAULT_SALT_SEED = 'agenticpay.splitter.v1';
+const DEFAULT_SALT_SEED = 'manifestpay.splitter.v1';
 
 const FACTORY_ABI = [
   'function safeCreate2(bytes32 salt, bytes initCode) external payable returns (address)',

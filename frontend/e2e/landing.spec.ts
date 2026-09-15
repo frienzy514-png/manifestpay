@@ -9,11 +9,11 @@ test.describe('Landing page', () => {
     ).toBeVisible();
 
     await expect(
-      page.getByText(/AgenticPay revolutionizes freelancer payments/i),
+      page.getByText(/ManifestPay revolutionizes freelancer payments/i),
     ).toBeVisible();
 
     await expect(
-      page.getByRole('heading', { level: 2, name: /Why Choose AgenticPay/i }),
+      page.getByRole('heading', { level: 2, name: /Why Choose ManifestPay/i }),
     ).toBeVisible();
 
     for (const feature of [
@@ -34,18 +34,18 @@ test.describe('Landing page', () => {
     // clicking we assert the CTA href and verify landing on /auth via direct
     // navigation. This still validates the user-facing contract: clicking
     // "Get Started" takes you to /auth.
-    const cta = page.getByRole('link', { name: /Get started with AgenticPay/i });
+    const cta = page.getByRole('link', { name: /Get started with ManifestPay/i });
     await expect(cta).toHaveAttribute('href', '/auth');
 
     await page.goto('/auth');
     await expect(
-      page.getByRole('heading', { name: /Welcome to AgenticPay/i }),
+      page.getByRole('heading', { name: /Welcome to ManifestPay/i }),
     ).toBeVisible();
   });
 
   test('secondary CTA also links to /auth', async ({ page }) => {
     await page.goto('/');
-    const cta = page.getByRole('link', { name: /Start earning with AgenticPay/i });
+    const cta = page.getByRole('link', { name: /Start earning with ManifestPay/i });
     await expect(cta).toHaveAttribute('href', '/auth');
   });
 

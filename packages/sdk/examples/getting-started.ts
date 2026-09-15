@@ -1,17 +1,17 @@
 /**
  * Runnable example: npx tsx examples/getting-started.ts
- * Requires AGENTICPAY_API_KEY and optional AGENTICPAY_BASE_URL
+ * Requires MANIFESTPAY_API_KEY and optional MANIFESTPAY_BASE_URL
  */
-import { createAgenticPaySDK } from '../src/index.js';
+import { createManifestPaySDK } from '../src/index.js';
 
 async function main() {
-  const sdk = createAgenticPaySDK({
-    baseUrl: process.env.AGENTICPAY_BASE_URL ?? 'http://localhost:3001/api/v1',
-    apiKey: process.env.AGENTICPAY_API_KEY ?? 'test_key',
+  const sdk = createManifestPaySDK({
+    baseUrl: process.env.MANIFESTPAY_BASE_URL ?? 'http://localhost:3001/api/v1',
+    apiKey: process.env.MANIFESTPAY_API_KEY ?? 'test_key',
   });
 
   const health = await fetch(
-    (process.env.AGENTICPAY_BASE_URL ?? 'http://localhost:3001').replace(/\/api\/v1$/, '') + '/health',
+    (process.env.MANIFESTPAY_BASE_URL ?? 'http://localhost:3001').replace(/\/api\/v1$/, '') + '/health',
   );
   console.log('API health:', health.status);
 

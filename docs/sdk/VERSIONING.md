@@ -2,7 +2,7 @@
 
 ## Semantic Versioning
 
-All AgenticPay SDKs follow [Semantic Versioning 2.0](https://semver.org/):
+All ManifestPay SDKs follow [Semantic Versioning 2.0](https://semver.org/):
 
 ```
 MAJOR.MINOR.PATCH
@@ -16,7 +16,7 @@ MAJOR.MINOR.PATCH
 
 ## API Versioning
 
-The AgenticPay API uses URL-based versioning (`/api/v1/`, `/api/v2/`). SDKs target a specific API version and track changes via their own semver.
+The ManifestPay API uses URL-based versioning (`/api/v1/`, `/api/v2/`). SDKs target a specific API version and track changes via their own semver.
 
 ## Breaking Changes
 
@@ -47,9 +47,9 @@ Each SDK maintains a `CHANGELOG.md` following the [Keep a Changelog](https://kee
 
 ## Publishing
 
-- **TypeScript**: Published to npm as `@agenticpay/sdk`
-- **Python**: Published to PyPI as `agenticpay`
-- **Go**: Available via `go get github.com/Kappa16/agenticpay/sdks/go`
+- **TypeScript**: Published to npm as `@manifestpay/sdk`
+- **Python**: Published to PyPI as `manifestpay`
+- **Go**: Available via `go get github.com/frienzy514-png/manifestpay/sdks/go`
 
 ### Automated Publishing
 

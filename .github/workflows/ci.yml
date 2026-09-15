@@ -23,7 +23,7 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
       - run: npm ci
-      - run: npx turbo run lint --filter=agenticpay-backend
+      - run: npx turbo run lint --filter=manifestpay-backend
 
   test:
     name: Tests
@@ -38,4 +38,4 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
       - run: npm ci
-      - run: npx turbo run test --filter=agenticpay-backend
+      - run: npx turbo run test --filter=manifestpay-backend

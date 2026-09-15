@@ -10,12 +10,12 @@ import { ProjectCardSkeleton } from '@/components/ui/loading-skeletons';
 import { Skeleton } from '@/components/ui/skeleton';
 import { EmptyState } from '@/components/empty/EmptyState';
 import { useRouter } from 'next/navigation';
-import { useAgenticPay } from '@/lib/hooks/useAgenticPay';
+import { useManifestPay } from '@/lib/hooks/useManifestPay';
 import { useAccount } from 'wagmi';
 import { formatDateInTimeZone } from '@/lib/utils';
 import { useAuthStore } from '@/store/useAuthStore';
 
-const FILTER_PRESETS_KEY = 'agenticpay-project-filter-presets';
+const FILTER_PRESETS_KEY = 'manifestpay-project-filter-presets';
 const STATUS_OPTIONS = ['active', 'completed', 'cancelled'] as const;
 
 type StatusOption = (typeof STATUS_OPTIONS)[number];
@@ -62,7 +62,7 @@ const SortIcon = ({
 export default function ProjectsPage() {
   const router = useRouter();
   const { isConnected } = useAccount();
-  const { useUserProjects } = useAgenticPay();
+  const { useUserProjects } = useManifestPay();
   const { projects, loading } = useUserProjects();
   const timezone = useAuthStore((state) => state.timezone);
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-/// @title AgenticPay Splitter (gas-optimized reference)
+/// @title ManifestPay Splitter (gas-optimized reference)
 /// @notice Drop-in replacement for `Splitter.sol` with aggressive gas
 ///         tuning. Interfaces and events are deliberately compatible so
 ///         off-chain consumers don't need to change.

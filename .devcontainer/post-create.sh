@@ -2,10 +2,10 @@
 # Runs once after the devcontainer is created.
 set -euo pipefail
 
-ROOT="/workspaces/agenticpay"
+ROOT="/workspaces/manifestpay"
 cd "$ROOT"
 
-echo "==> AgenticPay devcontainer post-create"
+echo "==> ManifestPay devcontainer post-create"
 
 # Rust WASM target (Soroban contracts)
 if command -v rustup >/dev/null 2>&1; then

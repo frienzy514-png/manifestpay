@@ -18,7 +18,7 @@ export class RedisWebSocketScalingAdapter implements WebSocketScalingAdapter {
   constructor(
     private readonly publisher: RedisLikePublisher,
     private readonly subscriber: RedisLikeSubscriber,
-    private readonly channel = 'agenticpay:websocket:broadcast'
+    private readonly channel = 'manifestpay:websocket:broadcast'
   ) {}
 
   publish(message: WebSocketOutboundMessage): Promise<unknown> | unknown {

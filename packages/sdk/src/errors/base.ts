@@ -1,11 +1,11 @@
-export class AgenticPayError extends Error {
+export class ManifestPayError extends Error {
   readonly status?: number;
   readonly code?: string;
   readonly details?: unknown;
 
   constructor(message: string, options?: { status?: number; code?: string; details?: unknown }) {
     super(message);
-    this.name = 'AgenticPayError';
+    this.name = 'ManifestPayError';
     this.status = options?.status;
     this.code = options?.code;
     this.details = options?.details;

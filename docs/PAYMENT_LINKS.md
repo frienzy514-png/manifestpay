@@ -1,12 +1,12 @@
 # Payment Link Analytics, Conversion Tracking & A/B Testing Guide
 
-This document details the design, architecture, API endpoints, A/B testing mechanism, conversion tracking metrics, QR code generation, and link sharing tools for AgenticPay Payment Links.
+This document details the design, architecture, API endpoints, A/B testing mechanism, conversion tracking metrics, QR code generation, and link sharing tools for ManifestPay Payment Links.
 
 ---
 
 ## 1. Overview
 
-AgenticPay Payment Links allow merchants to accept non-custodial cryptographic payments and fiat-equivalent checkouts through shareable links, embedded widgets, and QR codes.
+ManifestPay Payment Links allow merchants to accept non-custodial cryptographic payments and fiat-equivalent checkouts through shareable links, embedded widgets, and QR codes.
 
 ### Key Capabilities
 
@@ -85,9 +85,9 @@ Creates a new payment link with optional password protection, usage cap, and A/B
   },
   "qrCodeUrl": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=...",
   "share": {
-    "url": "https://pay.agenticpay.com/r/k3f91a7c8b2e4d",
+    "url": "https://pay.manifestpay.com/r/k3f91a7c8b2e4d",
     "twitter": "https://twitter.com/intent/tweet?...",
-    "embedCode": "<iframe src=\"https://pay.agenticpay.com/r/k3f91a7c8b2e4d\"... font-weight=\"bold\"></iframe>"
+    "embedCode": "<iframe src=\"https://pay.manifestpay.com/r/k3f91a7c8b2e4d\"... font-weight=\"bold\"></iframe>"
   }
 }
 ```
@@ -211,7 +211,7 @@ Generates formatted share URLs and embed code with custom campaign parameters.
 ## 4. Frontend Integration & Performance Dashboard
 
 The frontend dashboard is located at:
-[frontend/app/[locale]/dashboard/payments/links/page.tsx](file:///c:/Users/Ososanwo/Idris/Documents/agenticpay/frontend/app/%5Blocale%5D/dashboard/payments/links/page.tsx)
+[frontend/app/[locale]/dashboard/payments/links/page.tsx](file:///c:/Users/Ososanwo/Idris/Documents/manifestpay/frontend/app/%5Blocale%5D/dashboard/payments/links/page.tsx)
 
 Key components:
 - **`PaymentLinkSummaryCards`**: Renders high-level KPI cards for Total Links, Total Views, Conversions, Conversion Rate %, and Total Revenue.
@@ -226,5 +226,5 @@ Key components:
 Run the automated Vitest test suite for Payment Links analytics & routes:
 
 ```bash
-npx turbo run test --filter=agenticpay-backend
+npx turbo run test --filter=manifestpay-backend
 ```

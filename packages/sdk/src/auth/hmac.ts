@@ -1,7 +1,7 @@
 // HMAC-SHA256 request signing for server-to-server calls — Issue #510
 //
 // Usage:
-//   import { HmacSigner } from '@agenticpay/sdk/auth/hmac';
+//   import { HmacSigner } from '@manifestpay/sdk/auth/hmac';
 //   const signer = new HmacSigner({ keyId: 'key_abc', secret: 'your-secret' });
 //   const headers = signer.sign({ method: 'POST', path: '/api/v1/payments', body: payload });
 //   fetch(url, { headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });

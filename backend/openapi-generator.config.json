@@ -10,7 +10,7 @@
       "useSingleRequestParameter": true,
       "withSeparateModelsAndApi": true,
       "typescriptThreePlus": true,
-      "npmName": "@agenticpay/sdk",
+      "npmName": "@manifestpay/sdk",
       "npmVersion": "1.0.0",
       "snapshot": false,
       "stringEnums": true,
@@ -35,7 +35,7 @@
       "additionalProperties": {
         "modelPackage": "models",
         "apiPackage": "api",
-        "npmName": "@agenticpay/sdk",
+        "npmName": "@manifestpay/sdk",
         "npmVersion": "1.0.0"
       }
     },
@@ -43,7 +43,7 @@
       "generatorName": "python",
       "outputDir": "../packages/sdk/python",
       "additionalProperties": {
-        "packageName": "agenticpay_sdk",
+        "packageName": "manifestpay_sdk",
         "packageVersion": "1.0.0"
       }
     },
@@ -51,7 +51,7 @@
       "generatorName": "go",
       "outputDir": "../packages/sdk/go",
       "additionalProperties": {
-        "packageName": "agenticpay",
+        "packageName": "manifestpay",
         "packageVersion": "1.0.0"
       }
     }

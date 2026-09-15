@@ -12,7 +12,7 @@ export const useStore = create<AppStore>()(
       ...createProjectSlice(...args),
     }),
     {
-      name: 'agenticpay-store',
+      name: 'manifestpay-store',
       partialize: (state) => ({
         address: state.address,
         email: state.email,

@@ -132,7 +132,7 @@ const RECOMMENDATIONS: Recommendation[] = [
   {
     id: 'rec_api_keys',
     title: 'Generate API keys',
-    description: 'Integrate AgenticPay into your application.',
+    description: 'Integrate ManifestPay into your application.',
     ctaLabel: 'API Keys',
     ctaHref: '/dashboard/api-keys',
     priority: 'medium',
@@ -453,7 +453,7 @@ export const useOnboardingStore = create<OnboardingStore>()(
       },
     }),
     {
-      name: 'agenticpay-onboarding',
+      name: 'manifestpay-onboarding',
       storage: createJSONStorage(() => (typeof localStorage !== 'undefined' ? localStorage : sessionStorage)),
       // Only persist the essential state
       partialize: (state) => ({

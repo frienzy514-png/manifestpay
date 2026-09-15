@@ -68,7 +68,7 @@ const defaultTemplates: Omit<EmailTemplateSeed, 'tenantId'>[] = [
       </div>
       
       <p>If you have any questions about this payment, please contact our support team.</p>
-      <p>Best regards,<br>AgenticPay Team</p>
+      <p>Best regards,<br>ManifestPay Team</p>
     </div>
   </div>
 </body>
@@ -91,7 +91,7 @@ Payment Details:
 If you have any questions about this payment, please contact our support team.
 
 Best regards,
-AgenticPay Team`,
+ManifestPay Team`,
     variables: ['customerName', 'amount', 'currency', 'transactionId', 'date', 'status', 'projectName'],
     locale: 'en',
   },
@@ -132,7 +132,7 @@ AgenticPay Team`,
       </div>
       
       <p>You can view the transaction details in your dashboard.</p>
-      <p>Best regards,<br>AgenticPay Team</p>
+      <p>Best regards,<br>ManifestPay Team</p>
     </div>
   </div>
 </body>
@@ -151,7 +151,7 @@ Transaction Details:
 You can view the transaction details in your dashboard.
 
 Best regards,
-AgenticPay Team`,
+ManifestPay Team`,
     variables: ['customerName', 'amount', 'currency', 'transactionHash', 'timestamp'],
     locale: 'en',
   },
@@ -192,7 +192,7 @@ AgenticPay Team`,
       </div>
       
       <p>The funds should appear in your account within 5-7 business days.</p>
-      <p>Best regards,<br>AgenticPay Team</p>
+      <p>Best regards,<br>ManifestPay Team</p>
     </div>
   </div>
 </body>
@@ -211,7 +211,7 @@ Refund Details:
 The funds should appear in your account within 5-7 business days.
 
 Best regards,
-AgenticPay Team`,
+ManifestPay Team`,
     variables: ['customerName', 'amount', 'currency', 'originalTransactionId', 'refundId'],
     locale: 'en',
   },
@@ -256,7 +256,7 @@ AgenticPay Team`,
       </div>
       
       <p>You can view the full details in your dashboard.</p>
-      <p>Best regards,<br>AgenticPay Team</p>
+      <p>Best regards,<br>ManifestPay Team</p>
     </div>
   </div>
 </body>
@@ -275,7 +275,7 @@ Dispute Details:
 You can view the full details in your dashboard.
 
 Best regards,
-AgenticPay Team`,
+ManifestPay Team`,
     variables: ['customerName', 'disputeId', 'status', 'updateMessage'],
     locale: 'en',
   },
@@ -320,7 +320,7 @@ AgenticPay Team`,
       </div>
       
       <p>View your dashboard for more details.</p>
-      <p>Best regards,<br>AgenticPay Team</p>
+      <p>Best regards,<br>ManifestPay Team</p>
     </div>
   </div>
 </body>
@@ -340,7 +340,7 @@ Activity Overview:
 View your dashboard for more details.
 
 Best regards,
-AgenticPay Team`,
+ManifestPay Team`,
     variables: ['customerName', 'weekStart', 'totalPayments', 'totalAmount', 'currency', 'completedProjects', 'activeProjects'],
     locale: 'en',
   },
@@ -418,7 +418,7 @@ To unsubscribe, visit: {{unsubscribeLink}}`,
       </div>
       
       <p>If this was not you, please secure your account immediately.</p>
-      <p>Best regards,<br>AgenticPay Security Team</p>
+      <p>Best regards,<br>ManifestPay Security Team</p>
     </div>
   </div>
 </body>
@@ -438,30 +438,30 @@ Alert Details:
 If this was not you, please secure your account immediately.
 
 Best regards,
-AgenticPay Security Team`,
+ManifestPay Security Team`,
     variables: ['customerName', 'alertType', 'timestamp', 'ipAddress', 'location'],
     locale: 'en',
   },
   {
     name: 'Welcome Email',
     category: 'onboarding',
-    subject: 'Welcome to AgenticPay!',
+    subject: 'Welcome to ManifestPay!',
     htmlBody: `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to AgenticPay</title>
+  <title>Welcome to ManifestPay</title>
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 8px; color: white;">
-      <h1 style="margin-top: 0; font-size: 32px;">Welcome to AgenticPay!</h1>
+      <h1 style="margin-top: 0; font-size: 32px;">Welcome to ManifestPay!</h1>
       <p style="font-size: 18px;">We're excited to have you on board.</p>
     </div>
     <div style="background: white; padding: 30px; border-radius: 8px; margin-top: 20px;">
       <p>Dear {{customerName}},</p>
-      <p>Thank you for joining AgenticPay. Your account has been successfully created.</p>
+      <p>Thank you for joining ManifestPay. Your account has been successfully created.</p>
       
       <h2 style="color: #667eea;">Getting Started</h2>
       <ul>
@@ -478,16 +478,16 @@ AgenticPay Security Team`,
       </p>
       
       <p style="margin-top: 30px;">If you have any questions, our support team is here to help.</p>
-      <p>Best regards,<br>AgenticPay Team</p>
+      <p>Best regards,<br>ManifestPay Team</p>
     </div>
   </div>
 </body>
 </html>`,
-    textBody: `Welcome to AgenticPay!
+    textBody: `Welcome to ManifestPay!
 
 Dear {{customerName}},
 
-Thank you for joining AgenticPay. Your account has been successfully created.
+Thank you for joining ManifestPay. Your account has been successfully created.
 
 Getting Started:
 - Complete your profile setup
@@ -500,7 +500,7 @@ Go to Dashboard: {{dashboardLink}}
 If you have any questions, our support team is here to help.
 
 Best regards,
-AgenticPay Team`,
+ManifestPay Team`,
     variables: ['customerName', 'dashboardLink'],
     locale: 'en',
   },

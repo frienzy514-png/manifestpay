@@ -58,7 +58,7 @@ export default function OnboardingPage() {
       <div className="max-w-4xl w-full">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome to AgenticPay</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome to ManifestPay</h1>
           <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">
             Tell us how you'll use the platform so we can personalise your experience.
           </p>

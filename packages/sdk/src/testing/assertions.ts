@@ -2,19 +2,19 @@
  * Assertion helpers for testing SDK error handling.
  */
 
-import { AgenticPayError } from '../errors/base.js';
-import { AgenticPayApiError } from '../errors/generated.js';
+import { ManifestPayError } from '../errors/base.js';
+import { ManifestPayApiError } from '../errors/generated.js';
 
 /**
- * Assert that an error is an AgenticPayError with an expected HTTP status.
+ * Assert that an error is an ManifestPayError with an expected HTTP status.
  *
  * @example
  *   try { await sdk.payments.get('bad'); }
  *   catch (err) { expectApiError(err, 404); }
  */
-export function expectApiError(error: unknown, expectedStatus?: number): AgenticPayError {
-  if (!(error instanceof AgenticPayError)) {
-    throw new Error(`Expected AgenticPayError, got ${typeof error}: ${String(error)}`);
+export function expectApiError(error: unknown, expectedStatus?: number): ManifestPayError {
+  if (!(error instanceof ManifestPayError)) {
+    throw new Error(`Expected ManifestPayError, got ${typeof error}: ${String(error)}`);
   }
   if (expectedStatus !== undefined && error.status !== expectedStatus) {
     throw new Error(
@@ -25,16 +25,16 @@ export function expectApiError(error: unknown, expectedStatus?: number): Agentic
 }
 
 /**
- * Assert that an error is an AgenticPayApiError with a specific error code.
+ * Assert that an error is an ManifestPayApiError with a specific error code.
  *
  * @example
  *   try { await sdk.verification.verifyWork({...}); }
  *   catch (err) { expectApiErrorWithCode(err, 'ERR_VALIDATION_FAILED'); }
  */
-export function expectApiErrorWithCode(error: unknown, expectedCode: string): AgenticPayApiError {
-  if (!(error instanceof AgenticPayApiError)) {
+export function expectApiErrorWithCode(error: unknown, expectedCode: string): ManifestPayApiError {
+  if (!(error instanceof ManifestPayApiError)) {
     throw new Error(
-      `Expected AgenticPayApiError, got ${typeof error}: ${String(error)}`,
+      `Expected ManifestPayApiError, got ${typeof error}: ${String(error)}`,
     );
   }
   if (error.code !== expectedCode) {

@@ -84,7 +84,7 @@ responses never poison the cache.
 ```ts
 import { warmCache, invalidateCache, clearMemoryCache } from '../middleware/cache.js';
 
-warmCache('agenticpay:cache:GET:/api/v1/catalog', fetchCatalog, CacheTTL.LONG * 1000);
+warmCache('manifestpay:cache:GET:/api/v1/catalog', fetchCatalog, CacheTTL.LONG * 1000);
 await invalidateCache('GET:/api/v1/catalog*'); // glob against the internal prefix
 ```
 

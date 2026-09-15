@@ -7,7 +7,7 @@ const vaultConfigSchema = z.object({
   VAULT_ADDR: z.string().url().optional(),
   VAULT_TOKEN: z.string().optional(),
   VAULT_ROLE: z.string().optional(),
-  VAULT_SECRET_PATH: z.string().default('secret/data/agenticpay'),
+  VAULT_SECRET_PATH: z.string().default('secret/data/manifestpay'),
   VAULT_AUTH_METHOD: z.enum(['token', 'kubernetes', 'aws', 'gcp']).default('token'),
   VAULT_KUBERNETES_ROLE: z.string().optional(),
   VAULT_MAX_RETRIES: z.number().default(3),

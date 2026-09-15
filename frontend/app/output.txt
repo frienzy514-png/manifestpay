@@ -1,4 +1,4 @@
-C:\Users\USER\Desktop\KING\Clones\agenticpay\frontend\app
+C:\Users\USER\Desktop\KING\Clones\manifestpay\frontend\app
 ├── accessibility
 ├── auth
 ├── dashboard

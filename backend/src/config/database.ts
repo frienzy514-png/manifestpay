@@ -2,7 +2,7 @@
  * database.ts
  *
  * Database configuration, query profiling, connection pool tuning,
- * PgBouncer integration, and recommended composite indexes for AgenticPay.
+ * PgBouncer integration, and recommended composite indexes for ManifestPay.
  */
 
 import { featureFlags } from "./featureFlags.js";

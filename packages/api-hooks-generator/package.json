@@ -1,5 +1,5 @@
 {
-  "name": "@agenticpay/api-hooks-generator",
+  "name": "@manifestpay/api-hooks-generator",
   "version": "0.1.0",
   "description": "Generate type-safe API client hooks from OpenAPI spec",
   "main": "dist/index.js",
@@ -20,8 +20,8 @@
     "yaml": "^2.6.0"
   },
   "devDependencies": {
-    "@agenticpay/typescript-config": "*",
-    "@agenticpay/eslint-config": "*",
+    "@manifestpay/typescript-config": "*",
+    "@manifestpay/eslint-config": "*",
     "@types/node": "^22.5.0",
     "typescript": "^5.6.0",
     "vitest": "^4.1.1"

@@ -1,4 +1,4 @@
-C:\Users\USER\desktop\king\clones\agenticpay\frontend\components\layout
+C:\Users\USER\desktop\king\clones\manifestpay\frontend\components\layout
 ├── Header.tsx
 ├── PageBreadcrumb.tsx
 └── Sidebar.tsx

@@ -39,7 +39,7 @@ export const useThemeStore = create<ThemeState>()(
       toggle: () => set({ isDark: !get().isDark }),
     }),
     {
-      name: 'agenticpay-theme',
+      name: 'manifestpay-theme',
     }
   )
 );

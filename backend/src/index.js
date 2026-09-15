@@ -252,7 +252,7 @@ if (config_js_1.config.queue.enabled) {
     queue_js_2.messageQueue.start();
 }
 var server = app.listen(config_js_1.config.server.port, function () {
-    console.log("AgenticPay backend running on port ".concat(config_js_1.config.server.port, " [").concat(config_js_1.config.env, "]"));
+    console.log("ManifestPay backend running on port ".concat(config_js_1.config.server.port, " [").concat(config_js_1.config.env, "]"));
 });
 var shutdown = function (signal) {
     console.log("".concat(signal, " received. Starting graceful shutdown..."));

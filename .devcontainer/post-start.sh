@@ -3,5 +3,5 @@
 set -euo pipefail
 
 echo "==> Devcontainer ready"
-echo "    Postgres: postgresql://postgres:postgres@localhost:5432/agenticpay"
+echo "    Postgres: postgresql://postgres:postgres@localhost:5432/manifestpay"
 echo "    Redis:    redis://localhost:6379"

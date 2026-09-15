@@ -40,8 +40,8 @@ export class EmailDeliveryService {
   private defaultFromName: string;
 
   constructor() {
-    this.defaultFrom = process.env.EMAIL_FROM || 'noreply@agenticpay.com';
-    this.defaultFromName = process.env.EMAIL_FROM_NAME || 'AgenticPay';
+    this.defaultFrom = process.env.EMAIL_FROM || 'noreply@manifestpay.com';
+    this.defaultFromName = process.env.EMAIL_FROM_NAME || 'ManifestPay';
     
     this.initializeSMTP();
     this.initializeSendGrid();

@@ -18,7 +18,7 @@ import type {
   CurrencyCode,
   UUID,
   ISO8601,
-} from '@agenticpay/types';
+} from '@manifestpay/types';
 
 // Re-export domain types so consumers only need one package
 export type {

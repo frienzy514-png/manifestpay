@@ -55,7 +55,7 @@ export function Navbar() {
               <Wallet className="h-5 w-5 lg:h-6 lg:w-6 text-white" aria-hidden="true" />
             </motion.div>
             <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              AgenticPay
+              ManifestPay
             </span>
           </Link>
 

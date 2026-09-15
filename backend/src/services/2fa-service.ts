@@ -43,7 +43,7 @@ const RECOVERY_TOKEN_EXPIRY_HOURS = 24;
 /**
  * Generate a TOTP secret and QR code for the user
  */
-export async function generateTOTPSecret(userId: string, appName: string = 'AgenticPay'): Promise<TOTPSecret> {
+export async function generateTOTPSecret(userId: string, appName: string = 'ManifestPay'): Promise<TOTPSecret> {
   const secret = speakeasy.generateSecret({
     name: `${appName} (${userId.substring(0, 8)})`,
     issuer: appName,

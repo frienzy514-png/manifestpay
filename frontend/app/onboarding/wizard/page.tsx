@@ -33,7 +33,7 @@ interface StepConfig {
 }
 
 const STEP_CONFIGS: Record<string, StepConfig> = {
-  welcome: { title: 'Welcome to AgenticPay', description: "Let's get you set up in a few quick steps.", icon: '👋' },
+  welcome: { title: 'Welcome to ManifestPay', description: "Let's get you set up in a few quick steps.", icon: '👋' },
   profile_setup: { title: 'Set up your profile', description: 'Add your name, bio, and profile photo.', icon: '🧑' },
   skills_portfolio: { title: 'Skills & Portfolio', description: 'Add your skills and showcase previous work.', icon: '🎨', optional: true },
   payment_setup: { title: 'Payment Setup', description: 'Configure how you receive payments.', icon: '💳' },
@@ -45,7 +45,7 @@ const STEP_CONFIGS: Record<string, StepConfig> = {
   invite_team: { title: 'Invite your team', description: 'Add team members to collaborate.', icon: '👥', optional: true },
   kyc_verification: { title: 'Identity Verification', description: 'Complete KYC to unlock full platform access.', icon: '🔐' },
   bank_verification: { title: 'Bank Account', description: 'Link your bank account for fiat payouts.', icon: '🏦' },
-  api_keys: { title: 'API Keys', description: 'Generate API keys to integrate AgenticPay.', icon: '🔑', optional: true },
+  api_keys: { title: 'API Keys', description: 'Generate API keys to integrate ManifestPay.', icon: '🔑', optional: true },
   complete: { title: 'All set!', description: 'Your account is ready to use.', icon: '🎉' },
 };
 

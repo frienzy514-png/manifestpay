@@ -6,7 +6,7 @@ We take security vulnerabilities seriously. If you discover a security issue, pl
 
 ### Supported Systems
 
-- **HackerOne Program**: [https://hackerone.com/agenticpay](https://hackerone.com/agenticpay)
+- **HackerOne Program**: [https://hackerone.com/manifestpay](https://hackerone.com/manifestpay)
 - **Scope**: API endpoints, smart contracts, web applications, mobile apps
 - **Response Time**: We aim to acknowledge reports within 24 hours
 
@@ -70,7 +70,7 @@ We承诺:
 
 ### Contact
 
-For urgent security issues: security@agenticpay.com
+For urgent security issues: security@manifestpay.com
 
 ---
 

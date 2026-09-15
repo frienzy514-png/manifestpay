@@ -62,9 +62,9 @@ export class OpenAPIGenerator {
         description: config.description,
         version: config.version,
         contact: {
-          name: 'AgenticPay Team',
-          url: 'https://github.com/Smartdevs17/agenticpay',
-          email: 'hello@agenticpay.com',
+          name: 'ManifestPay Team',
+          url: 'https://github.com/frienzy514-png/manifestpay',
+          email: 'hello@manifestpay.com',
         },
         license: {
           name: 'Apache-2.0',
@@ -77,7 +77,7 @@ export class OpenAPIGenerator {
           description: 'Development server',
         },
         {
-          url: 'https://api.agenticpay.com/api/v1',
+          url: 'https://api.manifestpay.com/api/v1',
           description: 'Production server',
         },
       ],
@@ -161,7 +161,7 @@ export class OpenAPIGenerator {
       security: [{ bearerAuth: [] }],
       tags: [],
       externalDocs: {
-        url: 'https://docs.agenticpay.com',
+        url: 'https://docs.manifestpay.com',
         description: 'Full API documentation',
       },
     };
@@ -253,7 +253,7 @@ export class OpenAPIGenerator {
     // Simple YAML conversion (would use yaml library in production)
     const json = this.toJSON();
     return `# OpenAPI Specification
-# Generated automatically from AgenticPay API\n${json}`;
+# Generated automatically from ManifestPay API\n${json}`;
   }
 
   saveToFile(filepath: string, format: 'json' | 'yaml' = 'json'): void {

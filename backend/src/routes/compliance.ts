@@ -560,7 +560,7 @@ complianceRouter.get(
       success: true,
       data: {
         overview:
-          'AgenticPay Automated Compliance System provides real-time compliance monitoring, automated checks, regulatory update tracking, reporting, alerts, audit trail, and dashboard.',
+          'ManifestPay Automated Compliance System provides real-time compliance monitoring, automated checks, regulatory update tracking, reporting, alerts, audit trail, and dashboard.',
         features: [
           'Automated compliance checks — 15+ checks across KYC, AML, sanctions, data protection, security, transaction monitoring, reporting, operational',
           'Regulatory update monitoring — 8 sources across US, EU, UK, SG, AU, GLOBAL; automated polling, impact assessment, deadlines',

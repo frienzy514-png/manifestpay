@@ -26,7 +26,7 @@ test.describe('Payment navigation surface', () => {
     // Hero overlay intercepts pointer events in some browsers; assert the
     // route target rather than fighting hit-testing.
     const cta = page.getByRole('link', {
-      name: /Get started with AgenticPay/i,
+      name: /Get started with ManifestPay/i,
     });
     await expect(cta).toHaveAttribute('href', '/auth');
   });

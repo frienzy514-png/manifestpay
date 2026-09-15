@@ -1,8 +1,8 @@
 /**
- * MockAgenticPayServer — lightweight HTTP mock server for SDK testing.
+ * MockManifestPayServer — lightweight HTTP mock server for SDK testing.
  *
  * Usage:
- *   const server = await MockAgenticPayServer.create({
+ *   const server = await MockManifestPayServer.create({
  *     routes: [
  *       { method: 'GET', path: '/health', status: 200, body: { status: 'ok' } },
  *     ],
@@ -15,7 +15,7 @@
 import http from 'node:http';
 import type { MockRoute, MockServerOptions, MockServerInstance, RecordedRequest } from './types.js';
 
-export class MockAgenticPayServer {
+export class MockManifestPayServer {
   private server: http.Server;
   private routes: MockRoute[];
   private requests: RecordedRequest[] = [];
@@ -33,7 +33,7 @@ export class MockAgenticPayServer {
   }
 
   static async create(options: MockServerOptions = {}): Promise<MockServerInstance> {
-    const instance = new MockAgenticPayServer(options);
+    const instance = new MockManifestPayServer(options);
     return instance.start();
   }
 

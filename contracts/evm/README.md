@@ -1,6 +1,6 @@
-# AgenticPay — EVM contracts & deployment automation
+# ManifestPay — EVM contracts & deployment automation
 
-Hardhat workspace for the Solidity side of AgenticPay. The original
+Hardhat workspace for the Solidity side of ManifestPay. The original
 reference `Splitter.sol` lived at `contracts/Splitter.sol`; it has been
 superseded by a UUPS-upgradeable implementation here, driven through
 OpenZeppelin's upgrades plugin.
@@ -116,7 +116,7 @@ trail.
 `scripts/rollback.ts` consumes them to find the previous implementation
 for an emergency revert (`ROLLBACK_TARGET=previous|initial|<index>|<address>`).
 
-Tests isolate themselves via the `AGENTICPAY_DEPLOYMENTS_DIR` env var so
+Tests isolate themselves via the `MANIFESTPAY_DEPLOYMENTS_DIR` env var so
 running `npm test` never mutates the committed records.
 
 ## CREATE2 (deterministic addresses)
@@ -128,7 +128,7 @@ proxy. With the same salt + bytecode the script yields the same addresses
 across every network, which makes cross-chain allow-listing trivial.
 
 ```bash
-CREATE2_SALT="agenticpay.splitter.v1.mainnet" \
+CREATE2_SALT="manifestpay.splitter.v1.mainnet" \
   npm run deploy:create2 -- --network mainnet
 ```
 
@@ -177,7 +177,7 @@ state.
   `upgradeToAndCall`, storage-layout safety (via `BadSplitterV2`),
   pause-switch enforcement, and manual proxy rollback.
 - **Deployment store** — append/read/list helpers, history indexing,
-  fixture isolation via `AGENTICPAY_DEPLOYMENTS_DIR`.
+  fixture isolation via `MANIFESTPAY_DEPLOYMENTS_DIR`.
 
 `npm run test:gas` sets `REPORT_GAS=true` for a gas-usage column. `npm
 run coverage` produces solidity-coverage HTML under `coverage/`.
@@ -190,7 +190,7 @@ tests, and reports coverage as an artifact.
 
 ## Related
 
-- Soroban (Stellar) side of AgenticPay lives in `contracts/src/` and is
+- Soroban (Stellar) side of ManifestPay lives in `contracts/src/` and is
   built with `cargo build --target wasm32-unknown-unknown --release` — it
   is untouched by this workspace.
 - App-level deployment scripting for the backend/frontend is in

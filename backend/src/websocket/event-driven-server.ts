@@ -7,7 +7,7 @@
 
 import { EventEmitter } from 'events';
 import type WebSocket from 'ws';
-import { attachWebSocketServer, type AgenticPayWebSocketServer } from './server.js';
+import { attachWebSocketServer, type ManifestPayWebSocketServer } from './server.js';
 import type http from 'node:http';
 import type { WebSocketOutboundMessage, WebSocketChannel } from './types.js';
 
@@ -55,7 +55,7 @@ export interface BroadcastEvent {
  * Provides event-based hooks for all WebSocket operations
  */
 export class EventDrivenWebSocketServer extends EventEmitter {
-  private wsServer: AgenticPayWebSocketServer;
+  private wsServer: ManifestPayWebSocketServer;
   private connectionRegistry = new Map<string, ConnectionEvent>();
 
   constructor(params: {

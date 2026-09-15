@@ -11,13 +11,13 @@
 		}
 	},
 	"info": {
-		"title": "AgenticPay API",
+		"title": "ManifestPay API",
 		"version": "1.0.0",
 		"description": "AI-Powered Payment Infrastructure for Autonomous Agents on Stellar",
 		"contact": {
-			"name": "AgenticPay Team",
-			"url": "https://github.com/Smartdevs17/agenticpay",
-			"email": "hello@agenticpay.com"
+			"name": "ManifestPay Team",
+			"url": "https://github.com/frienzy514-png/manifestpay",
+			"email": "hello@manifestpay.com"
 		},
 		"license": {
 			"name": "Apache-2.0",
@@ -604,7 +604,7 @@
 			"description": "Development server"
 		},
 		{
-			"url": "https://api.agenticpay.com/api/v1",
+			"url": "https://api.manifestpay.com/api/v1",
 			"description": "Production server"
 		}
 	],

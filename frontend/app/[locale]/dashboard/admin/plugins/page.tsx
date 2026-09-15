@@ -20,7 +20,7 @@ export default function PluginsAdminPage() {
     name: "",
     version: "0.1.0",
     source: "",
-    agenticPay: "^0.1.0",
+    manifestPay: "^0.1.0",
     configJson: "{}",
   });
 
@@ -48,7 +48,7 @@ export default function PluginsAdminPage() {
             name: form.name,
             version: form.version,
             source: form.source,
-            compatibility: { agenticPay: form.agenticPay },
+            compatibility: { manifestPay: form.manifestPay },
             config,
           });
         }}
@@ -67,15 +67,15 @@ export default function PluginsAdminPage() {
         />
         <Input
           aria-label="Plugin source path"
-          placeholder="/srv/agenticpay/plugins/fee-optimizer.js"
+          placeholder="/srv/manifestpay/plugins/fee-optimizer.js"
           value={form.source}
           onChange={(event) => setForm((current) => ({ ...current, source: event.target.value }))}
         />
         <Input
           aria-label="Compatibility"
           placeholder="^0.1.0"
-          value={form.agenticPay}
-          onChange={(event) => setForm((current) => ({ ...current, agenticPay: event.target.value }))}
+          value={form.manifestPay}
+          onChange={(event) => setForm((current) => ({ ...current, manifestPay: event.target.value }))}
         />
         <Input
           aria-label="Config JSON"

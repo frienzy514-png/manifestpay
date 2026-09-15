@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { useAgenticPay } from "@/lib/hooks/useAgenticPay";
+import { useManifestPay } from "@/lib/hooks/useManifestPay";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,7 +43,7 @@ export default function InvoiceDetailPage() {
     : rawId;
   const timezone = useAuthStore((state) => state.timezone);
 
-  const { useProjectDetail } = useAgenticPay();
+  const { useProjectDetail } = useManifestPay();
   const { project, loading } = useProjectDetail(projectId);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -298,7 +298,7 @@ export default function InvoiceDetailPage() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
-                AgenticPay Invoice
+                ManifestPay Invoice
               </p>
               <CardTitle className="mb-2 mt-2 text-2xl">
                 Invoice #{rawId}
@@ -355,7 +355,7 @@ export default function InvoiceDetailPage() {
               <p className="mt-2 text-sm text-slate-500">
                 {isSigned && calculatedAmount
                   ? editedValues.workDescription
-                  : "Payment for the completed work recorded in AgenticPay."}
+                  : "Payment for the completed work recorded in ManifestPay."}
               </p>
             </div>
             <div className="print-break-inside-avoid rounded-2xl border border-slate-200 p-5">
@@ -440,7 +440,7 @@ export default function InvoiceDetailPage() {
           </div>
 
           <div className="print-break-inside-avoid rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-5 py-4 text-sm text-slate-600">
-            This invoice was generated from AgenticPay project data and is
+            This invoice was generated from ManifestPay project data and is
             formatted for on-screen review and browser printing.
           </div>
 

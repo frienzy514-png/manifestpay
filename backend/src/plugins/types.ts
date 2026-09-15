@@ -1,7 +1,7 @@
 import type { ExtensionPoint, HookContextByExtensionPoint, HookResult } from './extension-points.js';
 
 export interface PluginCompatibility {
-  agenticPay: string;
+  manifestPay: string;
   node?: string;
 }
 
@@ -16,7 +16,7 @@ export type PluginHookMap = {
   [Point in ExtensionPoint]?: (context: HookContextByExtensionPoint[Point]) => HookResult;
 };
 
-export interface AgenticPayPlugin {
+export interface ManifestPayPlugin {
   name: string;
   version: string;
   compatibility: PluginCompatibility;

@@ -26,7 +26,7 @@ ADDRESS_REGISTRY="packages/contracts/src/addresses.json"
 TYPES_OUTPUT="packages/contracts/src/generated"
 SDK_BINDINGS_OUTPUT="packages/sdk/src/contracts"
 
-CYCLES_DIR="/tmp/agenticpay-watch"
+CYCLES_DIR="/tmp/manifestpay-watch"
 EVM_CYCLE="$CYCLES_DIR/evm-cycle"
 SOROBAN_CYCLE="$CYCLES_DIR/soroban-cycle"
 
@@ -116,7 +116,7 @@ update_soroban_registry() {
     node -e "
       const fs = require('fs');
       const reg = JSON.parse(fs.readFileSync('$ADDRESS_REGISTRY', 'utf8'));
-      reg.soroban['agenticpay'] = {
+      reg.soroban['manifestpay'] = {
         contractId: '$contract_id',
         wasmHash: '$wasm_hash',
         deployedAt: new Date().toISOString()
@@ -230,7 +230,7 @@ compile_and_deploy_soroban() {
   ok "Soroban compilation successful"
 
   # Deploy to local Soroban testnet
-  local wasm_file="contracts/target/wasm32-unknown-unknown/release/agenticpay.wasm"
+  local wasm_file="contracts/target/wasm32-unknown-unknown/release/manifestpay.wasm"
   if [ ! -f "$wasm_file" ]; then
     error "WASM artifact not found at $wasm_file"
     return 1
@@ -342,7 +342,7 @@ run_contract_tests() {
 main() {
   echo ""
   echo "╔══════════════════════════════════════════════════════════════╗"
-  echo "║   AgenticPay Contract Hot Reload                           ║"
+  echo "║   ManifestPay Contract Hot Reload                           ║"
   echo "║   Watching for changes → recompile → redeploy → update SDK ║"
   echo "╚══════════════════════════════════════════════════════════════╝"
   echo ""

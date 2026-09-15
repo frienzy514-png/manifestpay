@@ -28,7 +28,7 @@ contract EIP7702Delegator {
         bytes data;
     }
 
-    bytes32 private constant NONCE_SLOT = keccak256("agenticpay.eip7702.nonce");
+    bytes32 private constant NONCE_SLOT = keccak256("manifestpay.eip7702.nonce");
     bytes32 private constant TYPEHASH =
         keccak256(
             "BatchAuth(address account,uint256 nonce,uint256 deadline,bytes32 callsHash)"

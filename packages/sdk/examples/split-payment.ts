@@ -1,12 +1,12 @@
 /**
  * Runnable example: npx tsx examples/split-payment.ts
  */
-import { createAgenticPaySDK } from '../src/index.js';
+import { createManifestPaySDK } from '../src/index.js';
 
 async function main() {
-  const sdk = createAgenticPaySDK({
-    baseUrl: process.env.AGENTICPAY_BASE_URL ?? 'http://localhost:3001/api/v1',
-    apiKey: process.env.AGENTICPAY_API_KEY!,
+  const sdk = createManifestPaySDK({
+    baseUrl: process.env.MANIFESTPAY_BASE_URL ?? 'http://localhost:3001/api/v1',
+    apiKey: process.env.MANIFESTPAY_API_KEY!,
   });
 
   const split = await sdk.payments.createSplitConfig({

@@ -9,7 +9,7 @@
 | JOBS_ENABLED         | Enable/disable background jobs      | true    | No       |
 | STELLAR_NETWORK      | Stellar network (testnet or public) | testnet | No       |
 | OPENAI_API_KEY       | OpenAI API key for AI services      | -       | **Yes**  |
-| AGENTICPAY_ALLOWED_SIGNATURE_ORIGINS | Allowed origins for EIP-712 signature verification | https://agenticpay.com,http://localhost:3000 | No |
+| MANIFESTPAY_ALLOWED_SIGNATURE_ORIGINS | Allowed origins for EIP-712 signature verification | https://manifestpay.com,http://localhost:3000 | No |
 | VAPID_PUBLIC_KEY     | VAPID public key for Web Push API   | auto-generated | No       |
 | VAPID_PRIVATE_KEY    | VAPID private key for Web Push API  | auto-generated | No       |
 | WS_ENABLED           | Enable/disable WebSocket support    | true    | No       |
@@ -37,7 +37,7 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000
 JOBS_ENABLED=true
 STELLAR_NETWORK=testnet
 OPENAI_API_KEY=sk-your-openai-api-key
-AGENTICPAY_ALLOWED_SIGNATURE_ORIGINS=https://agenticpay.com,http://localhost:3000
+MANIFESTPAY_ALLOWED_SIGNATURE_ORIGINS=https://manifestpay.com,http://localhost:3000
 VAPID_PUBLIC_KEY=your-vapid-public-key
 VAPID_PRIVATE_KEY=your-vapid-private-key
 WS_ENABLED=true

@@ -14,10 +14,10 @@ import { useWagmiConfig } from '@/lib/wagmi';
 
 const WALLETCONNECT_PROJECT_ID = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '';
 const DEFAULT_METADATA = {
-  name: 'AgenticPay',
+  name: 'ManifestPay',
   description: 'AI-powered payment verification',
-  url: 'https://agenticpay.com',
-  icons: ['https://agenticpay.com/icons/icon-192.png'],
+  url: 'https://manifestpay.com',
+  icons: ['https://manifestpay.com/icons/icon-192.png'],
 };
 
 const CHAIN_ALIASES: Record<string, number> = {

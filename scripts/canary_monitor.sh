@@ -1,7 +1,7 @@
 #!/bin/bash
 # Returns 0 if healthy, 1 if failure detected
 
-BACKEND_URL="https://api.agenticpay.com/api/v1/health" # Mock URL
+BACKEND_URL="https://api.manifestpay.com/api/v1/health" # Mock URL
 ERROR_THRESHOLD=5
 
 echo "Monitoring Canary health for 60 seconds..."

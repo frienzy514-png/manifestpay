@@ -135,7 +135,7 @@ jobs:
       run: |
         cd contracts
         export RUSTFLAGS="-Cinstrument-coverage"
-        export LLVM_PROFILE_FILE="target/coverage/agenticpay-%p-%m.profraw"
+        export LLVM_PROFILE_FILE="target/coverage/manifestpay-%p-%m.profraw"
         
         cargo test
         
@@ -153,7 +153,7 @@ jobs:
       with:
         file: contracts/coverage.lcov
         flags: fuzz-testing
-        name: agenticpay-fuzz-coverage
+        name: manifestpay-fuzz-coverage
     
     - name: Coverage Summary
       run: |

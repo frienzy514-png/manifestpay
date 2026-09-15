@@ -39,15 +39,15 @@ describe('webhookVerification middleware (key rotation)', () => {
   });
 
   describe('verifyCustomProviderWebhookWithKeys', () => {
-    it('verifies AgenticPay-signature/timestamp signed with a registered key', () => {
+    it('verifies ManifestPay-signature/timestamp signed with a registered key', () => {
       const registry = initWebhookKeyRegistry({
         keys: [{ provider: 'custom', secret: 'rotation_secret_99_abcdefghijklmnop' }],
       });
       const signed = registry.sign({ provider: 'custom', body: PAYLOAD });
       const req = makeReq({
         headers: {
-          'x-agenticpay-signature': signed.signature,
-          'x-agenticpay-timestamp': signed.timestamp,
+          'x-manifestpay-signature': signed.signature,
+          'x-manifestpay-timestamp': signed.timestamp,
           'x-webhook-id': 'evt_rot_1',
         },
       });
@@ -84,8 +84,8 @@ describe('webhookVerification middleware (key rotation)', () => {
       const signed = registry.sign({ provider: 'custom', body: PAYLOAD });
       const req = makeReq({
         headers: {
-          'x-agenticpay-signature': signed.signature,
-          'x-agenticpay-timestamp': signed.timestamp,
+          'x-manifestpay-signature': signed.signature,
+          'x-manifestpay-timestamp': signed.timestamp,
         },
       });
       const result = verifyCustomProviderWebhookWithKeys(req, PAYLOAD + 'tampered');
@@ -104,8 +104,8 @@ describe('webhookVerification middleware (key rotation)', () => {
       clock += 350_000;
       const req = makeReq({
         headers: {
-          'x-agenticpay-signature': signed.signature,
-          'x-agenticpay-timestamp': signed.timestamp,
+          'x-manifestpay-signature': signed.signature,
+          'x-manifestpay-timestamp': signed.timestamp,
         },
       });
       const result = verifyCustomProviderWebhookWithKeys(req, PAYLOAD);
@@ -125,8 +125,8 @@ describe('webhookVerification middleware (key rotation)', () => {
       clock += 900_000;
       const req = makeReq({
         headers: {
-          'x-agenticpay-signature': signed.signature,
-          'x-agenticpay-timestamp': signed.timestamp,
+          'x-manifestpay-signature': signed.signature,
+          'x-manifestpay-timestamp': signed.timestamp,
         },
       });
       const result = verifyCustomProviderWebhookWithKeys(req, PAYLOAD);
@@ -174,8 +174,8 @@ describe('webhookVerification middleware (key rotation)', () => {
       const signed = registry.sign({ provider: 'custom', body: PAYLOAD });
       const req = makeReq({
         headers: {
-          'x-agenticpay-signature': [signed.signature],
-          'x-agenticpay-timestamp': [signed.timestamp],
+          'x-manifestpay-signature': [signed.signature],
+          'x-manifestpay-timestamp': [signed.timestamp],
         },
       });
       const result = verifyCustomProviderWebhookWithKeys(req, PAYLOAD);

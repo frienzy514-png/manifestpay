@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "AgenticPay",
+    "appName": "ManifestPay",
     "loading": "読み込み中…",
     "save": "保存",
     "cancel": "キャンセル",
@@ -32,14 +32,14 @@
     "badge": "安全 / 高速 / 透明",
     "headline": "仕事の対価を",
     "headlineAccent": "即座に受け取る",
-    "subheadline": "AgenticPayはブロックチェーンでフリーランサー決済を革新します。",
+    "subheadline": "ManifestPayはブロックチェーンでフリーランサー決済を革新します。",
     "activeProjects": "アクティブプロジェクト",
     "paidInvoices": "支払済請求書",
     "completedPayments": "完了した支払い",
     "volumeSettled": "決済量"
   },
   "auth": {
-    "title": "AgenticPayへようこそ",
+    "title": "ManifestPayへようこそ",
     "subtitle": "仕事の対価を即座に受け取る",
     "socialLogin": "ソーシャルログイン",
     "walletConnect": "Web3ウォレット"
@@ -90,7 +90,7 @@
     "namespace": "名前空間"
   },
   "metadata": {
-    "title": "AgenticPay - 仕事の対価を即座に受け取る",
+    "title": "ManifestPay - 仕事の対価を即座に受け取る",
     "description": "ブロックチェーン技術による、安全で迅速かつ透明なフリーランサー向け決済。"
   }
 }

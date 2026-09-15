@@ -39,9 +39,9 @@ function loadConfig(configPath: string): GeneratorConfig {
     return {
       openapi: config.openapi || 'docs/api/openapi/openapi.json',
       outputDir: config.outputDir || 'dist/sdk',
-      packageName: config.packageName || 'agenticpay',
+      packageName: config.packageName || 'manifestpay',
       packageVersion: config.packageVersion || '0.1.0',
-      apiBaseUrl: config.apiBaseUrl || 'https://api.agenticpay.com',
+      apiBaseUrl: config.apiBaseUrl || 'https://api.manifestpay.com',
       supportedLanguages: config.supportedLanguages || ['typescript', 'python', 'go', 'rust'],
     };
   } catch (err) {
@@ -55,28 +55,28 @@ async function main() {
 
   if (!cliArgs.config && !cliArgs.lang) {
     console.log(`
-SDK Generator for AgenticPay
+SDK Generator for ManifestPay
 
-Usage: agenticpay-sdk-gen [options]
+Usage: manifestpay-sdk-gen [options]
 
 Options:
   --config=<path>           Path to config file (default: openapi.config.json)
   --lang=<lang>             Language: typescript, python, go, rust, or all
   --output=<dir>            Output directory (default: dist/sdk)
-  --api-base-url=<url>      API base URL (default: https://api.agenticpay.com)
+  --api-base-url=<url>      API base URL (default: https://api.manifestpay.com)
 
 Examples:
-  agenticpay-sdk-gen --config openapi.config.json
-  agenticpay-sdk-gen --lang typescript --output ./sdk-ts
-  agenticpay-sdk-gen --config config.json --lang python
+  manifestpay-sdk-gen --config openapi.config.json
+  manifestpay-sdk-gen --lang typescript --output ./sdk-ts
+  manifestpay-sdk-gen --config config.json --lang python
 
 Configuration file format (openapi.config.json):
 {
   "openapi": "docs/api/openapi/openapi.json",
   "outputDir": "dist/sdk",
-  "packageName": "agenticpay",
+  "packageName": "manifestpay",
   "packageVersion": "0.1.0",
-  "apiBaseUrl": "https://api.agenticpay.com",
+  "apiBaseUrl": "https://api.manifestpay.com",
   "supportedLanguages": ["typescript", "python", "go", "rust"]
 }
 `);

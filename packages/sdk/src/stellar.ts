@@ -1,4 +1,4 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 
 export type StellarNetwork = 'testnet' | 'public';
 
@@ -25,7 +25,7 @@ export type StellarPayment = {
 };
 
 export class StellarApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** Get payment status by transaction hash. */
   getPayment(transactionHash: string) {

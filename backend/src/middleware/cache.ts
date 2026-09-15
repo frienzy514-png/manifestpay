@@ -243,7 +243,7 @@ const singleFlight = new SingleFlight();
 const cacheMonitor = new CacheMonitor();
 const redisCache = new RedisCache();
 
-const CACHE_PREFIX = 'agenticpay:cache:';
+const CACHE_PREFIX = 'manifestpay:cache:';
 const WARMED_KEYS = new Set<string>();
 
 export function getCacheMonitor(): CacheMonitor {

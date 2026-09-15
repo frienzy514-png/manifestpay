@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AgenticPay transactional email system provides a comprehensive solution for sending, tracking, and managing emails with customizable templates, user preferences, analytics, and localization support.
+The ManifestPay transactional email system provides a comprehensive solution for sending, tracking, and managing emails with customizable templates, user preferences, analytics, and localization support.
 
 ## Features
 
@@ -48,7 +48,7 @@ Project: {{projectName}}
 {{/if}}
 
 Best regards,
-AgenticPay Team
+ManifestPay Team
 ```
 
 ### 2. Email Delivery via SMTP with SendGrid Fallback
@@ -69,8 +69,8 @@ SMTP_PASS=your-smtp-password
 SENDGRID_API_KEY=your-sendgrid-api-key
 
 # Default From Address
-EMAIL_FROM=noreply@agenticpay.com
-EMAIL_FROM_NAME=AgenticPay
+EMAIL_FROM=noreply@manifestpay.com
+EMAIL_FROM_NAME=ManifestPay
 ```
 
 #### Provider Selection

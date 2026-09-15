@@ -53,7 +53,7 @@ jobs:
           <!DOCTYPE html>
           <html>
             <head>
-              <title>AgenticPay API Explorer</title>
+              <title>ManifestPay API Explorer</title>
               <meta charset="utf-8"/>
               <meta name="viewport" content="width=device-width, initial-scale=1">
               <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3/swagger-ui.css">
@@ -88,22 +88,22 @@ jobs:
         run: |
           mkdir -p ${{ env.API_DOCS_DIR }}/sdks/typescript
           cat > ${{ env.API_DOCS_DIR }}/sdks/typescript/README.md << 'EOF'
-          # AgenticPay TypeScript SDK
+          # ManifestPay TypeScript SDK
 
-          Official TypeScript SDK for AgenticPay API.
+          Official TypeScript SDK for ManifestPay API.
 
           ## Installation
 
           ```bash
-          npm install @agenticpay/sdk
+          npm install @manifestpay/sdk
           ```
 
           ## Usage
 
           ```typescript
-          import { AgenticPayClient } from '@agenticpay/sdk';
+          import { ManifestPayClient } from '@manifestpay/sdk';
 
-          const client = new AgenticPayClient('your-api-token');
+          const client = new ManifestPayClient('your-api-token');
 
           // Batch verify work submissions
           const results = await client.batchVerify([
@@ -131,22 +131,22 @@ jobs:
         run: |
           mkdir -p ${{ env.API_DOCS_DIR }}/sdks/python
           cat > ${{ env.API_DOCS_DIR }}/sdks/python/README.md << 'EOF'
-          # AgenticPay Python SDK
+          # ManifestPay Python SDK
 
-          Official Python SDK for AgenticPay API.
+          Official Python SDK for ManifestPay API.
 
           ## Installation
 
           ```bash
-          pip install agenticpay
+          pip install manifestpay
           ```
 
           ## Usage
 
           ```python
-          from agenticpay import AgenticPayClient
+          from manifestpay import ManifestPayClient
 
-          client = AgenticPayClient('your-api-token')
+          client = ManifestPayClient('your-api-token')
 
           # Batch verify work submissions
           results = client.batch_verify([
@@ -174,14 +174,14 @@ jobs:
         run: |
           mkdir -p ${{ env.API_DOCS_DIR }}/sdks/go
           cat > ${{ env.API_DOCS_DIR }}/sdks/go/README.md << 'EOF'
-          # AgenticPay Go SDK
+          # ManifestPay Go SDK
 
-          Official Go SDK for AgenticPay API.
+          Official Go SDK for ManifestPay API.
 
           ## Installation
 
           ```bash
-          import "github.com/Smartdevs17/agenticpay-sdk-go"
+          import "github.com/frienzy514-png/manifestpay/sdks/go"
           ```
 
           ## Usage
@@ -191,11 +191,11 @@ jobs:
 
           import (
               "log"
-              "github.com/Smartdevs17/agenticpay-sdk-go"
+              "github.com/frienzy514-png/manifestpay/sdks/go"
           )
 
           func main() {
-              client := agenticpay.NewClient("your-api-token", "")
+              client := manifestpay.NewClient("your-api-token", "")
 
               // Batch verify work submissions
               results, err := client.BatchVerify([]interface{}{
@@ -235,9 +235,9 @@ jobs:
       - name: Create documentation index
         run: |
           cat > ${{ env.API_DOCS_DIR }}/INDEX.md << 'EOF'
-          # AgenticPay API Documentation
+          # ManifestPay API Documentation
 
-          Welcome to the AgenticPay API documentation. This directory contains:
+          Welcome to the ManifestPay API documentation. This directory contains:
 
           - **openapi/** - OpenAPI specification (JSON and YAML formats)
           - **explorer/** - Interactive API explorer (Swagger UI)
@@ -249,7 +249,7 @@ jobs:
           1. **View OpenAPI Spec**: See `openapi/openapi.json` or `openapi/openapi.yaml`
           2. **Try API Online**: Open `explorer/index.html` in your browser
           3. **Use SDK**: Install SDK from `sdks/{language}/`
-          4. **Import Postman**: Import collection from `postman/AgenticPay-API.postman_collection.json`
+          4. **Import Postman**: Import collection from `postman/ManifestPay-API.postman_collection.json`
 
           ## API Endpoints
 
@@ -268,9 +268,9 @@ jobs:
           ## Support
 
           For issues or questions:
-          - GitHub: https://github.com/Smartdevs17/agenticpay
-          - Docs: https://docs.agenticpay.com
-          - Email: hello@agenticpay.com
+          - GitHub: https://github.com/frienzy514-png/manifestpay
+          - Docs: https://docs.manifestpay.com
+          - Email: hello@manifestpay.com
           EOF
 
       - name: Verify generated files

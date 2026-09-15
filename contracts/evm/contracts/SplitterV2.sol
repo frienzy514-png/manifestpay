@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 import {SplitterV1} from "./SplitterV1.sol";
 
-/// @title AgenticPay Splitter (V2, UUPS-upgradeable)
+/// @title ManifestPay Splitter (V2, UUPS-upgradeable)
 /// @notice Adds a pause switch on top of V1 without changing the V1 storage
 ///         layout. Demonstrates the upgrade path and is exercised by the
 ///         integration tests under `test/Upgrade.test.ts`.

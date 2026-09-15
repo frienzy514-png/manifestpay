@@ -91,7 +91,7 @@ export function verifyForwardRequestSignature(params: {
       'bytes32', 'bytes32', 'bytes32', 'uint256', 'address'
     ], [
       keccak256String('EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'),
-      keccak256String('AgenticPayForwarder'),
+      keccak256String('ManifestPayForwarder'),
       keccak256String('1'),
       chainId.toString(),
       forwarderAddress,

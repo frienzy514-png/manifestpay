@@ -335,13 +335,13 @@ describe('warmCache / invalidation', () => {
 
   it('invalidateCache removes matching keys and leaves others intact', async () => {
     const cache = getMemoryCache();
-    cache.set('agenticpay:cache:GET:/api/catalog', 1, 60_000);
-    cache.set('agenticpay:cache:GET:/api/other', 2, 60_000);
+    cache.set('manifestpay:cache:GET:/api/catalog', 1, 60_000);
+    cache.set('manifestpay:cache:GET:/api/other', 2, 60_000);
 
     await invalidateCache('GET:/api/catalog*');
 
-    expect(cache.has('agenticpay:cache:GET:/api/catalog')).toBe(false);
-    expect(cache.has('agenticpay:cache:GET:/api/other')).toBe(true);
+    expect(cache.has('manifestpay:cache:GET:/api/catalog')).toBe(false);
+    expect(cache.has('manifestpay:cache:GET:/api/other')).toBe(true);
   });
 
   it('clearMemoryCache empties the store and warmed keys', async () => {
@@ -426,7 +426,7 @@ describe('cacheControl() middleware (header-only)', () => {
       return headers['ETag'];
     };
 
-    const body = { name: 'agenticpay', version: 1 };
+    const body = { name: 'manifestpay', version: 1 };
     expect(call(body)).toBe(call(body));
     expect(call({ a: 1 })).not.toBe(call({ a: 2 }));
   });
@@ -656,7 +656,7 @@ describe('cacheControl() middleware (in-memory)', () => {
 
     expect(hit.headers['X-Cache']).toBe('MISS');
     expect(next).toHaveBeenCalledOnce();
-    expect(getMemoryCache().get('agenticpay:cache:GET:/api/test')?.value).toEqual({
+    expect(getMemoryCache().get('manifestpay:cache:GET:/api/test')?.value).toEqual({
       version: 'new',
     });
   });
@@ -712,7 +712,7 @@ describe('cacheControl() middleware (in-memory)', () => {
     (res.json as unknown as ReturnType<typeof vi.fn>)({ v: 1 });
     emitFinish();
 
-    expect(getMemoryCache().has('agenticpay:cache:shared!key')).toBe(true);
+    expect(getMemoryCache().has('manifestpay:cache:shared!key')).toBe(true);
   });
 
   it('degrades gracefully when Redis is not configured', async () => {
@@ -745,7 +745,7 @@ describe('RedisCache resilience', () => {
       get: vi.fn(async () => JSON.stringify({ v: 1 })),
       setex: vi.fn(async () => 'OK'),
       del: vi.fn(async () => 1),
-      keys: vi.fn(async () => ['agenticpay:cache:a']),
+      keys: vi.fn(async () => ['manifestpay:cache:a']),
       flushdb: vi.fn(async () => 'OK'),
       info: vi.fn(async (section: string) =>
         section === 'memory'

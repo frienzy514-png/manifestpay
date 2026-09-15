@@ -1,7 +1,7 @@
 /**
  * featureFlags.ts
  *
- * Feature flag system for AgenticPay backend.
+ * Feature flag system for ManifestPay backend.
  *
  * ## Features
  *

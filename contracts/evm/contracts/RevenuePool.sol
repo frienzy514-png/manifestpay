@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-/// @title AgenticPay Revenue Pool
+/// @title ManifestPay Revenue Pool
 /// @notice Distributes incoming ETH across configurable recipients with
 ///         accumulated claim balances and a minimum distribution threshold.
 ///         Each recipient claims their share on-demand rather than being

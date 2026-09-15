@@ -1,5 +1,5 @@
 import type { DomainEventType, EventHandler, StoredEvent } from './event-types.js';
-import type { AgenticPayWebSocketServer } from '../websocket/server.js';
+import type { ManifestPayWebSocketServer } from '../websocket/server.js';
 import { addToDeadLetterQueue } from './dead-letter-queue.js';
 import { eventSchemaRegistry } from './schemas/index.js';
 
@@ -7,7 +7,7 @@ type WildcardHandler = (event: StoredEvent) => void | Promise<void>;
 
 const handlers = new Map<string, Set<EventHandler>>();
 let wildcardHandlers: Set<WildcardHandler> = new Set();
-let websocketServer: AgenticPayWebSocketServer | undefined;
+let websocketServer: ManifestPayWebSocketServer | undefined;
 
 const channelByEventPrefix: Array<{ prefix: string; channel: string }> = [
   { prefix: 'payment.', channel: 'payment.events' },
@@ -15,7 +15,7 @@ const channelByEventPrefix: Array<{ prefix: string; channel: string }> = [
   { prefix: 'project.disputed', channel: 'dispute.updates' },
 ];
 
-export function bindWebSocketServer(server: AgenticPayWebSocketServer): void {
+export function bindWebSocketServer(server: ManifestPayWebSocketServer): void {
   websocketServer = server;
 }
 

@@ -379,10 +379,10 @@ Application Details:
 
 Our team will review your application and get back to you within 2-3 business days.
 
-You can check your application status at any time by logging into your AgenticPay dashboard.
+You can check your application status at any time by logging into your ManifestPay dashboard.
 
 Best regards,
-The AgenticPay Team
+The ManifestPay Team
       `.trim(),
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -400,9 +400,9 @@ The AgenticPay Team
   </div>
 
   <p>Our team will review your application and get back to you within 2-3 business days.</p>
-  <p>You can check your application status at any time by logging into your AgenticPay dashboard.</p>
+  <p>You can check your application status at any time by logging into your ManifestPay dashboard.</p>
 
-  <p style="margin-top: 30px;">Best regards,<br>The AgenticPay Team</p>
+  <p style="margin-top: 30px;">Best regards,<br>The ManifestPay Team</p>
 </div>
       `,
     };
@@ -413,21 +413,21 @@ The AgenticPay Team
   private static async sendOnboardingApprovedEmail(onboarding: MerchantOnboarding): Promise<void> {
     const emailData: EmailJobData = {
       to: onboarding.contactEmail,
-      subject: `🎉 Onboarding Approved - Welcome to AgenticPay!`,
+      subject: `🎉 Onboarding Approved - Welcome to ManifestPay!`,
       body: `
 Congratulations ${onboarding.businessName}!
 
-Your merchant onboarding application has been approved. You can now start using AgenticPay to accept payments and manage your business transactions.
+Your merchant onboarding application has been approved. You can now start using ManifestPay to accept payments and manage your business transactions.
 
 Next Steps:
-1. Log into your AgenticPay dashboard
+1. Log into your ManifestPay dashboard
 2. Complete your payment method setup
 3. Start creating projects and accepting payments
 
-Welcome to the AgenticPay community!
+Welcome to the ManifestPay community!
 
 Best regards,
-The AgenticPay Team
+The ManifestPay Team
       `.trim(),
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -435,7 +435,7 @@ The AgenticPay Team
     <h1 style="color: #16a34a; font-size: 28px;">🎉 Congratulations!</h1>
   </div>
 
-  <h2 style="color: #2563eb;">Onboarding Approved - Welcome to AgenticPay!</h2>
+  <h2 style="color: #2563eb;">Onboarding Approved - Welcome to ManifestPay!</h2>
   <p>Dear ${onboarding.businessName} Team,</p>
 
   <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -446,13 +446,13 @@ The AgenticPay Team
 
   <h3 style="color: #374151;">Next Steps:</h3>
   <ol style="color: #4b5563;">
-    <li>Log into your AgenticPay dashboard</li>
+    <li>Log into your ManifestPay dashboard</li>
     <li>Complete your payment method setup</li>
     <li>Start creating projects and accepting payments</li>
   </ol>
 
-  <p style="margin-top: 30px; font-weight: bold;">Welcome to the AgenticPay community!</p>
-  <p>Best regards,<br>The AgenticPay Team</p>
+  <p style="margin-top: 30px; font-weight: bold;">Welcome to the ManifestPay community!</p>
+  <p>Best regards,<br>The ManifestPay Team</p>
 </div>
       `,
     };
@@ -476,10 +476,10 @@ You can:
 2. Re-submit your application for review
 3. Contact our support team for assistance
 
-We appreciate your interest in AgenticPay and encourage you to reapply once you've addressed the requirements.
+We appreciate your interest in ManifestPay and encourage you to reapply once you've addressed the requirements.
 
 Best regards,
-The AgenticPay Team
+The ManifestPay Team
       `.trim(),
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -506,8 +506,8 @@ The AgenticPay Team
     <li>Contact our support team for assistance</li>
   </ul>
 
-  <p style="margin-top: 30px;">We appreciate your interest in AgenticPay and encourage you to reapply once you've addressed the requirements.</p>
-  <p>Best regards,<br>The AgenticPay Team</p>
+  <p style="margin-top: 30px;">We appreciate your interest in ManifestPay and encourage you to reapply once you've addressed the requirements.</p>
+  <p>Best regards,<br>The ManifestPay Team</p>
 </div>
       `,
     };
@@ -526,10 +526,10 @@ Your merchant onboarding application requires some revisions before it can be ap
 
 ${reviewNotes ? `Review Notes: ${reviewNotes}` : ''}
 
-Please log into your AgenticPay dashboard to make the necessary changes and resubmit your application.
+Please log into your ManifestPay dashboard to make the necessary changes and resubmit your application.
 
 Best regards,
-The AgenticPay Team
+The ManifestPay Team
       `.trim(),
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -549,9 +549,9 @@ The AgenticPay Team
   </div>
   ` : ''}
 
-  <p>Please log into your AgenticPay dashboard to make the necessary changes and resubmit your application.</p>
+  <p>Please log into your ManifestPay dashboard to make the necessary changes and resubmit your application.</p>
 
-  <p style="margin-top: 30px;">Best regards,<br>The AgenticPay Team</p>
+  <p style="margin-top: 30px;">Best regards,<br>The ManifestPay Team</p>
 </div>
       `,
     };

@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-This guide provides solutions to common issues encountered while setting up, developing, or deploying AgenticPay.
+This guide provides solutions to common issues encountered while setting up, developing, or deploying ManifestPay.
 
 ## Common Errors & Solutions
 
@@ -103,7 +103,7 @@ npm install
 
 ## FAQ
 
-**Q: Can I run AgenticPay on Mainnet?**
+**Q: Can I run ManifestPay on Mainnet?**
 A: Yes, but ensure you update `STELLAR_NETWORK` to `public` and use a production-ready RPC provider in your environment variables.
 
 **Q: How do I update a deployed smart contract?**

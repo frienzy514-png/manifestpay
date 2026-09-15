@@ -1,5 +1,5 @@
-const OFFLINE_QUEUE_STORAGE_KEY = 'agenticpay-offline-queue';
-const OFFLINE_QUEUE_EVENT = 'agenticpay:offline-queue-updated';
+const OFFLINE_QUEUE_STORAGE_KEY = 'manifestpay-offline-queue';
+const OFFLINE_QUEUE_EVENT = 'manifestpay:offline-queue-updated';
 
 import { useState, useEffect } from 'react';
 
@@ -179,7 +179,7 @@ export async function flushOfflineQueue(resolveApiUrl: (endpoint: string) => str
         method: action.method,
         headers: {
           ...action.headers,
-          'X-AgenticPay-Offline-Replay': 'true',
+          'X-ManifestPay-Offline-Replay': 'true',
         },
         body: action.body,
       });

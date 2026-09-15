@@ -1,6 +1,6 @@
 # End-to-end tests
 
-End-to-end coverage for critical AgenticPay user flows, powered by
+End-to-end coverage for critical ManifestPay user flows, powered by
 [Playwright](https://playwright.dev/). Tests live in this folder; configuration
 is in [`../playwright.config.ts`](../playwright.config.ts).
 
@@ -48,7 +48,7 @@ The Playwright config starts Next.js via `next dev` on port `3100`
 ## Authentication fixture
 
 The app persists auth through a Zustand store backed by `localStorage` under
-the `agenticpay-auth` key. Tests that need an authenticated session use the
+the `manifestpay-auth` key. Tests that need an authenticated session use the
 `authenticatedPage` fixture from `fixtures.ts`, which seeds that key via
 `page.addInitScript` before the first navigation.
 

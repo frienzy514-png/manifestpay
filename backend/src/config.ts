@@ -18,7 +18,7 @@ const envSchema = z.object({
   RATE_LIMIT_ENTERPRISE: z.string().default('1000'),
   RATE_LIMIT_WINDOW_MS: z.string().default(String(15 * 60 * 1000)),
   COMPRESSION_THRESHOLD: z.string().default('1024'),
-  DATABASE_URL: z.string().default('postgresql://postgres:postgres@localhost:5432/agenticpay'),
+  DATABASE_URL: z.string().default('postgresql://postgres:postgres@localhost:5432/manifestpay'),
   PGBOUNCER_ENABLED: z.enum(['true', 'false']).default('false'),
   DB_POOL_MIN: z.string().default('2'),
   DB_POOL_MAX: z.string().default('10'),

@@ -12,7 +12,7 @@ export interface SeededAuthUser {
 
 export const DEFAULT_TEST_USER: SeededAuthUser = {
   address: '0x000000000000000000000000000000000000beef',
-  email: 'e2e-tester@agenticpay.test',
+  email: 'e2e-tester@manifestpay.test',
   name: 'E2E Tester',
   profileImage: '',
   timezone: 'UTC',
@@ -20,7 +20,7 @@ export const DEFAULT_TEST_USER: SeededAuthUser = {
   isAuthenticated: true,
 };
 
-export const AUTH_STORAGE_KEY = 'agenticpay-auth';
+export const AUTH_STORAGE_KEY = 'manifestpay-auth';
 
 export function buildAuthStorageValue(user: SeededAuthUser = DEFAULT_TEST_USER) {
   return JSON.stringify({

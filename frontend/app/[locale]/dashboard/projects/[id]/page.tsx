@@ -11,7 +11,7 @@ import { ArrowLeft, ExternalLink, CheckCircle2, Clock, Circle, Loader2, Calendar
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ProjectDetailSkeleton } from '@/components/ui/loading-skeletons';
-import { useAgenticPay } from '@/lib/hooks/useAgenticPay';
+import { useManifestPay } from '@/lib/hooks/useManifestPay';
 import { useAccount } from 'wagmi';
 import { toast } from 'sonner';
 import { api } from '@/lib/api';
@@ -42,7 +42,7 @@ export default function ProjectDetailPage() {
   const timezone = useAuthStore((state) => state.timezone);
   const userName = useAuthStore((state) => state.name);
 
-  const { useProjectDetail, prepareTransaction, isPending, isConfirming, isConfirmed, error, arbitrator } = useAgenticPay();
+  const { useProjectDetail, prepareTransaction, isPending, isConfirming, isConfirmed, error, arbitrator } = useManifestPay();
   const { project, loading, refetch } = useProjectDetail(projectId);
 
   const [repoLink, setRepoLink] = useState('');
@@ -121,7 +121,7 @@ export default function ProjectDetailPage() {
     const events = project.milestones
       .filter((m) => m.dueDate)
       .map((m) => ({
-        uid: `milestone-${m.id}@agenticpay`,
+        uid: `milestone-${m.id}@manifestpay`,
         summary: `${project.title} — ${m.title}`,
         description: m.description ?? undefined,
         start: new Date(m.dueDate!),

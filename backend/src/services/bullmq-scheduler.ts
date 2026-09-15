@@ -22,7 +22,7 @@ import type { ScheduledTaskMeta } from '../config/scheduled-tasks.js';
 
 export interface BullMQSchedulerOptions {
   redisUrl: string;
-  /** Prefix for all BullMQ queue names (default: "agenticpay") */
+  /** Prefix for all BullMQ queue names (default: "manifestpay") */
   prefix?: string;
 }
 
@@ -55,7 +55,7 @@ export class BullMQScheduler {
   private prefix: string;
 
   constructor(opts: BullMQSchedulerOptions) {
-    this.prefix = opts.prefix ?? 'agenticpay';
+    this.prefix = opts.prefix ?? 'manifestpay';
     this.connection = this.parseRedisUrl(opts.redisUrl);
   }
 

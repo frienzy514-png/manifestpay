@@ -7,7 +7,7 @@ const keypair = StellarSdk.Keypair.random();
 const relayerKeypair = StellarSdk.Keypair.random();
 
 const domain: AuthorizationDomain = {
-  name: 'AgenticPay',
+  name: 'ManifestPay',
   version: '1',
   networkPassphrase: 'testnet',
   contractId: 'CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM',

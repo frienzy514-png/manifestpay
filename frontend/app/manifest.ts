@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
-    name: "AgenticPay",
-    short_name: "AgenticPay",
+    name: "ManifestPay",
+    short_name: "ManifestPay",
     description:
       "Secure, fast, and transparent payments for freelancers powered by blockchain technology.",
     start_url: "/",

@@ -39,7 +39,7 @@ jobs:
         run: npm run db:migrate:check
         working-directory: backend
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/agenticpay_ci
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/manifestpay_ci
 
   i18n:
     name: Translation parity check

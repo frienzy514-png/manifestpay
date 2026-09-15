@@ -1,6 +1,6 @@
 # API Documentation
 
-AgenticPay API docs are generated from Zod schemas and a central route registry.
+ManifestPay API docs are generated from Zod schemas and a central route registry.
 
 ## Generate locally
 

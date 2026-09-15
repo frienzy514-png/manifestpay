@@ -6,7 +6,7 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
-/// @title AgenticPay Payment Request with Expiration — Issue #460
+/// @title ManifestPay Payment Request with Expiration — Issue #460
 /// @notice Creates time-bound payment requests enforced on-chain.
 ///         Any payment attempted after `expiresAt + gracePeriod` is reverted.
 /// @dev Uses block.timestamp. Grace period mitigates minor miner manipulation.

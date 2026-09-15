@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the gas optimization techniques applied to AgenticPay EVM smart contracts. All optimizations are designed to maintain functional equivalence while reducing gas costs.
+This document describes the gas optimization techniques applied to ManifestPay EVM smart contracts. All optimizations are designed to maintain functional equivalence while reducing gas costs.
 
 ## Techniques Applied
 

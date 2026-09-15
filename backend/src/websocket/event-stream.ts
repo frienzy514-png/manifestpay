@@ -4,11 +4,11 @@
  * Uses Redis pub/sub for cross-instance broadcasting.
  */
 import { EventEmitter } from 'node:events';
-import type { AgenticPayWebSocketServer } from '../websocket/server.js';
+import type { ManifestPayWebSocketServer } from '../websocket/server.js';
 import type { NormalizedEvent } from './soroban-listener.js';
 
 export interface EventStreamOptions {
-  wsServer: AgenticPayWebSocketServer;
+  wsServer: ManifestPayWebSocketServer;
   /** Optional Redis client for cross-instance pub/sub; if omitted events only broadcast locally */
   redisPublish?: (channel: string, message: string) => Promise<void>;
   redisSubscribe?: (channel: string, handler: (message: string) => void) => Promise<void>;
@@ -24,7 +24,7 @@ export interface EventFilter {
 const REDIS_CHANNEL = 'indexer:events';
 
 export class EventStreamHandler extends EventEmitter {
-  private readonly wsServer: AgenticPayWebSocketServer;
+  private readonly wsServer: ManifestPayWebSocketServer;
   private readonly redisPublish?: EventStreamOptions['redisPublish'];
 
   constructor(opts: EventStreamOptions) {

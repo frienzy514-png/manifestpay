@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This document specifies the requirements for implementing formal verification using Certora Prover for the AgenticPay platform smart contracts. The system currently uses Echidna for property-based fuzzing but lacks mathematical proofs of correctness. Certora Prover will provide formal verification through CVL (Certora Verification Language) specifications that mathematically prove critical security properties hold for all possible inputs and states.
+This document specifies the requirements for implementing formal verification using Certora Prover for the ManifestPay platform smart contracts. The system currently uses Echidna for property-based fuzzing but lacks mathematical proofs of correctness. Certora Prover will provide formal verification through CVL (Certora Verification Language) specifications that mathematically prove critical security properties hold for all possible inputs and states.
 
-The AgenticPay platform consists of two smart contracts:
+The ManifestPay platform consists of two smart contracts:
 1. A Soroban (Stellar) contract in Rust - main escrow contract for project payments
 2. A Solidity contract (Splitter.sol) - payment splitter for fee distribution
 
@@ -34,7 +34,7 @@ Formal verification will ensure that critical invariants, access control rules, 
 
 ### Requirement 1: Certora Prover Infrastructure Setup
 
-**User Story:** As a smart contract developer, I want Certora Prover infrastructure configured, so that I can run formal verification on AgenticPay contracts.
+**User Story:** As a smart contract developer, I want Certora Prover infrastructure configured, so that I can run formal verification on ManifestPay contracts.
 
 #### Acceptance Criteria
 

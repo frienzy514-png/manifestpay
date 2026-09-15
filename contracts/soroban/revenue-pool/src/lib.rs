@@ -3,7 +3,7 @@ use soroban_sdk::{contract, contractimpl, contractmeta, symbol_short, Address, E
 
 contractmeta!(
     key = "Description",
-    val = "AgenticPay Revenue Sharing Pool"
+    val = "ManifestPay Revenue Sharing Pool"
 );
 
 const ADMIN: Symbol = symbol_short!("ADMIN");

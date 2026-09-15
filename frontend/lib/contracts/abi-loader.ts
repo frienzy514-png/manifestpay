@@ -3,7 +3,7 @@ import { Abi } from 'viem';
 export type ChainType = 'evm' | 'soroban';
 export type EvmChain = 'mainnet' | 'sepolia' | 'polygon' | 'polygonAmoy' | 'arbitrum' | 'arbitrumSepolia' | 'optimism' | 'optimismSepolia' | 'base' | 'baseSepolia';
 
-const DB_NAME = 'agenticpay-abi-cache';
+const DB_NAME = 'manifestpay-abi-cache';
 const DB_VERSION = 1;
 const STORE_NAME = 'abis';
 const CACHE_TTL = 24 * 60 * 60 * 1000;

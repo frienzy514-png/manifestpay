@@ -179,7 +179,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ id }) => {
     );
   }
 
-  const brandName = session.brand?.brandName || 'AgenticPay Merchant';
+  const brandName = session.brand?.brandName || 'ManifestPay Merchant';
   const logoUrl = session.brand?.logoUrl;
   const accentColor = session.brand?.accentColor || '#0052FF';
 

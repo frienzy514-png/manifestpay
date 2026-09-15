@@ -5,14 +5,14 @@
 All SDKs implement a consistent error hierarchy that maps HTTP status codes to typed exceptions:
 
 ```
-AgenticPayError (base)
+ManifestPayError (base)
 ├── AuthenticationError (401)
 ├── AuthorizationError (403)
 ├── ValidationError (400)
 ├── NotFoundError (404)
 ├── RateLimitError (429)
 ├── NetworkError (connection failures)
-└── AgenticPayApiError (registry-based errors)
+└── ManifestPayApiError (registry-based errors)
     ├── AuthUnauthenticatedError
     ├── AuthForbiddenError
     ├── RequestValidationError
@@ -71,7 +71,7 @@ try {
 
 ```python
 import time
-from agenticpay import RateLimitError, NetworkError
+from manifestpay import RateLimitError, NetworkError
 
 def call_with_retry(fn, max_retries=3):
     for attempt in range(max_retries):
@@ -89,7 +89,7 @@ def call_with_retry(fn, max_retries=3):
 ```go
 result, err := client.Escrow.Create(ctx, params)
 if err != nil {
-    if apiErr, ok := err.(*agenticpay.APIError); ok {
+    if apiErr, ok := err.(*manifestpay.APIError); ok {
         log.Printf("API error code=%s status=%d message=%s",
             apiErr.Code, apiErr.StatusCode, apiErr.Message)
     }

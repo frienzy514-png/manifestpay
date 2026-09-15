@@ -91,7 +91,7 @@ export async function mockSandboxPaymentsApi(page: Page): Promise<void> {
 /** Clear test-specific localStorage keys after each test */
 export async function cleanupTestState(page: Page): Promise<void> {
   await page.evaluate(() => {
-    const keys = ['agenticpay-auth', 'agenticpay-onboarding-draft'];
+    const keys = ['manifestpay-auth', 'manifestpay-onboarding-draft'];
     keys.forEach((k) => localStorage.removeItem(k));
   });
 }

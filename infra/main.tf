@@ -3,10 +3,10 @@ terraform {
 
   # Acceptance Criteria: State management
   backend "s3" {
-    bucket         = "agenticpay-terraform-state"
+    bucket         = "manifestpay-terraform-state"
     key            = "infrastructure/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "agenticpay-terraform-locks"
+    dynamodb_table = "manifestpay-terraform-locks"
     encrypt        = true
   }
 
@@ -23,7 +23,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Project     = "AgenticPay"
+      Project     = "ManifestPay"
       Environment = var.environment
       ManagedBy   = "Terraform"
     }
@@ -37,7 +37,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
 
-  name = "agenticpay-${var.environment}-vpc"
+  name = "manifestpay-${var.environment}-vpc"
   cidr = var.vpc_cidr
 
   azs             = ["${var.aws_region}a", "${var.aws_region}b"]
@@ -58,16 +58,16 @@ module "vpc" {
 # ------------------------------------------------------------------------------
 
 resource "aws_db_subnet_group" "main" {
-  name       = "agenticpay-${var.environment}-db-subnet-group"
+  name       = "manifestpay-${var.environment}-db-subnet-group"
   subnet_ids = module.vpc.database_subnets
 
   tags = {
-    Name = "agenticpay-${var.environment}-db-subnet-group"
+    Name = "manifestpay-${var.environment}-db-subnet-group"
   }
 }
 
 resource "aws_security_group" "rds" {
-  name   = "agenticpay-${var.environment}-rds-sg"
+  name   = "manifestpay-${var.environment}-rds-sg"
   vpc_id = module.vpc.vpc_id
 
   ingress {
@@ -79,18 +79,18 @@ resource "aws_security_group" "rds" {
   }
 
   tags = {
-    Name = "agenticpay-${var.environment}-rds-sg"
+    Name = "manifestpay-${var.environment}-rds-sg"
   }
 }
 
 resource "aws_db_instance" "postgres" {
-  identifier = "agenticpay-${var.environment}"
+  identifier = "manifestpay-${var.environment}"
 
   engine         = "postgres"
   engine_version = "16.3"
   instance_class = var.db_instance_class
 
-  db_name  = "agenticpay"
+  db_name  = "manifestpay"
   username = var.db_username
   password = var.db_password
 
@@ -117,13 +117,13 @@ resource "aws_db_instance" "postgres" {
   enabled_cloudwatch_logs_exports = ["postgresql"]
 
   tags = {
-    Name = "agenticpay-${var.environment}"
+    Name = "manifestpay-${var.environment}"
   }
 }
 
 # RDS Proxy (AWS-managed PgBouncer in transaction mode)
 resource "aws_security_group" "rds_proxy" {
-  name   = "agenticpay-${var.environment}-rds-proxy-sg"
+  name   = "manifestpay-${var.environment}-rds-proxy-sg"
   vpc_id = module.vpc.vpc_id
 
   ingress {
@@ -144,12 +144,12 @@ resource "aws_security_group" "rds_proxy" {
   }
 
   tags = {
-    Name = "agenticpay-${var.environment}-rds-proxy-sg"
+    Name = "manifestpay-${var.environment}-rds-proxy-sg"
   }
 }
 
 resource "aws_db_proxy" "pgbouncer" {
-  name                   = "agenticpay-${var.environment}-proxy"
+  name                   = "manifestpay-${var.environment}-proxy"
   debug_logging          = var.environment != "prod"
   engine_family          = "POSTGRESQL"
   idle_client_timeout    = var.db_proxy_idle_timeout
@@ -167,7 +167,7 @@ resource "aws_db_proxy" "pgbouncer" {
 
   connection_pool_config {
     connection_borrow_timeout    = var.db_proxy_borrow_timeout
-    init_query                   = "SET application_name = 'agenticpay'"
+    init_query                   = "SET application_name = 'manifestpay'"
     max_connections_percent      = var.db_proxy_max_connections_percent
     max_idle_connections_percent = var.db_proxy_max_idle_connections_percent
     session_pinning_filters      = ["EXCLUDE_VARIABLE_SETS"]
@@ -179,7 +179,7 @@ resource "aws_db_proxy_default_target_group" "main" {
 
   connection_pool_config {
     connection_borrow_timeout    = var.db_proxy_borrow_timeout
-    init_query                   = "SET application_name = 'agenticpay'"
+    init_query                   = "SET application_name = 'manifestpay'"
     max_connections_percent      = var.db_proxy_max_connections_percent
     max_idle_connections_percent = var.db_proxy_max_idle_connections_percent
     session_pinning_filters      = ["EXCLUDE_VARIABLE_SETS"]
@@ -194,7 +194,7 @@ resource "aws_db_proxy_target" "main" {
 
 # Secrets Manager for database credentials
 resource "aws_secretsmanager_secret" "db_credentials" {
-  name = "agenticpay-${var.environment}-db-credentials"
+  name = "manifestpay-${var.environment}-db-credentials"
 }
 
 resource "aws_secretsmanager_secret_version" "db_credentials" {
@@ -205,13 +205,13 @@ resource "aws_secretsmanager_secret_version" "db_credentials" {
     engine   = "postgres"
     host     = aws_db_proxy.pgbouncer.endpoint
     port     = 5432
-    dbname   = "agenticpay"
+    dbname   = "manifestpay"
     dbInstanceIdentifier = aws_db_instance.postgres.identifier
   })
 }
 
 resource "aws_iam_role" "rds_proxy" {
-  name = "agenticpay-${var.environment}-rds-proxy-role"
+  name = "manifestpay-${var.environment}-rds-proxy-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -228,7 +228,7 @@ resource "aws_iam_role" "rds_proxy" {
 }
 
 resource "aws_iam_role_policy" "rds_proxy_secrets" {
-  name = "agenticpay-${var.environment}-rds-proxy-secrets-policy"
+  name = "manifestpay-${var.environment}-rds-proxy-secrets-policy"
   role = aws_iam_role.rds_proxy.id
 
   policy = jsonencode({
@@ -247,7 +247,7 @@ resource "aws_iam_role_policy" "rds_proxy_secrets" {
 # BACKEND RESOURCES (Express.js API)
 # ------------------------------------------------------------------------------
 resource "aws_ecr_repository" "backend" {
-  name                 = "agenticpay-backend-${var.environment}"
+  name                 = "manifestpay-backend-${var.environment}"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -256,7 +256,7 @@ resource "aws_ecr_repository" "backend" {
 }
 
 resource "aws_apprunner_service" "backend" {
-  service_name = "agenticpay-backend-${var.environment}"
+  service_name = "manifestpay-backend-${var.environment}"
 
   source_configuration {
     image_repository {
@@ -266,7 +266,7 @@ resource "aws_apprunner_service" "backend" {
           NODE_ENV              = var.environment
           STELLAR_NETWORK       = var.stellar_network
           PGBOUNCER_ENABLED     = "true"
-          DATABASE_URL          = "postgresql://${var.db_username}:${var.db_password}@${aws_db_proxy.pgbouncer.endpoint}:5432/agenticpay"
+          DATABASE_URL          = "postgresql://${var.db_username}:${var.db_password}@${aws_db_proxy.pgbouncer.endpoint}:5432/manifestpay"
           DB_POOL_MAX           = var.db_proxy_pool_max
           DB_POOL_MIN           = var.db_proxy_pool_min
         }
@@ -286,7 +286,7 @@ resource "aws_apprunner_service" "backend" {
 }
 
 resource "aws_apprunner_vpc_connector" "connector" {
-  vpc_connector_name = "agenticpay-vpc-connector-${var.environment}"
+  vpc_connector_name = "manifestpay-vpc-connector-${var.environment}"
   subnets            = module.vpc.private_subnets
   security_groups    = [module.vpc.default_security_group_id]
 }
@@ -295,8 +295,8 @@ resource "aws_apprunner_vpc_connector" "connector" {
 # FRONTEND RESOURCES (Next.js)
 # ------------------------------------------------------------------------------
 resource "aws_amplify_app" "frontend" {
-  name       = "agenticpay-frontend-${var.environment}"
-  repository = "https://github.com/Smartdevs17/agenticpay"
+  name       = "manifestpay-frontend-${var.environment}"
+  repository = "https://github.com/frienzy514-png/manifestpay"
 
   # HTTP/2 is enabled by default on AWS Amplify (ALPN negotiation via CloudFront).
   # custom_headers propagates Link preload hints so CloudFront can issue

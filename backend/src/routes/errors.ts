@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { listErrorCodes } from '@agenticpay/error-codes';
+import { listErrorCodes } from '@manifestpay/error-codes';
 
 export const errorsRouter = Router();
 

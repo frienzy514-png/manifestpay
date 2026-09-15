@@ -27,7 +27,7 @@ export class ChannelRegistry {
         smtpPort: parseInt(process.env.SMTP_PORT || "587"),
         smtpUser: process.env.SMTP_USER || "",
         smtpPassword: process.env.SMTP_PASSWORD || "",
-        fromAddress: process.env.SMTP_FROM || "noreply@agenticpay.com",
+        fromAddress: process.env.SMTP_FROM || "noreply@manifestpay.com",
         maxPerHour: 10,
         maxPerDay: 50,
       });

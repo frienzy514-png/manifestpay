@@ -4,7 +4,7 @@ import type {
   Payment as CanonicalPayment,
   Project as CanonicalProject,
   User as CanonicalUser,
-} from "@agenticpay/types";
+} from "@manifestpay/types";
 
 export type {
   CanonicalInvoice,

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next/server';
 import { locales, defaultLocale } from '@/i18n/routing';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://agenticpay.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://manifestpay.com';
 
 const PUBLIC_PATHS = ['', '/auth', '/dashboard', '/dashboard/monitoring/bridges'];
 

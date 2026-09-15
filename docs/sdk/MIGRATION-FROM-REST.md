@@ -1,16 +1,16 @@
 # Migrating from REST API to SDK
 
-This guide helps you transition from direct REST API calls to using the official AgenticPay SDK.
+This guide helps you transition from direct REST API calls to using the official ManifestPay SDK.
 
 ## Before (REST API)
 
 ```typescript
 // Direct fetch calls
-const response = await fetch('https://api.agenticpay.com/api/v1/verification/verify', {
+const response = await fetch('https://api.manifestpay.com/api/v1/verification/verify', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'x-api-key': process.env.AGENTICPAY_API_KEY!,
+    'x-api-key': process.env.MANIFESTPAY_API_KEY!,
   },
   body: JSON.stringify({
     repositoryUrl: 'https://github.com/user/repo',
@@ -30,11 +30,11 @@ const result = await response.json();
 ## After (SDK)
 
 ```typescript
-import { createAgenticPaySDK } from '@agenticpay/sdk';
+import { createManifestPaySDK } from '@manifestpay/sdk';
 
-const sdk = createAgenticPaySDK({
-  baseUrl: 'https://api.agenticpay.com/api/v1',
-  apiKey: process.env.AGENTICPAY_API_KEY!,
+const sdk = createManifestPaySDK({
+  baseUrl: 'https://api.manifestpay.com/api/v1',
+  apiKey: process.env.MANIFESTPAY_API_KEY!,
 });
 
 const result = await sdk.verification.verifyWork({
@@ -80,7 +80,7 @@ try {
 } catch (err) {
   if (err instanceof AuthenticationError) { /* ... */ }
   else if (err instanceof RateLimitError) { /* ... */ }
-  else if (err instanceof AgenticPayError && err.status >= 500) { /* ... */ }
+  else if (err instanceof ManifestPayError && err.status >= 500) { /* ... */ }
   else if (err instanceof ValidationError) { /* ... */ }
 }
 ```
@@ -100,9 +100,9 @@ global.fetch = vi.fn().mockResolvedValue({
 ### After
 
 ```typescript
-import { MockAgenticPayServer, createTestSDK } from '@agenticpay/sdk-testing';
+import { MockManifestPayServer, createTestSDK } from '@manifestpay/sdk-testing';
 
-const server = await MockAgenticPayServer.create({
+const server = await MockManifestPayServer.create({
   routes: [
     { method: 'POST', path: '/verification/verify', body: { id: 'v_1' } },
   ],

@@ -1,8 +1,8 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 import { SplitConfigInput, SplitExecutionInput } from './types.js';
 
 export class PaymentsApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   createSplitConfig(input: SplitConfigInput) {
     return this.client.post('/splits', input);

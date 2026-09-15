@@ -5,7 +5,7 @@ import { join, resolve } from 'node:path';
 
 const repoRoot = resolve(process.cwd(), '../..');
 const baseRef = process.env.TYPE_API_BASE_REF ?? 'HEAD~1';
-const current = execFileSync('npm', ['run', 'build', '--workspace', '@agenticpay/types'], {
+const current = execFileSync('npm', ['run', 'build', '--workspace', '@manifestpay/types'], {
   cwd: repoRoot,
   encoding: 'utf8',
 });
@@ -22,7 +22,7 @@ try {
   });
 } catch {
   try {
-    const tmp = join(tmpdir(), `agenticpay-types-${Date.now()}`);
+    const tmp = join(tmpdir(), `manifestpay-types-${Date.now()}`);
     mkdirSync(tmp, { recursive: true });
     execFileSync('git', ['archive', baseRef, 'packages/types'], { cwd: repoRoot, stdio: ['ignore', 'pipe', 'ignore'] });
     previousDts = '';

@@ -58,7 +58,7 @@ export default function PWAInstallPrompt() {
   return (
     <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-black text-white px-6 py-4 rounded-xl shadow-lg flex items-center gap-4">
       <p className="text-sm">
-        Install AgenticPay for a faster experience 🚀
+        Install ManifestPay for a faster experience 🚀
       </p>
 
       <button

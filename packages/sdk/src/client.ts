@@ -1,12 +1,12 @@
 import {
-  AgenticPayClientOptions,
+  ManifestPayClientOptions,
   RequestContext,
   RequestInterceptor,
   ResponseContext,
   ResponseInterceptor,
 } from './types.js';
 import {
-  AgenticPayError,
+  ManifestPayError,
   AuthenticationError,
   AuthorizationError,
   NetworkError,
@@ -16,15 +16,15 @@ import {
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export class AgenticPayClient {
+export class ManifestPayClient {
   private readonly baseUrl: string;
   private readonly apiKey?: string;
   private readonly timeoutMs: number;
-  private readonly retryConfig: Required<NonNullable<AgenticPayClientOptions['retry']>>;
+  private readonly retryConfig: Required<NonNullable<ManifestPayClientOptions['retry']>>;
   private readonly requestInterceptors: RequestInterceptor[] = [];
   private readonly responseInterceptors: ResponseInterceptor[] = [];
 
-  constructor(options: AgenticPayClientOptions) {
+  constructor(options: ManifestPayClientOptions) {
     this.baseUrl = options.baseUrl.replace(/\/$/, '');
     this.apiKey = options.apiKey;
     this.timeoutMs = options.timeoutMs ?? 15000;
@@ -114,7 +114,7 @@ export class AgenticPayClient {
         return responseContext.data;
       } catch (error) {
         clearTimeout(timeout);
-        if (error instanceof AgenticPayError) throw error;
+        if (error instanceof ManifestPayError) throw error;
         if (attempt >= this.retryConfig.attempts) {
           throw new NetworkError('Request failed after retries', error);
         }
@@ -126,7 +126,7 @@ export class AgenticPayClient {
     throw new NetworkError('Unexpected retry termination');
   }
 
-  private toApiError(status: number, payload: any): AgenticPayError {
+  private toApiError(status: number, payload: any): ManifestPayError {
     const message = payload?.error?.message ?? payload?.message ?? 'Request failed';
     const code = payload?.error?.code ?? payload?.code;
     const details = payload?.error?.details ?? payload?.errors ?? payload;
@@ -135,6 +135,6 @@ export class AgenticPayClient {
     if (status === 401) return new AuthenticationError(message, details);
     if (status === 403) return new AuthorizationError(message, details);
     if (status === 429) return new RateLimitError(message, details);
-    return new AgenticPayError(message, { status, code, details });
+    return new ManifestPayError(message, { status, code, details });
   }
 }

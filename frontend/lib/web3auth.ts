@@ -31,7 +31,7 @@ export const web3auth: IWeb3AuthModal | null = clientId
       web3AuthNetwork: "testnet",
       privateKeyProvider, // keep here
       uiConfig: {
-        appName: "AgenticPay",
+        appName: "ManifestPay",
         theme: { primary: "#0052FF" },
         mode: "light",
         loginMethodsOrder: ["google", "twitter", "email_passwordless"],

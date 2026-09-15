@@ -19,7 +19,7 @@ notifications, and analytics.
 
 ## Structured workflow
 
-Statuses (aligned with `@agenticpay/types` domain disputes):
+Statuses (aligned with `@manifestpay/types` domain disputes):
 
 ```
 pending → awaiting_response → under_review → resolved | dismissed

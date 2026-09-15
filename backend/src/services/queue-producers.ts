@@ -63,7 +63,7 @@ export async function queueWebhook(
  * In production, this would integrate with a real email service like SendGrid or AWS SES
  */
 export async function processEmailJob(job: QueueJob): Promise<void> {
-  const { to, subject, body, html, from = 'noreply@agenticpay.dev' } =
+  const { to, subject, body, html, from = 'noreply@manifestpay.dev' } =
     job.data as unknown as EmailJobData;
 
   if (!to || !subject || !body) {

@@ -1,7 +1,7 @@
 {
-  "name": "@agenticpay/sdk",
+  "name": "@manifestpay/sdk",
   "version": "0.1.0",
-  "description": "Official TypeScript SDK for AgenticPay APIs",
+  "description": "Official TypeScript SDK for ManifestPay APIs",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,7 +14,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "keywords": [
-    "agenticpay",
+    "manifestpay",
     "sdk",
     "typescript",
     "payments"
@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@agenticpay/error-codes": "*"
+    "@manifestpay/error-codes": "*"
   },
   "devDependencies": {
     "@types/node": "^22.5.0",

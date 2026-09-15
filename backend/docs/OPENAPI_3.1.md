@@ -1,6 +1,6 @@
 # OpenAPI 3.1 Documentation — Issue #720
 
-AgenticPay uses **OpenAPI 3.1.0** for comprehensive API documentation and automated SDK generation.
+ManifestPay uses **OpenAPI 3.1.0** for comprehensive API documentation and automated SDK generation.
 
 ## Overview
 

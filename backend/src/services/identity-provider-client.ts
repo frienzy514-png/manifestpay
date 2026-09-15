@@ -9,9 +9,9 @@ export interface IdentityProviderConfig {
 
 const DEFAULT_PROVIDERS: IdentityProviderConfig[] = [
   {
-    id: 'agenticpay-kyc',
-    name: 'AgenticPay KYC',
-    endpoint: process.env.IDENTITY_PROVIDER_URL ?? 'https://identity.agenticpay.local/v1',
+    id: 'manifestpay-kyc',
+    name: 'ManifestPay KYC',
+    endpoint: process.env.IDENTITY_PROVIDER_URL ?? 'https://identity.manifestpay.local/v1',
     trusted: true,
   },
 ];

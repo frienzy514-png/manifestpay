@@ -22,8 +22,8 @@ export class TrezorWalletProvider implements HardwareWalletProvider {
     TrezorConnect.init({
       lazy: true,
       manifest: {
-        email: 'support@agenticpay.com',
-        appUrl: 'https://agenticpay.com'
+        email: 'support@manifestpay.com',
+        appUrl: 'https://manifestpay.com'
       }
     });
   }

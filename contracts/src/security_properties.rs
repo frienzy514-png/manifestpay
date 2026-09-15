@@ -1,4 +1,4 @@
-//! Property-based security tests for AgenticPay.
+//! Property-based security tests for ManifestPay.
 //!
 //! Covers:
 //!   - Balance / total-supply conservation

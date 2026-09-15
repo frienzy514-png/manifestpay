@@ -1,4 +1,4 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 import { buildAuthHeader, AuthProvider } from './auth.js';
 import { PaymentsApi } from './payments.js';
 import { RefundsApi } from './refunds.js';
@@ -10,7 +10,7 @@ import { InvoicesApi } from './invoices.js';
 import { StellarApi } from './stellar.js';
 import { SandboxApi } from './sandbox.js';
 import { WalletApi } from './wallet.js';
-import { AgenticPayClientOptions } from './types.js';
+import { ManifestPayClientOptions } from './types.js';
 
 export * from './types.js';
 export * from './errors.js';
@@ -24,8 +24,8 @@ export * from './sandbox.js';
 export * from './wallet.js';
 
 
-export class AgenticPaySDK {
-  readonly client: AgenticPayClient;
+export class ManifestPaySDK {
+  readonly client: ManifestPayClient;
   readonly payments: PaymentsApi;
   readonly refunds: RefundsApi;
   readonly verification: VerificationApi;
@@ -38,8 +38,8 @@ export class AgenticPaySDK {
   readonly sandbox: SandboxApi;
   readonly wallet: WalletApi;
 
-  constructor(options: AgenticPayClientOptions, authProvider?: AuthProvider) {
-    this.client = new AgenticPayClient(options);
+  constructor(options: ManifestPayClientOptions, authProvider?: AuthProvider) {
+    this.client = new ManifestPayClient(options);
     if (authProvider) {
       this.client.addRequestInterceptor(async (ctx) => {
         const token = await authProvider.getAccessToken();
@@ -68,6 +68,6 @@ export class AgenticPaySDK {
 
 }
 
-export function createAgenticPaySDK(options: AgenticPayClientOptions, authProvider?: AuthProvider) {
-  return new AgenticPaySDK(options, authProvider);
+export function createManifestPaySDK(options: ManifestPayClientOptions, authProvider?: AuthProvider) {
+  return new ManifestPaySDK(options, authProvider);
 }

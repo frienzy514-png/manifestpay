@@ -23,7 +23,7 @@ export class NotificationTemplateService {
       id: 'payment_receipt',
       name: 'Payment Receipt',
       subject: 'Payment Receipt - {{amount}} {{currency}}',
-      body: `Dear {{customerName}},\n\nThank you for your payment of {{amount}} {{currency}}.\n\nPayment Details:\n- Transaction ID: {{transactionId}}\n- Amount: {{amount}} {{currency}}\n- Date: {{date}}\n- Status: {{status}}\n\n{{#if projectName}}\nProject: {{projectName}}\n{{/if}}\n\nIf you have any questions, please contact support.\n\nBest regards,\nAgenticPay Team`,
+      body: `Dear {{customerName}},\n\nThank you for your payment of {{amount}} {{currency}}.\n\nPayment Details:\n- Transaction ID: {{transactionId}}\n- Amount: {{amount}} {{currency}}\n- Date: {{date}}\n- Status: {{status}}\n\n{{#if projectName}}\nProject: {{projectName}}\n{{/if}}\n\nIf you have any questions, please contact support.\n\nBest regards,\nManifestPay Team`,
       variables: ['customerName', 'amount', 'currency', 'transactionId', 'date', 'status', 'projectName'],
       channels: ['email', 'sms', 'push', 'in-app']
     });
@@ -33,7 +33,7 @@ export class NotificationTemplateService {
       id: 'payment_confirmation',
       name: 'Payment Confirmation',
       subject: 'Payment Confirmed - {{amount}} {{currency}}',
-      body: `Dear {{customerName}},\n\nYour payment has been confirmed!\n\nAmount: {{amount}} {{currency}}\nTransaction Hash: {{transactionHash}}\nTimestamp: {{timestamp}}\n\nThis email serves as your official receipt.\n\nBest regards,\nAgenticPay Team`,
+      body: `Dear {{customerName}},\n\nYour payment has been confirmed!\n\nAmount: {{amount}} {{currency}}\nTransaction Hash: {{transactionHash}}\nTimestamp: {{timestamp}}\n\nThis email serves as your official receipt.\n\nBest regards,\nManifestPay Team`,
       variables: ['customerName', 'amount', 'currency', 'transactionHash', 'timestamp'],
       channels: ['email', 'sms', 'push', 'in-app']
     });
@@ -43,7 +43,7 @@ export class NotificationTemplateService {
       id: 'refund_notification',
       name: 'Refund Notification',
       subject: 'Refund Processed - {{amount}} {{currency}}',
-      body: `Dear {{customerName}},\n\nYour refund of {{amount}} {{currency}} has been processed.\n\nOriginal Transaction: {{originalTransactionId}}\nRefund Amount: {{amount}} {{currency}}\nRefund ID: {{refundId}}\n\nThe funds should appear in your account within 5-7 business days.\n\nBest regards,\nAgenticPay Team`,
+      body: `Dear {{customerName}},\n\nYour refund of {{amount}} {{currency}} has been processed.\n\nOriginal Transaction: {{originalTransactionId}}\nRefund Amount: {{amount}} {{currency}}\nRefund ID: {{refundId}}\n\nThe funds should appear in your account within 5-7 business days.\n\nBest regards,\nManifestPay Team`,
       variables: ['customerName', 'amount', 'currency', 'originalTransactionId', 'refundId'],
       channels: ['email', 'sms', 'push', 'in-app']
     });
@@ -53,7 +53,7 @@ export class NotificationTemplateService {
       id: 'invoice_created',
       name: 'Invoice Created',
       subject: 'New Invoice - {{invoiceNumber}}',
-      body: `Hello {{customerName}},\n\nYou have a new invoice:\n\nInvoice Number: {{invoiceNumber}}\nAmount: {{amount}} {{currency}}\nDue Date: {{dueDate}}\n\nPlease review and pay at your earliest convenience.\n\nBest regards,\nAgenticPay Team`,
+      body: `Hello {{customerName}},\n\nYou have a new invoice:\n\nInvoice Number: {{invoiceNumber}}\nAmount: {{amount}} {{currency}}\nDue Date: {{dueDate}}\n\nPlease review and pay at your earliest convenience.\n\nBest regards,\nManifestPay Team`,
       variables: ['customerName', 'invoiceNumber', 'amount', 'currency', 'dueDate'],
       channels: ['email', 'sms', 'push', 'in-app']
     });
@@ -63,7 +63,7 @@ export class NotificationTemplateService {
       id: 'invoice_paid',
       name: 'Invoice Paid',
       subject: 'Invoice Paid - {{invoiceNumber}}',
-      body: `Hello {{customerName}},\n\nThank you for your payment!\n\nInvoice {{invoiceNumber}} for {{amount}} {{currency}} has been paid.\n\nPayment Date: {{paymentDate}}\nTransaction ID: {{transactionId}}\n\nBest regards,\nAgenticPay Team`,
+      body: `Hello {{customerName}},\n\nThank you for your payment!\n\nInvoice {{invoiceNumber}} for {{amount}} {{currency}} has been paid.\n\nPayment Date: {{paymentDate}}\nTransaction ID: {{transactionId}}\n\nBest regards,\nManifestPay Team`,
       variables: ['customerName', 'invoiceNumber', 'amount', 'currency', 'paymentDate', 'transactionId'],
       channels: ['email', 'sms', 'push', 'in-app']
     });
@@ -73,7 +73,7 @@ export class NotificationTemplateService {
       id: 'security_alert',
       name: 'Security Alert',
       subject: 'Security Alert: {{alertType}}',
-      body: `Hello {{userName}},\n\nWe detected a {{alertType}} on your account.\n\nDetails:\n- Time: {{timestamp}}\n- IP Address: {{ipAddress}}\n- Location: {{location}}\n\nIf this was not you, please secure your account immediately.\n\nBest regards,\nAgenticPay Security Team`,
+      body: `Hello {{userName}},\n\nWe detected a {{alertType}} on your account.\n\nDetails:\n- Time: {{timestamp}}\n- IP Address: {{ipAddress}}\n- Location: {{location}}\n\nIf this was not you, please secure your account immediately.\n\nBest regards,\nManifestPay Security Team`,
       variables: ['userName', 'alertType', 'timestamp', 'ipAddress', 'location'],
       channels: ['email', 'push', 'in-app'] // SMS might be too short for security alerts
     });

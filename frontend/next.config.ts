@@ -170,6 +170,6 @@ const nextConfig: NextConfig = {
 
 export default withSentryConfig(bundleAnalyzer(nextConfig), {
   silent: true,
-  org: process.env.SENTRY_ORG || "agenticpay",
-  project: process.env.SENTRY_PROJECT || "agenticpay-frontend",
+  org: process.env.SENTRY_ORG || "manifestpay",
+  project: process.env.SENTRY_PROJECT || "manifestpay-frontend",
 });

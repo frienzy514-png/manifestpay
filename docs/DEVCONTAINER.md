@@ -1,6 +1,6 @@
 # Devcontainer Setup
 
-One-click development environment for AgenticPay with Node.js, Rust, Soroban CLI, Postgres, and Redis.
+One-click development environment for ManifestPay with Node.js, Rust, Soroban CLI, Postgres, and Redis.
 
 ## Quick Start
 
@@ -25,7 +25,7 @@ Recommended VS Code extensions are installed automatically (ESLint, Prettier, Ta
 
 Inside the devcontainer, Postgres and Redis are reachable on `localhost` via Docker Compose networking:
 
-- **Postgres:** `postgresql://postgres:postgres@localhost:5432/agenticpay`
+- **Postgres:** `postgresql://postgres:postgres@localhost:5432/manifestpay`
 - **Redis:** `redis://localhost:6379`
 
 On the host machine (without devcontainer), start the same stack:

@@ -26,7 +26,7 @@ export function PaymentQRModal({ address, isOpen, onClose }: PaymentQRModalProps
         .replace('image/png', 'image/octet-stream');
       const downloadLink = document.createElement('a');
       downloadLink.href = pngUrl;
-      downloadLink.download = `agenticpay-address-${address.slice(0, 6)}.png`;
+      downloadLink.download = `manifestpay-address-${address.slice(0, 6)}.png`;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);

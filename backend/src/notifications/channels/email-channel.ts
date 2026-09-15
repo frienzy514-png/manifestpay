@@ -98,7 +98,7 @@ export class EmailChannel implements NotificationChannel {
             <p>${this.escapeHtml(notification.body)}</p>
           </div>
           <div class="footer">
-            <p>AgenticPay - Autonomous Payment Infrastructure</p>
+            <p>ManifestPay - Autonomous Payment Infrastructure</p>
           </div>
         </body>
       </html>

@@ -29,7 +29,7 @@ parseModuleLogLevels(process.env.LOG_LEVELS);
 
 export const logger = pino({
   level: DEFAULT_LEVEL,
-  base: { service: 'agenticpay-backend' },
+  base: { service: 'manifestpay-backend' },
   formatters: {
     level(label) {
       return { level: label };

@@ -3,7 +3,7 @@
 import { WagmiProvider } from "wagmi";
 import { QueryClientProvider, QueryErrorResetBoundary } from "@tanstack/react-query";
 import { wagmiConfig } from "@/lib/wagmi";
-import { createAgenticPayQueryClient, exposeQueryClientForDevtools } from "@/lib/query-client";
+import { createManifestPayQueryClient, exposeQueryClientForDevtools } from "@/lib/query-client";
 import {
   useState,
   useEffect,
@@ -18,7 +18,7 @@ import { Web3StoreProvider } from "@/components/providers/Web3StoreProvider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
-    () => createAgenticPayQueryClient(),
+    () => createManifestPayQueryClient(),
   );
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 

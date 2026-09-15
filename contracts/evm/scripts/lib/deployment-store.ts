@@ -48,8 +48,8 @@ export interface DeploymentFile {
 const DEFAULT_ROOT = path.resolve(__dirname, '..', '..', 'deployments');
 
 export function deploymentsRoot(): string {
-  return process.env.AGENTICPAY_DEPLOYMENTS_DIR
-    ? path.resolve(process.env.AGENTICPAY_DEPLOYMENTS_DIR)
+  return process.env.MANIFESTPAY_DEPLOYMENTS_DIR
+    ? path.resolve(process.env.MANIFESTPAY_DEPLOYMENTS_DIR)
     : DEFAULT_ROOT;
 }
 

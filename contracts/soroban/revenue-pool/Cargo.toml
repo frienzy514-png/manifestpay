@@ -1,5 +1,5 @@
 [package]
-name = "agenticpay-revenue-pool"
+name = "manifestpay-revenue-pool"
 version.workspace = true
 edition.workspace = true
 

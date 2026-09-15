@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AgenticPay Refund Engine provides fully automated refund processing with a customizable policy engine, multi-level approval workflows, queue-based background processing, real-time notifications via webhooks and notification channels, and comprehensive analytics.
+The ManifestPay Refund Engine provides fully automated refund processing with a customizable policy engine, multi-level approval workflows, queue-based background processing, real-time notifications via webhooks and notification channels, and comprehensive analytics.
 
 ## Architecture
 

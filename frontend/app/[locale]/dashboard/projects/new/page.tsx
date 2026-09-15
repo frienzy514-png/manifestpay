@@ -19,7 +19,7 @@ import {
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { useAgenticPay } from '@/lib/hooks/useAgenticPay';
+import { useManifestPay } from '@/lib/hooks/useManifestPay';
 import { useAccount } from 'wagmi';
 import { ConfirmModal } from '@/components/transaction/ConfirmModal';
 import { parseEther } from 'viem';
@@ -129,7 +129,7 @@ type ProjectFormData = z.infer<typeof projectSchema>;
 export default function CreateProjectPage() {
   const router = useRouter();
   const { address } = useAccount();
-  const { prepareTransaction, isPending, isConfirming, isConfirmed, error } = useAgenticPay();
+  const { prepareTransaction, isPending, isConfirming, isConfirmed, error } = useManifestPay();
   const [pendingTransaction, setPendingTransaction] = useState<PendingTransaction | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);

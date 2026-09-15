@@ -1,5 +1,5 @@
 [package]
-name = "agenticpay-htlc"
+name = "manifestpay-htlc"
 version = "0.1.0"
 edition = "2021"
 description = "Soroban Hash Time-Locked Contract for trustless atomic swaps between parties"

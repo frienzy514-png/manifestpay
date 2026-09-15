@@ -16,7 +16,7 @@ test.describe('Dashboard access control', () => {
       await page.goto('/dashboard');
       await expect(page).toHaveURL(/\/auth$/);
       await expect(
-        page.getByRole('heading', { name: /Welcome to AgenticPay/i }),
+        page.getByRole('heading', { name: /Welcome to ManifestPay/i }),
       ).toBeVisible();
     },
   );

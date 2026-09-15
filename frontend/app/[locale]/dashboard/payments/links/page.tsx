@@ -264,7 +264,7 @@ export default function PaymentLinksPage() {
                           <span className="font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
                             /r/{link.slug}
                             <a
-                              href={`https://pay.agenticpay.com/r/${link.slug}`}
+                              href={`https://pay.manifestpay.com/r/${link.slug}`}
                               target="_blank"
                               rel="noreferrer"
                               className="text-gray-400 hover:text-indigo-600"

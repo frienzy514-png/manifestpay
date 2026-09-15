@@ -237,7 +237,7 @@ export function createSandboxRouter(
         blockchain: '/sandbox/blockchain/*',
         migration: '/sandbox/migration/*',
       },
-      documentation: 'https://docs.agenticpay.com/sandbox',
+      documentation: 'https://docs.manifestpay.com/sandbox',
     });
   });
 

@@ -69,7 +69,7 @@ graphQLRouter.get(
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GraphiQL - AgenticPay</title>
+    <title>GraphiQL - ManifestPay</title>
   </head>
   <body style="margin:0;font-family:sans-serif;background:#0a1324;color:#edf2ff;">
     <main style="max-width:900px;margin:40px auto;padding:24px;background:#12203b;border-radius:14px;">

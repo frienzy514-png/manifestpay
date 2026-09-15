@@ -2,11 +2,11 @@
  * Factory functions for creating test clients and SDK instances.
  */
 
-import { AgenticPaySDK } from '../index.js';
-import { AgenticPayClient } from '../client.js';
-import type { AgenticPayClientOptions } from '../types.js';
+import { ManifestPaySDK } from '../index.js';
+import { ManifestPayClient } from '../client.js';
+import type { ManifestPayClientOptions } from '../types.js';
 
-export type TestClientOptions = Partial<AgenticPayClientOptions> & {
+export type TestClientOptions = Partial<ManifestPayClientOptions> & {
   baseUrl?: string;
   apiKey?: string;
 };
@@ -14,8 +14,8 @@ export type TestClientOptions = Partial<AgenticPayClientOptions> & {
 /**
  * Create a test client pointed at a mock server.
  */
-export function createTestClient(options: TestClientOptions = {}): AgenticPayClient {
-  return new AgenticPayClient({
+export function createTestClient(options: TestClientOptions = {}): ManifestPayClient {
+  return new ManifestPayClient({
     baseUrl: options.baseUrl ?? 'http://127.0.0.1:0/api/v1',
     apiKey: options.apiKey ?? 'test_api_key',
     timeoutMs: options.timeoutMs ?? 5000,
@@ -26,8 +26,8 @@ export function createTestClient(options: TestClientOptions = {}): AgenticPayCli
 /**
  * Create a test SDK instance pointed at a mock server.
  */
-export function createTestSDK(options: TestClientOptions = {}): AgenticPaySDK {
-  return new AgenticPaySDK({
+export function createTestSDK(options: TestClientOptions = {}): ManifestPaySDK {
+  return new ManifestPaySDK({
     baseUrl: options.baseUrl ?? 'http://127.0.0.1:0/api/v1',
     apiKey: options.apiKey ?? 'test_api_key',
     timeoutMs: options.timeoutMs ?? 5000,

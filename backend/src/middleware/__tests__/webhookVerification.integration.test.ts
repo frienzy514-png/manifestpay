@@ -73,8 +73,8 @@ describe('webhook verification integration (key rotation)', () => {
 
     const res = await postCustom('/custom', {
       headers: {
-        'X-AgenticPay-Signature': signed.signature,
-        'X-AgenticPay-Timestamp': signed.timestamp,
+        'X-ManifestPay-Signature': signed.signature,
+        'X-ManifestPay-Timestamp': signed.timestamp,
       },
       body: PAYLOAD,
     });
@@ -90,8 +90,8 @@ describe('webhook verification integration (key rotation)', () => {
 
     const res = await postCustom('/custom', {
       headers: {
-        'X-AgenticPay-Signature': signed.signature,
-        'X-AgenticPay-Timestamp': signed.timestamp,
+        'X-ManifestPay-Signature': signed.signature,
+        'X-ManifestPay-Timestamp': signed.timestamp,
       },
       body: tampered,
     });
@@ -120,8 +120,8 @@ describe('webhook verification integration (key rotation)', () => {
 
     const res = await postCustom('/custom', {
       headers: {
-        'X-AgenticPay-Signature': signedOld.signature,
-        'X-AgenticPay-Timestamp': signedOld.timestamp,
+        'X-ManifestPay-Signature': signedOld.signature,
+        'X-ManifestPay-Timestamp': signedOld.timestamp,
       },
       body: PAYLOAD,
     });
@@ -142,8 +142,8 @@ describe('webhook verification integration (key rotation)', () => {
 
     const res = await postCustom('/custom', {
       headers: {
-        'X-AgenticPay-Signature': signedOld.signature,
-        'X-AgenticPay-Timestamp': signedOld.timestamp,
+        'X-ManifestPay-Signature': signedOld.signature,
+        'X-ManifestPay-Timestamp': signedOld.timestamp,
       },
       body: PAYLOAD,
     });
@@ -172,8 +172,8 @@ describe('webhook verification integration (key rotation)', () => {
     const registry = initWebhookKeyRegistry({ keys: [{ provider: 'custom', secret: 'rotation_secret_08_abcdefghijklmnop' }] });
     const signed = registry.sign({ provider: 'custom', body: PAYLOAD });
     const headers = {
-      'X-AgenticPay-Signature': signed.signature,
-      'X-AgenticPay-Timestamp': signed.timestamp,
+      'X-ManifestPay-Signature': signed.signature,
+      'X-ManifestPay-Timestamp': signed.timestamp,
       'X-Webhook-Id': 'evt_int_replay_1',
     };
 

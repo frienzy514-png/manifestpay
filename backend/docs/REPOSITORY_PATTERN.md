@@ -1,6 +1,6 @@
 # Repository Pattern with Query Builders — Issue #728
 
-AgenticPay uses the **Repository Pattern** with **Query Builders** for type-safe, composable database access.
+ManifestPay uses the **Repository Pattern** with **Query Builders** for type-safe, composable database access.
 
 ## Overview
 

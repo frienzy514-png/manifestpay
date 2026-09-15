@@ -1,11 +1,11 @@
-# AgenticPay Go SDK
+# ManifestPay Go SDK
 
-Official Go SDK for [AgenticPay](https://agenticpay.com) APIs — type-safe client for escrow, subscriptions, verification, refunds, Stellar integration, and webhook verification.
+Official Go SDK for [ManifestPay](https://manifestpay.com) APIs — type-safe client for escrow, subscriptions, verification, refunds, Stellar integration, and webhook verification.
 
 ## Installation
 
 ```bash
-go get github.com/Kappa16/agenticpay/sdks/go
+go get github.com/frienzy514-png/manifestpay/sdks/go
 ```
 
 ## Quick Start
@@ -18,18 +18,18 @@ import (
     "fmt"
     "log"
 
-    "github.com/Kappa16/agenticpay/sdks/go/agenticpay"
+    "github.com/frienzy514-png/manifestpay/sdks/go/manifestpay"
 )
 
 func main() {
-    client := agenticpay.New("https://api.agenticpay.com/api/v1", "your-api-key")
+    client := manifestpay.New("https://api.manifestpay.com/api/v1", "your-api-key")
     ctx := context.Background()
 
     // Create a subscription plan
-    plan, err := client.Subscriptions.CreatePlan(ctx, agenticpay.CreatePlanParams{
+    plan, err := client.Subscriptions.CreatePlan(ctx, manifestpay.CreatePlanParams{
         MerchantID: "m_123",
         Name:       "Pro Plan",
-        Interval:   agenticpay.IntervalMonthly,
+        Interval:   manifestpay.IntervalMonthly,
         Amount:     29.99,
         Currency:   "USD",
     })
@@ -39,13 +39,13 @@ func main() {
     fmt.Printf("Created plan: %s\n", plan.ID)
 
     // Create an escrow
-    escrow, err := client.Escrow.Create(ctx, agenticpay.CreateEscrowParams{
+    escrow, err := client.Escrow.Create(ctx, manifestpay.CreateEscrowParams{
         ProjectID:   "proj_1",
         PayerID:     "payer_1",
         PayeeID:     "payee_1",
         Currency:    "XLM",
         TotalAmount: 1000,
-        Milestones: []agenticpay.EscrowMilestone{
+        Milestones: []manifestpay.EscrowMilestone{
             {Title: "Design", Amount: 500, CompletionCriteria: "Mockups approved"},
             {Title: "Development", Amount: 500, CompletionCriteria: "Prototype delivered"},
         },
@@ -76,7 +76,7 @@ func main() {
 ```go
 result, err := client.Subscriptions.Get(ctx, "sub_123")
 if err != nil {
-    if apiErr, ok := err.(*agenticpay.APIError); ok {
+    if apiErr, ok := err.(*manifestpay.APIError); ok {
         fmt.Printf("API error: %s (HTTP %d, code=%s)\n",
             apiErr.Message, apiErr.StatusCode, apiErr.Code)
     } else {
@@ -102,7 +102,7 @@ fmt.Printf("Event type: %s\n", event.Type)
 ## Pagination
 
 ```go
-page, err := client.Invoices.ListForMerchant(ctx, "m_123", agenticpay.ListParams{
+page, err := client.Invoices.ListForMerchant(ctx, "m_123", manifestpay.ListParams{
     Limit:  20,
     Offset: 0,
 })
@@ -119,7 +119,7 @@ for _, inv := range page.Data {
 
 ```bash
 cd sdks/go
-go test ./agenticpay/...
+go test ./manifestpay/...
 ```
 
 ## Requirements

@@ -1,4 +1,4 @@
-# Gas analysis — AgenticPay contracts
+# Gas analysis — ManifestPay contracts
 
 Reference numbers and methodology for the gas-optimised contracts
 under `contracts/`. Targets, per-operation baselines, and batch/meta-tx
@@ -161,7 +161,7 @@ execute() empty    ~72,000 gas (nonce SSTORE + EIP-712 hash + ecrecover)
 The inner tx still pays its own execution cost, but the EOA signing
 the meta-tx pays nothing at all — the relayer covers the total. The
 backend's `/gas/meta-tx/estimate` computes the relayer's bill, which is
-what AgenticPay wants to show operators when pricing relay subsidies.
+what ManifestPay wants to show operators when pricing relay subsidies.
 
 ### `EIP7702Delegator.sol`
 

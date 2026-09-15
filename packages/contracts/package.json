@@ -1,5 +1,5 @@
 {
-  "name": "@agenticpay/contracts",
+  "name": "@manifestpay/contracts",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,11 +8,11 @@
     "lint": "echo 'No lint yet'"
   },
   "dependencies": {
-    "@agenticpay/types": "*"
+    "@manifestpay/types": "*"
   },
   "devDependencies": {
-    "@agenticpay/typescript-config": "*",
-    "@agenticpay/eslint-config": "*",
+    "@manifestpay/typescript-config": "*",
+    "@manifestpay/eslint-config": "*",
     "typescript": "^5.6.0"
   }
 }

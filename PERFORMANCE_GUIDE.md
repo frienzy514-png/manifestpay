@@ -1,6 +1,6 @@
 # Performance Monitoring & Optimization Guide
 
-This guide explains the comprehensive performance monitoring and optimization system implemented in AgenticPay.
+This guide explains the comprehensive performance monitoring and optimization system implemented in ManifestPay.
 
 ## Table of Contents
 
@@ -66,7 +66,7 @@ Reduces payload size by 60-80% on average, improving:
 
 ### Compression Methods
 
-AgenticPay uses the maintained Express `compression` middleware with streaming
+ManifestPay uses the maintained Express `compression` middleware with streaming
 backpressure support, negotiated encodings, and route-level filters.
 
 - Compression level: 6
@@ -231,7 +231,7 @@ Optimized connection pooling with PgBouncer for efficient resource utilization:
 Read replica routing is configured with:
 
 ```bash
-DB_READ_REPLICA_URLS=postgresql://user:pass@replica-a:5432/agenticpay,postgresql://user:pass@replica-b:5432/agenticpay
+DB_READ_REPLICA_URLS=postgresql://user:pass@replica-a:5432/manifestpay,postgresql://user:pass@replica-b:5432/manifestpay
 DB_REPLICA_MAX_LAG_MS=5000
 DB_REPLICA_HEALTH_CHECK_INTERVAL_MS=30000
 DB_REPLICA_FAILOVER_COOLDOWN_MS=15000
@@ -484,7 +484,7 @@ router.get('/api/v1/catalog', cacheControl({
 ### Warming & Invalidation
 
 `warmCache()` pre-loads hot keys on startup; `invalidateCache()` clears entries
-matching a glob against the internal `agenticpay:cache:` prefix.
+matching a glob against the internal `manifestpay:cache:` prefix.
 
 ### Further Reading
 
@@ -517,8 +517,8 @@ Returns combined metrics:
 All Core Web Vitals are automatically sent to Sentry:
 
 ```
-GET https://sentry.io/organizations/agenticpay/
-  → agenticpay-frontend project
+GET https://sentry.io/organizations/manifestpay/
+  → manifestpay-frontend project
   → Performance tab
   → Core Web Vitals section
 ```

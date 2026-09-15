@@ -31,7 +31,7 @@ jobs:
       postgres:
         image: postgres:16
         env:
-          POSTGRES_DB: agenticpay
+          POSTGRES_DB: manifestpay
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         options: >-
@@ -63,7 +63,7 @@ jobs:
       - name: Run full backup
         if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 2 * * *' || github.event.inputs.type == 'full' }}
         run: |
-          export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/agenticpay"
+          export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/manifestpay"
           bash scripts/backup.sh full
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -71,7 +71,7 @@ jobs:
       - name: Run incremental backup
         if: ${{ github.event_name == 'schedule' && github.event.schedule != '0 2 * * *' || github.event.inputs.type == 'incremental' }}
         run: |
-          export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/agenticpay"
+          export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/manifestpay"
           bash scripts/backup.sh incremental
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -79,7 +79,7 @@ jobs:
       - name: Verify backups
         if: ${{ github.event.inputs.type == 'verify' }}
         run: |
-          export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/agenticpay"
+          export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/manifestpay"
           bash scripts/backup.sh verify
 
       - name: Upload backup artifacts

@@ -76,7 +76,7 @@ describe('versionMiddleware()', () => {
   });
 
   it('reads version from Content-Type media type versioning', () => {
-    const req = makeReq({ headers: { 'content-type': 'application/vnd.agenticpay.v1+json' } });
+    const req = makeReq({ headers: { 'content-type': 'application/vnd.manifestpay.v1+json' } });
     const { res, headers } = makeRes();
 
     versionMiddleware(req, res, next);

@@ -17,14 +17,14 @@ describe('deployment-store', () => {
   let originalRoot: string | undefined;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'agenticpay-deploy-'));
-    originalRoot = process.env.AGENTICPAY_DEPLOYMENTS_DIR;
-    process.env.AGENTICPAY_DEPLOYMENTS_DIR = tmpDir;
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'manifestpay-deploy-'));
+    originalRoot = process.env.MANIFESTPAY_DEPLOYMENTS_DIR;
+    process.env.MANIFESTPAY_DEPLOYMENTS_DIR = tmpDir;
   });
 
   afterEach(() => {
-    if (originalRoot === undefined) delete process.env.AGENTICPAY_DEPLOYMENTS_DIR;
-    else process.env.AGENTICPAY_DEPLOYMENTS_DIR = originalRoot;
+    if (originalRoot === undefined) delete process.env.MANIFESTPAY_DEPLOYMENTS_DIR;
+    else process.env.MANIFESTPAY_DEPLOYMENTS_DIR = originalRoot;
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 

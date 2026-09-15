@@ -326,7 +326,7 @@ export async function sendInvoiceEmail(
   const result = await emailService.send({
     to: recipientEmail,
     toName: recipientName,
-    subject: `Invoice ${invoice.invoiceNumber} from AgenticPay`,
+    subject: `Invoice ${invoice.invoiceNumber} from ManifestPay`,
     html: `
       <h2>Invoice ${invoice.invoiceNumber}</h2>
       <p>Dear ${recipientName || 'Valued Customer'},</p>
@@ -339,7 +339,7 @@ export async function sendInvoiceEmail(
       ${invoice.dueDate ? `<p><strong>Due Date:</strong> ${new Date(invoice.dueDate).toLocaleDateString()}</p>` : ''}
       <p>${invoice.summary}</p>
       <hr/>
-      <p style="color:#666;font-size:12px">AgenticPay - Automated Invoice System</p>
+      <p style="color:#666;font-size:12px">ManifestPay - Automated Invoice System</p>
     `,
     attachments: [
       {

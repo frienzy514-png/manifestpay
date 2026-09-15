@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AgenticPay Sandbox provides a complete testing environment for API development without requiring real transactions on the blockchain.
+The ManifestPay Sandbox provides a complete testing environment for API development without requiring real transactions on the blockchain.
 
 ## Quick Start
 
@@ -285,7 +285,7 @@ Sandbox data is in-memory by default. It will clear on server restart.
 
 To persist test data, configure a local database:
 ```bash
-DATABASE_URL=postgresql://user:password@localhost:5432/agenticpay_sandbox
+DATABASE_URL=postgresql://user:password@localhost:5432/manifestpay_sandbox
 ```
 
 ### Webhook Simulation Fails
@@ -313,6 +313,6 @@ SANDBOX_LOG_WEBHOOKS=true
 
 ## Support
 
-- 📖 Full documentation: https://docs.agenticpay.com
-- 🐛 Issue tracker: https://github.com/Smartdevs17/agenticpay/issues
-- 💬 Discussion: https://github.com/Smartdevs17/agenticpay/discussions
+- 📖 Full documentation: https://docs.manifestpay.com
+- 🐛 Issue tracker: https://github.com/frienzy514-png/manifestpay/issues
+- 💬 Discussion: https://github.com/frienzy514-png/manifestpay/discussions

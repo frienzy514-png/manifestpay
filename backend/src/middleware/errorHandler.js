@@ -4,7 +4,7 @@ exports.NotFoundError = exports.ValidationError = exports.DisputeError = exports
 exports.asyncHandler = asyncHandler;
 exports.notFoundHandler = notFoundHandler;
 exports.errorHandler = errorHandler;
-const error_codes_1 = require("@agenticpay/error-codes");
+const error_codes_1 = require("@manifestpay/error-codes");
 const errors_1 = require("../types/errors");
 Object.defineProperty(exports, "AppError", { enumerable: true, get: function () { return errors_1.AppError; } });
 Object.defineProperty(exports, "PaymentError", { enumerable: true, get: function () { return errors_1.PaymentError; } });

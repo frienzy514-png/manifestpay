@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Offline — AgenticPay',
+  title: 'Offline — ManifestPay',
 };
 
 // Static (no dynamic data, no auth checks) so the service worker can precache

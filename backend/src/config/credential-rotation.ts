@@ -100,7 +100,7 @@ function addAuditEntry(entry: Omit<RotationAuditEntry, 'id'>): string {
 async function writeToSecretsManager(label: string, value: string): Promise<void> {
   const vaultAddr = process.env.VAULT_ADDR;
   const vaultToken = process.env.VAULT_TOKEN;
-  const secretPath = process.env.VAULT_SECRET_PATH ?? 'secret/data/agenticpay';
+  const secretPath = process.env.VAULT_SECRET_PATH ?? 'secret/data/manifestpay';
 
   if (!vaultAddr || !vaultToken) return; // Vault not configured — skip
 

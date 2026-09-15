@@ -6,9 +6,9 @@ import { observeCacheEnvelope } from '@/lib/cache/headers';
 import { getAccessibilitySnapshot } from '@/lib/server/public-cache';
 
 export const metadata: Metadata = {
-  title: 'Accessibility Statement | AgenticPay',
+  title: 'Accessibility Statement | ManifestPay',
   description:
-    'Learn how AgenticPay approaches accessibility, inclusive design, keyboard support, and ongoing improvements.',
+    'Learn how ManifestPay approaches accessibility, inclusive design, keyboard support, and ongoing improvements.',
 };
 
 export const revalidate = 86400;
@@ -40,10 +40,10 @@ export default async function AccessibilityPage() {
                   Accessibility Statement
                 </div>
                 <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-                  Building AgenticPay for more people, in more ways
+                  Building ManifestPay for more people, in more ways
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-blue-50 sm:text-lg">
-                  AgenticPay is committed to creating a product that is usable, understandable,
+                  ManifestPay is committed to creating a product that is usable, understandable,
                   and inclusive for everyone. Accessibility is part of how we design, build, and
                   improve the platform.
                 </p>
@@ -115,10 +115,10 @@ export default async function AccessibilityPage() {
                       <LifeBuoy className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
                       <div>
                         <p className="text-base leading-7 text-slate-700">
-                          If you experience an accessibility barrier while using AgenticPay, please
+                          If you experience an accessibility barrier while using ManifestPay, please
                           report it through the project&apos;s{' '}
                           <a
-                            href="https://github.com/Smartdevs17/agenticpay/issues"
+                            href="https://github.com/frienzy514-png/manifestpay/issues"
                             target="_blank"
                             rel="noreferrer"
                             className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4"

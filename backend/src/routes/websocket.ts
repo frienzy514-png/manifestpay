@@ -1,9 +1,9 @@
 import { Router, Request, Response } from 'express';
-import type { AgenticPayWebSocketServer } from '../websocket/server.js';
+import type { ManifestPayWebSocketServer } from '../websocket/server.js';
 import type { ConnectionManager } from '../websocket/connection-manager.js';
 
 export function createWebSocketRouter(
-  wsServer: AgenticPayWebSocketServer,
+  wsServer: ManifestPayWebSocketServer,
   connectionManager?: ConnectionManager,
 ) {
   const router = Router();

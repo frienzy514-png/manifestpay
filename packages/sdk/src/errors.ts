@@ -1,45 +1,45 @@
-// Re-export the canonical base class so there is exactly ONE AgenticPayError
+// Re-export the canonical base class so there is exactly ONE ManifestPayError
 // class in the module graph (avoids instanceof failures from dual-module issues).
-export { AgenticPayError } from './errors/base.js';
+export { ManifestPayError } from './errors/base.js';
 
-import { AgenticPayError } from './errors/base.js';
+import { ManifestPayError } from './errors/base.js';
 
-export class AuthenticationError extends AgenticPayError {
+export class AuthenticationError extends ManifestPayError {
   constructor(message = 'Authentication failed', details?: unknown) {
     super(message, { status: 401, code: 'AUTHENTICATION_ERROR', details });
     this.name = 'AuthenticationError';
   }
 }
 
-export class AuthorizationError extends AgenticPayError {
+export class AuthorizationError extends ManifestPayError {
   constructor(message = 'Not authorized', details?: unknown) {
     super(message, { status: 403, code: 'AUTHORIZATION_ERROR', details });
     this.name = 'AuthorizationError';
   }
 }
 
-export class ValidationError extends AgenticPayError {
+export class ValidationError extends ManifestPayError {
   constructor(message = 'Validation failed', details?: unknown) {
     super(message, { status: 400, code: 'VALIDATION_ERROR', details });
     this.name = 'ValidationError';
   }
 }
 
-export class NotFoundError extends AgenticPayError {
+export class NotFoundError extends ManifestPayError {
   constructor(message = 'Resource not found', details?: unknown) {
     super(message, { status: 404, code: 'NOT_FOUND', details });
     this.name = 'NotFoundError';
   }
 }
 
-export class RateLimitError extends AgenticPayError {
+export class RateLimitError extends ManifestPayError {
   constructor(message = 'Rate limit exceeded', details?: unknown) {
     super(message, { status: 429, code: 'RATE_LIMIT_EXCEEDED', details });
     this.name = 'RateLimitError';
   }
 }
 
-export class NetworkError extends AgenticPayError {
+export class NetworkError extends ManifestPayError {
   constructor(message = 'Network request failed', details?: unknown) {
     super(message, { code: 'NETWORK_ERROR', details });
     this.name = 'NetworkError';

@@ -1,7 +1,7 @@
 import { createHmac, randomUUID, timingSafeEqual } from 'node:crypto';
 
-export const WEBHOOK_SIGNATURE_HEADER = 'X-AgenticPay-Signature';
-export const WEBHOOK_TIMESTAMP_HEADER = 'X-AgenticPay-Timestamp';
+export const WEBHOOK_SIGNATURE_HEADER = 'X-ManifestPay-Signature';
+export const WEBHOOK_TIMESTAMP_HEADER = 'X-ManifestPay-Timestamp';
 export const WEBHOOK_SIGNATURE_VERSION = 'v1';
 export const DEFAULT_WEBHOOK_TOLERANCE_SECONDS = 300;
 

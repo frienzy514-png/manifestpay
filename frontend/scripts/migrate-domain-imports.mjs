@@ -4,7 +4,7 @@ const replacements = new Map([
   ['@/components/payment/', '@payments/components/'],
   ['@/lib/hooks/useDashboardData', '@analytics/hooks'],
   ['@/lib/hooks/useWeb3', '@wallets/hooks'],
-  ['@/lib/hooks/useAgenticPay', '@wallets/hooks'],
+  ['@/lib/hooks/useManifestPay', '@wallets/hooks'],
 ]);
 
 const files = process.argv.slice(2);

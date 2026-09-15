@@ -14,7 +14,7 @@ describe('DatabasePoolManager with PgBouncer optimization', () => {
 
   it('adjusts Prisma connection parameters when PgBouncer is enabled', () => {
     const manager = new DatabasePoolManager({
-      connectionString: 'postgresql://postgres:secret@rds-proxy.internal:5432/agenticpay',
+      connectionString: 'postgresql://postgres:secret@rds-proxy.internal:5432/manifestpay',
       pgbouncer: true,
       max: 15,
       connectionTimeoutMillis: 10000,

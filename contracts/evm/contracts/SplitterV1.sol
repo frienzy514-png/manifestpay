@@ -6,7 +6,7 @@ import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/Own
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import {ReentrancyGuardUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 
-/// @title AgenticPay Splitter (V1, UUPS-upgradeable)
+/// @title ManifestPay Splitter (V1, UUPS-upgradeable)
 /// @notice Distributes incoming payments across a configurable set of
 ///         recipients while retaining a basis-point platform fee.
 /// @dev Upgradeable variant of the original `Splitter.sol`. Storage layout

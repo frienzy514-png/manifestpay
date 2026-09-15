@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/// @title AgenticPay Splitter
+/// @title ManifestPay Splitter
 /// @notice Reference contract for split-payment distribution and platform fees.
 contract Splitter {
     struct Recipient {

@@ -69,10 +69,10 @@ function nextTokenId(): string {
 
 function buildMetadata(receipt: Omit<ReceiptNFT, 'metadata'>): ReceiptMetadata {
   return {
-    name: `AgenticPay Receipt #${receipt.tokenId}`,
+    name: `ManifestPay Receipt #${receipt.tokenId}`,
     description: `Verified payment receipt for transaction ${receipt.transactionHash}`,
-    image: `https://receipts.agenticpay.io/nft/${receipt.tokenId}.png`,
-    external_url: `https://agenticpay.io/receipts/${receipt.tokenId}`,
+    image: `https://receipts.manifestpay.io/nft/${receipt.tokenId}.png`,
+    external_url: `https://manifestpay.io/receipts/${receipt.tokenId}`,
     attributes: [
       { trait_type: 'Payment ID', value: receipt.paymentId },
       { trait_type: 'Transaction Hash', value: receipt.transactionHash },
@@ -321,7 +321,7 @@ export function generateReceiptPdf(receipt: ReceiptNFT): Buffer {
   });
 
   const lines = [
-    'AgenticPay Payment Receipt',
+    'ManifestPay Payment Receipt',
     `Receipt: ${receipt.tokenId}`,
     `Payment: ${receipt.paymentId}`,
     `Amount: ${receipt.amount} ${receipt.currency}`,

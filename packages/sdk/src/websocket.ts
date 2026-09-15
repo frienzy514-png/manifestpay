@@ -28,7 +28,7 @@ type WireMessage = {
  * - Auth token refresh on auth.expired server messages
  * - Subscribe/unsubscribe channel management
  */
-export class AgenticPayWebSocket {
+export class ManifestPayWebSocket {
   private ws: WebSocket | null = null;
   private destroyed = false;
   private reconnectDelay: number;

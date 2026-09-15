@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AgenticPay sandbox environment provides an isolated testing environment where merchants can test payment flows, API integration, and webhook delivery without using real funds or interacting with the actual blockchain.
+The ManifestPay sandbox environment provides an isolated testing environment where merchants can test payment flows, API integration, and webhook delivery without using real funds or interacting with the actual blockchain.
 
 ## Features
 

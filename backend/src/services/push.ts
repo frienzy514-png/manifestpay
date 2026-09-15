@@ -62,7 +62,7 @@ class PushService {
       }
       
       setVapidDetails(
-        'mailto:security@agenticpay.com',
+        'mailto:security@manifestpay.com',
         this.vapidKeys.publicKey,
         this.vapidKeys.privateKey
       );

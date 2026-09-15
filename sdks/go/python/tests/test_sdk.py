@@ -1,4 +1,4 @@
-"""Tests for the AgenticPay Python SDK."""
+"""Tests for the ManifestPay Python SDK."""
 
 import json
 import time
@@ -6,25 +6,25 @@ from typing import Any
 
 import pytest
 
-from agenticpay import (
-    AgenticPayError,
-    AgenticPaySDK,
+from manifestpay import (
+    ManifestPayError,
+    ManifestPaySDK,
     AuthenticationError,
     ClientConfig,
     NotFoundError,
     RateLimitError,
     ValidationError,
-    create_agenticpay_sdk,
+    create_manifestpay_sdk,
     verify_webhook_signature,
 )
-from agenticpay.client import AgenticPayClient, RetryConfig
-from agenticpay.testing import (
-    MockAgenticPayServer,
+from manifestpay.client import ManifestPayClient, RetryConfig
+from manifestpay.testing import (
+    MockManifestPayServer,
     MockRoute,
     create_test_client,
     create_test_sdk,
 )
-from agenticpay.types import (
+from manifestpay.types import (
     CancelSubscriptionInput,
     CreatePlanInput,
     CreateSubscriptionInput,
@@ -36,15 +36,15 @@ from agenticpay.types import (
     SubscriptionInterval,
     VerificationRequest,
 )
-from agenticpay.auth import AuthProvider, build_auth_header
-from agenticpay.errors import raise_for_status
+from manifestpay.auth import AuthProvider, build_auth_header
+from manifestpay.errors import raise_for_status
 
 
 # ─── Fixtures ─────────────────────────────────────────────────────────────────
 
 @pytest.fixture
 def mock_server():
-    server = MockAgenticPayServer()
+    server = MockManifestPayServer()
     server.start()
     yield server
     server.stop()
@@ -58,8 +58,8 @@ def sdk(mock_server):
 # ─── Error tests ──────────────────────────────────────────────────────────────
 
 class TestErrors:
-    def test_agenticpay_error_attributes(self):
-        err = AgenticPayError("test", status=500, code="ERR_INTERNAL")
+    def test_manifestpay_error_attributes(self):
+        err = ManifestPayError("test", status=500, code="ERR_INTERNAL")
         assert err.message == "test"
         assert err.status == 500
         assert err.code == "ERR_INTERNAL"
@@ -115,7 +115,7 @@ class TestClient:
             MockRoute("POST", "/test", status=400, body={"error": {"message": "bad request", "code": "ERR_VALIDATION_FAILED"}})
         )
         client = create_test_client(base_url=mock_server.url)
-        with pytest.raises(AgenticPayError) as exc_info:
+        with pytest.raises(ManifestPayError) as exc_info:
             client.post("/test", {})
         assert exc_info.value.code == "ERR_VALIDATION_FAILED"
 
@@ -279,7 +279,7 @@ class TestAuth:
             def get_access_token(self):
                 return "bearer_token_123"
 
-        sdk = AgenticPaySDK(
+        sdk = ManifestPaySDK(
             base_url=mock_server.url,
             auth_provider=TestAuth(),
         )

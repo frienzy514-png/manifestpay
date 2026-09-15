@@ -1,4 +1,4 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 
 export type InvoiceStatus = 'draft' | 'sent' | 'paid' | 'overdue' | 'cancelled';
 
@@ -31,7 +31,7 @@ export type GenerateInvoiceInput = {
 };
 
 export class InvoicesApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** Generate an AI-powered invoice for completed work. */
   generate(input: GenerateInvoiceInput) {

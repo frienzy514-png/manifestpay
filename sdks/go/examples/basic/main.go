@@ -1,4 +1,4 @@
-// Package main demonstrates common AgenticPay Go SDK workflows.
+// Package main demonstrates common ManifestPay Go SDK workflows.
 package main
 
 import (
@@ -6,18 +6,18 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/Kappa16/agenticpay/sdks/go/agenticpay"
+	"github.com/frienzy514-png/manifestpay/sdks/go/manifestpay"
 )
 
 func main() {
-	client := agenticpay.New("https://api.agenticpay.com/api/v1", "sk_live_your_key_here")
+	client := manifestpay.New("https://api.manifestpay.com/api/v1", "sk_live_your_key_here")
 	ctx := context.Background()
 
 	// ── Create a subscription plan ───────────────────────────────────────────
-	plan, err := client.Subscriptions.CreatePlan(ctx, agenticpay.CreatePlanParams{
+	plan, err := client.Subscriptions.CreatePlan(ctx, manifestpay.CreatePlanParams{
 		MerchantID:  "m_abc123",
 		Name:        "Pro Plan",
-		Interval:    agenticpay.IntervalMonthly,
+		Interval:    manifestpay.IntervalMonthly,
 		Amount:      29.99,
 		Currency:    "USD",
 		TrialDays:   14,
@@ -28,7 +28,7 @@ func main() {
 	fmt.Printf("Created plan %s (status: %v)\n", plan.ID, plan.IsActive)
 
 	// ── Enroll a customer in a subscription ──────────────────────────────────
-	sub, err := client.Subscriptions.Enroll(ctx, agenticpay.CreateSubscriptionParams{
+	sub, err := client.Subscriptions.Enroll(ctx, manifestpay.CreateSubscriptionParams{
 		CustomerID: "cus_abc123",
 		PlanID:     plan.ID,
 	})
@@ -38,13 +38,13 @@ func main() {
 	fmt.Printf("Created subscription %s (status: %s)\n", sub.ID, sub.Status)
 
 	// ── Create an escrow agreement ───────────────────────────────────────────
-	escrow, err := client.Escrow.Create(ctx, agenticpay.CreateEscrowParams{
+	escrow, err := client.Escrow.Create(ctx, manifestpay.CreateEscrowParams{
 		ProjectID:   "proj_001",
 		PayerID:     "payer_001",
 		PayeeID:     "payee_001",
 		Currency:    "XLM",
 		TotalAmount: 1000,
-		Milestones: []agenticpay.EscrowMilestone{
+		Milestones: []manifestpay.EscrowMilestone{
 			{
 				Title:              "Design Phase",
 				Amount:             500,
@@ -63,7 +63,7 @@ func main() {
 	fmt.Printf("Created escrow %s (status: %s)\n", escrow.ID, escrow.Status)
 
 	// ── Verify freelancer work ───────────────────────────────────────────────
-	verification, err := client.Verification.Verify(ctx, agenticpay.VerificationRequest{
+	verification, err := client.Verification.Verify(ctx, manifestpay.VerificationRequest{
 		RepositoryURL:        "https://github.com/user/repo",
 		MilestoneDescription: "Implement user authentication",
 		ProjectID:            "proj_001",
@@ -74,7 +74,7 @@ func main() {
 	fmt.Printf("Verification %s: status=%s\n", verification.ID, verification.Status)
 
 	// ── Generate an invoice ──────────────────────────────────────────────────
-	invoice, err := client.Invoices.Generate(ctx, agenticpay.GenerateInvoiceParams{
+	invoice, err := client.Invoices.Generate(ctx, manifestpay.GenerateInvoiceParams{
 		ProjectID:       "proj_001",
 		MerchantID:      "m_001",
 		WorkDescription: "Full-stack development, 40 hours",
@@ -104,7 +104,7 @@ func main() {
 	}
 
 	// ── Cancel subscription ──────────────────────────────────────────────────
-	cancelled, err := client.Subscriptions.Cancel(ctx, sub.ID, agenticpay.CancelParams{
+	cancelled, err := client.Subscriptions.Cancel(ctx, sub.ID, manifestpay.CancelParams{
 		Immediately: false,
 		Reason:      "customer request",
 	})

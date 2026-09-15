@@ -43,8 +43,8 @@ for (const file of files) {
   const source = readFileSync(absPath, 'utf8');
   for (const name of domainNames) {
     const duplicatePattern = new RegExp(`export\\s+(interface|type)\\s+${name}\\b`);
-    if (duplicatePattern.test(source) && !source.includes('@agenticpay/types')) {
-      duplicates.push(`${file}: duplicate ${name}; import it from @agenticpay/types instead`);
+    if (duplicatePattern.test(source) && !source.includes('@manifestpay/types')) {
+      duplicates.push(`${file}: duplicate ${name}; import it from @manifestpay/types instead`);
     }
   }
 }

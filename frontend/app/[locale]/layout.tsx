@@ -9,9 +9,9 @@ import { OfflineProvider } from '@/components/offline/OfflineProvider';
 import { WebVitals } from '@/components/WebVitals';
 import { RouteTransitionMetrics } from '@/components/analytics/RouteTransitionMetrics';
 
-const APP_DOMAIN = process.env.NEXT_PUBLIC_API_URL || 'https://agenticpay.com';
-const CDN_DOMAIN = process.env.NEXT_PUBLIC_IMAGE_CDN_DOMAIN || 'cdn.agenticpay.com';
-const RPC_DOMAIN = process.env.NEXT_PUBLIC_RPC_URL || 'https://rpc.agenticpay.com';
+const APP_DOMAIN = process.env.NEXT_PUBLIC_API_URL || 'https://manifestpay.com';
+const CDN_DOMAIN = process.env.NEXT_PUBLIC_IMAGE_CDN_DOMAIN || 'cdn.manifestpay.com';
+const RPC_DOMAIN = process.env.NEXT_PUBLIC_RPC_URL || 'https://rpc.manifestpay.com';
 
 type Props = {
   children: React.ReactNode;

@@ -135,7 +135,7 @@ export class PaymentLinksService {
   }
 
   private buildLinkUrl(slug: string): string {
-    return `https://pay.agenticpay.com/r/${slug}`;
+    return `https://pay.manifestpay.com/r/${slug}`;
   }
 
   private initVariantAnalytics(variants?: ABTestVariant[]): Record<string, VariantAnalytics> {
@@ -571,7 +571,7 @@ export class PaymentLinksService {
     }
 
     const encoded = encodeURIComponent(url);
-    const text = encodeURIComponent('Complete your payment securely with AgenticPay');
+    const text = encodeURIComponent('Complete your payment securely with ManifestPay');
 
     return {
       url,
@@ -592,4 +592,4 @@ export class PaymentLinksService {
   }
 }
 
-export const paymentLinksService = new PaymentLinksService();
+export const paymentLinksService = new PaymentLinksService();

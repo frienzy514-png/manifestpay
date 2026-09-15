@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * OpenAPI Specification Generator for AgenticPay
+ * OpenAPI Specification Generator for ManifestPay
  * Generates OpenAPI spec from Zod schemas + route registry, Postman collection, and SDK stubs.
  */
 
@@ -9,7 +9,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createOpenAPIGenerator } from '../src/lib/openapi-generator.js';
 import { registerRoutesFromRegistry } from '../src/lib/openapi-registry.js';
-import { API_OPERATIONS } from '@agenticpay/api-spec';
+import { API_OPERATIONS } from '@manifestpay/api-spec';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BACKEND_ROOT = path.resolve(__dirname, '..');
@@ -28,7 +28,7 @@ async function loadConfig(): Promise<GeneratorConfig> {
   const configPath = path.join(BACKEND_ROOT, 'openapi.config.json');
 
   const defaultConfig: GeneratorConfig = {
-    title: 'AgenticPay API',
+    title: 'ManifestPay API',
     version: '1.0.0',
     description: 'AI-Powered Payment Infrastructure for Autonomous Agents',
     baseUrl: 'http://localhost:3001/api/v1',
@@ -130,7 +130,7 @@ async function generatePostmanCollection(config: GeneratorConfig): Promise<void>
 
   const collection = {
     info: {
-      name: 'AgenticPay API',
+      name: 'ManifestPay API',
       description: 'Auto-generated from OpenAPI spec',
       schema: 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json',
     },
@@ -148,7 +148,7 @@ async function generatePostmanCollection(config: GeneratorConfig): Promise<void>
   const postmanDir = path.join(config.outputDir, 'postman');
   fs.mkdirSync(postmanDir, { recursive: true });
   fs.writeFileSync(
-    path.join(postmanDir, 'AgenticPay-API.postman_collection.json'),
+    path.join(postmanDir, 'ManifestPay-API.postman_collection.json'),
     JSON.stringify(collection, null, 2)
   );
   console.log(`  Postman collection -> ${postmanDir}`);
@@ -171,26 +171,26 @@ async function generateTypeScriptSdkFromSpec(config: GeneratorConfig): Promise<v
     console.warn('  openapi-typescript not available; writing minimal SDK client');
     fs.writeFileSync(
       path.join(sdkDir, 'client.ts'),
-      `/** Auto-generated AgenticPay SDK — run npm run openapi:generate to refresh */\n` +
+      `/** Auto-generated ManifestPay SDK — run npm run openapi:generate to refresh */\n` +
         `export type { paths } from './schema.js';\n`
     );
   }
 
   const client = `/**
- * AgenticPay TypeScript SDK (generated)
+ * ManifestPay TypeScript SDK (generated)
  * @see ${config.baseUrl}
  */
 import createClient from 'openapi-fetch';
 import type { paths } from './schema.js';
 
-export function createAgenticPayClient(token: string, baseUrl = '${config.baseUrl}') {
+export function createManifestPayClient(token: string, baseUrl = '${config.baseUrl}') {
   return createClient<paths>({
     baseUrl,
     headers: { Authorization: \`Bearer \${token}\` },
   });
 }
 
-export default createAgenticPayClient;
+export default createManifestPayClient;
 `;
   fs.writeFileSync(path.join(sdkDir, 'client.ts'), client);
   console.log(`  TypeScript SDK -> ${sdkDir}`);
@@ -207,13 +207,13 @@ async function writeExplorerHtml(config: GeneratorConfig): Promise<void> {
   fs.writeFileSync(
     path.join(explorerDir, 'index.html'),
     `<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=/docs"/></head>
-<body><a href="/docs">AgenticPay API Docs</a></body></html>`
+<body><a href="/docs">ManifestPay API Docs</a></body></html>`
   );
 }
 
 export async function main(): Promise<void> {
   const config = await loadConfig();
-  console.log('OpenAPI Generator — AgenticPay');
+  console.log('OpenAPI Generator — ManifestPay');
   console.log(`Version: ${config.version}\n`);
 
   await generateOpenAPISpec(config);

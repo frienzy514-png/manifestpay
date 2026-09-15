@@ -1,8 +1,8 @@
 {
-  "name": "agenticpay-contracts-evm",
+  "name": "manifestpay-contracts-evm",
   "version": "0.1.0",
   "private": true,
-  "description": "EVM-side AgenticPay contracts (upgradeable Splitter) with Hardhat-driven deployment automation",
+  "description": "EVM-side ManifestPay contracts (upgradeable Splitter) with Hardhat-driven deployment automation",
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",

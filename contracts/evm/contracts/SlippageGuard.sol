@@ -4,7 +4,7 @@ pragma solidity ^0.8.24;
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-/// @title AgenticPay Slippage Guard
+/// @title ManifestPay Slippage Guard
 /// @notice Enforces a hard, on-chain floor on swap/settlement output amounts.
 ///         The backend computes an expected output off-chain via simulation
 ///         (see backend/src/services/slippage-protection.ts) and passes the

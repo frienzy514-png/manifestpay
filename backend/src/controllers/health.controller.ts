@@ -63,7 +63,7 @@ export class HealthController {
 
     const response: HealthCheckResponse = {
       status: overallStatus as 'healthy' | 'degraded' | 'unhealthy',
-      service: 'agenticpay-backend',
+      service: 'manifestpay-backend',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
       dependencies,

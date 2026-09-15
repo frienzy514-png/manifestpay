@@ -181,7 +181,7 @@ const command = process.argv[2];
 
 if (!command || !(command in commands)) {
   console.log(`
-AgenticPay Migration Runner — Issue #47 / #207
+ManifestPay Migration Runner — Issue #47 / #207
 Usage: npx tsx migrations/runner.ts <command>
 
 Commands:

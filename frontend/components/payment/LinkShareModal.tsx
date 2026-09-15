@@ -27,13 +27,13 @@ export function LinkShareModal({ isOpen, onClose, slug, description }: LinkShare
   const [copiedEmbed, setCopiedEmbed] = useState(false);
   const [campaignSource, setCampaignSource] = useState("direct");
 
-  const baseUrl = `https://pay.agenticpay.com/r/${slug}`;
+  const baseUrl = `https://pay.manifestpay.com/r/${slug}`;
   const shareUrl = campaignSource && campaignSource !== "direct"
     ? `${baseUrl}?source=${encodeURIComponent(campaignSource)}`
     : baseUrl;
 
   const encodedUrl = encodeURIComponent(shareUrl);
-  const shareText = encodeURIComponent("Pay securely via AgenticPay Link");
+  const shareText = encodeURIComponent("Pay securely via ManifestPay Link");
 
   const socialLinks = [
     { name: "Twitter / X", icon: Twitter, href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareText}`, color: "bg-black text-white hover:bg-gray-800" },

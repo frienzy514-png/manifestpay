@@ -1,37 +1,37 @@
 # Sentry Dashboards Configuration
 dashboards:
-  - title: "AgenticPay Frontend Errors"
+  - title: "ManifestPay Frontend Errors"
     widgets:
       - title: "Events by Release"
         displayType: "line"
         queries:
           - name: "Errors"
-            conditions: "event.type:error project:agenticpay-frontend"
+            conditions: "event.type:error project:manifestpay-frontend"
             aggregates: ["count()"]
       - title: "User Impact"
         displayType: "big_number"
         queries:
           - name: "Affected Users"
-            conditions: "event.type:error project:agenticpay-frontend"
+            conditions: "event.type:error project:manifestpay-frontend"
             aggregates: ["count_unique(user)"]
       - title: "Top Unhandled Errors"
         displayType: "table"
         queries:
           - name: "Top Errors"
-            conditions: "error.unhandled:true project:agenticpay-frontend"
+            conditions: "error.unhandled:true project:manifestpay-frontend"
             aggregates: ["count()"]
 
-  - title: "AgenticPay Backend Monitoring"
+  - title: "ManifestPay Backend Monitoring"
     widgets:
       - title: "Backend API Errors"
         displayType: "line"
         queries:
           - name: "Errors"
-            conditions: "event.type:error project:agenticpay-backend"
+            conditions: "event.type:error project:manifestpay-backend"
             aggregates: ["count()"]
       - title: "Slow Transactions (p95)"
         displayType: "line"
         queries:
           - name: "Duration"
-            conditions: "event.type:transaction project:agenticpay-backend"
+            conditions: "event.type:transaction project:manifestpay-backend"
             aggregates: ["p95(transaction.duration)"]

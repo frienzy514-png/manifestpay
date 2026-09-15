@@ -17,7 +17,7 @@ legacyRouter.get(
     deprecationMiddleware({
         deprecationDate: '2023-10-01',
         sunsetDate: '2024-12-31',
-        alternativeUrl: 'https://agenticpay.io/docs/api/v2/data'
+        alternativeUrl: 'https://manifestpay.io/docs/api/v2/data'
     }),
     (req: Request, res: Response) => {
         res.json({

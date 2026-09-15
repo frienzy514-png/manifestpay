@@ -1,8 +1,8 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 import { InvoiceRequest, VerificationRequest } from './types.js';
 
 export class VerificationApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   verifyWork(input: VerificationRequest) {
     return this.client.post('/verification/verify', input);

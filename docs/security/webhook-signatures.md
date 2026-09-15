@@ -1,13 +1,13 @@
 # Webhook Signatures
 
-AgenticPay signs every outbound webhook with HMAC-SHA256 using the merchant webhook secret.
+ManifestPay signs every outbound webhook with HMAC-SHA256 using the merchant webhook secret.
 
 Headers:
 
-- `X-AgenticPay-Signature`: versioned signature, for example `v1=<hex digest>`
-- `X-AgenticPay-Timestamp`: Unix timestamp in seconds
-- `X-AgenticPay-Signature-Version`: signature version
-- `X-AgenticPay-Event-Id`: event id
+- `X-ManifestPay-Signature`: versioned signature, for example `v1=<hex digest>`
+- `X-ManifestPay-Timestamp`: Unix timestamp in seconds
+- `X-ManifestPay-Signature-Version`: signature version
+- `X-ManifestPay-Event-Id`: event id
 
 The signed message is:
 
@@ -18,13 +18,13 @@ timestamp + "." + raw_request_body
 Reject webhooks when the timestamp is more than 5 minutes from local time.
 
 ```ts
-import { verifyWebhookSignature } from '@agenticpay/sdk';
+import { verifyWebhookSignature } from '@manifestpay/sdk';
 
 const valid = verifyWebhookSignature({
   payload: rawBody,
-  signature: req.headers['x-agenticpay-signature'],
-  timestamp: req.headers['x-agenticpay-timestamp'],
-  secret: process.env.AGENTICPAY_WEBHOOK_SECRET!,
+  signature: req.headers['x-manifestpay-signature'],
+  timestamp: req.headers['x-manifestpay-timestamp'],
+  secret: process.env.MANIFESTPAY_WEBHOOK_SECRET!,
 });
 ```
 

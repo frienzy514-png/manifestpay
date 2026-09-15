@@ -1,5 +1,5 @@
 import type { NextFunction, Request, RequestHandler, Response } from 'express';
-import { API_OPERATIONS, type ApiOperationSchema, pathToRegex } from '@agenticpay/api-spec';
+import { API_OPERATIONS, type ApiOperationSchema, pathToRegex } from '@manifestpay/api-spec';
 import { ZodError, type ZodTypeAny } from 'zod';
 import { AppError } from './errorHandler.js';
 

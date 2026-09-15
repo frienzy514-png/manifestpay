@@ -1,6 +1,6 @@
-# Contributing to AgenticPay
+# Contributing to ManifestPay
 
-Thanks for your interest in contributing to AgenticPay. This guide covers the expectations for code style, commits, pull requests, and testing so contributions are easy to review and merge.
+Thanks for your interest in contributing to ManifestPay. This guide covers the expectations for code style, commits, pull requests, and testing so contributions are easy to review and merge.
 
 ## Project Structure
 

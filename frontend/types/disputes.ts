@@ -5,7 +5,7 @@ import type {
   Evidence,
   DisputeMessage,
   Dispute,
-} from "@agenticpay/types";
+} from "@manifestpay/types";
 
 export type {
   DisputeStatus,

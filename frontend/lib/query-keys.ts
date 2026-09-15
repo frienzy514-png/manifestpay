@@ -1,5 +1,5 @@
 export const queryKeys = {
-  all: ['agenticpay'] as const,
+  all: ['manifestpay'] as const,
   payments: {
     all: () => [...queryKeys.all, 'payments'] as const,
     lists: () => [...queryKeys.payments.all(), 'list'] as const,

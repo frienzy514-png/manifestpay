@@ -24,7 +24,7 @@ echo "Analyzing JavaScript bundles..."
 JS_FILES=($(find "$FRONTEND_DIR/.next/static/chunks" -name "*.js" 2>/dev/null || true))
 
 if [ ${#JS_FILES[@]} -eq 0 ]; then
-  echo "No JS chunk files found. Build the project first with: npm run build --filter=agenticpay-frontend"
+  echo "No JS chunk files found. Build the project first with: npm run build --filter=manifestpay-frontend"
   exit 1
 fi
 

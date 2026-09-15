@@ -101,7 +101,7 @@ function processEmailJob(job) {
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
-                    _a = job.data, to = _a.to, subject = _a.subject, body = _a.body, html = _a.html, _b = _a.from, from = _b === void 0 ? 'noreply@agenticpay.dev' : _b;
+                    _a = job.data, to = _a.to, subject = _a.subject, body = _a.body, html = _a.html, _b = _a.from, from = _b === void 0 ? 'noreply@manifestpay.dev' : _b;
                     if (!to || !subject || !body) {
                         throw new Error('Missing required email fields: to, subject, body');
                     }

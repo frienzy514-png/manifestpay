@@ -1,7 +1,7 @@
 /**
- * @agenticpay/sdk-testing
+ * @manifestpay/sdk-testing
  *
- * Comprehensive testing utilities for applications built with the AgenticPay SDK.
+ * Comprehensive testing utilities for applications built with the ManifestPay SDK.
  * Provides mock servers, test factories, assertion helpers, and event simulators.
  */
 
@@ -55,7 +55,7 @@ export type MockServerInstance = {
  * Creates a lightweight HTTP mock server for testing SDK integrations.
  *
  * @example
- *   const server = await MockAgenticPayServer.create({
+ *   const server = await MockManifestPayServer.create({
  *     routes: [
  *       { method: 'POST', path: '/verification/verify', body: { id: 'v_1', status: 'verified' } },
  *     ],
@@ -63,7 +63,7 @@ export type MockServerInstance = {
  *   // Use server.url to configure the SDK
  *   await server.close();
  */
-export class MockAgenticPayServer {
+export class MockManifestPayServer {
   private server: http.Server;
   private routes: MockRoute[];
   private requests: RecordedRequest[] = [];
@@ -80,7 +80,7 @@ export class MockAgenticPayServer {
   }
 
   static async create(options: MockServerOptions = {}): Promise<MockServerInstance> {
-    const instance = new MockAgenticPayServer(options);
+    const instance = new MockManifestPayServer(options);
     return instance.start();
   }
 
@@ -192,7 +192,7 @@ export class MockAgenticPayServer {
 
 // ─── Test Factories ───────────────────────────────────────────────────────────
 
-import { createAgenticPaySDK } from '@agenticpay/sdk';
+import { createManifestPaySDK } from '@manifestpay/sdk';
 
 export type TestSDKOptions = {
   baseUrl?: string;
@@ -203,7 +203,7 @@ export type TestSDKOptions = {
  * Create an SDK instance configured for testing against a mock server.
  */
 export function createTestSDK(options: TestSDKOptions = {}) {
-  return createAgenticPaySDK({
+  return createManifestPaySDK({
     baseUrl: options.baseUrl ?? 'http://127.0.0.1:0/api/v1',
     apiKey: options.apiKey ?? 'test_api_key',
     timeoutMs: 5000,
@@ -372,14 +372,14 @@ export function createTestWebhookSignature(
 
 // ─── Assertion Helpers ────────────────────────────────────────────────────────
 
-import { AgenticPayError } from '@agenticpay/sdk';
+import { ManifestPayError } from '@manifestpay/sdk';
 
 /**
- * Assert that an error is an AgenticPayError with an expected status.
+ * Assert that an error is an ManifestPayError with an expected status.
  */
-export function expectApiError(error: unknown, expectedStatus?: number): AgenticPayError {
-  if (!(error instanceof AgenticPayError)) {
-    throw new Error(`Expected AgenticPayError, got ${typeof error}: ${String(error)}`);
+export function expectApiError(error: unknown, expectedStatus?: number): ManifestPayError {
+  if (!(error instanceof ManifestPayError)) {
+    throw new Error(`Expected ManifestPayError, got ${typeof error}: ${String(error)}`);
   }
   if (expectedStatus !== undefined && error.status !== expectedStatus) {
     throw new Error(

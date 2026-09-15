@@ -1,8 +1,8 @@
 {
-  "name": "AgenticPay",
+  "name": "ManifestPay",
   "dockerComposeFile": "docker-compose.yml",
   "service": "devcontainer",
-  "workspaceFolder": "/workspaces/agenticpay",
+  "workspaceFolder": "/workspaces/manifestpay",
   "remoteUser": "node",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
@@ -23,7 +23,7 @@
   },
   "containerEnv": {
     "NODE_ENV": "development",
-    "DATABASE_URL": "postgresql://postgres:postgres@postgres:5432/agenticpay",
+    "DATABASE_URL": "postgresql://postgres:postgres@postgres:5432/manifestpay",
     "REDIS_URL": "redis://redis:6379",
     "REDIS_ENABLED": "true",
     "PORT": "3001",
@@ -65,6 +65,6 @@
     }
   },
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspaces/agenticpay,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder},target=/workspaces/manifestpay,type=bind,consistency=cached"
   ]
 }

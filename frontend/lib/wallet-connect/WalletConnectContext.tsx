@@ -21,10 +21,10 @@ const CHAINS: ChainInfo[] = [
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'demo-project-id';
 
 const metadata = {
-  name: 'AgenticPay',
+  name: 'ManifestPay',
   description: 'Decentralized payment platform',
-  url: typeof window !== 'undefined' ? window.location.origin : 'https://agenticpay.com',
-  icons: ['https://agenticpay.com/icon.png'],
+  url: typeof window !== 'undefined' ? window.location.origin : 'https://manifestpay.com',
+  icons: ['https://manifestpay.com/icon.png'],
 };
 
 export interface WalletConnectState {

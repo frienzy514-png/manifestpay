@@ -1,1 +1,1 @@
-export type { Transaction } from '@agenticpay/types';
+export type { Transaction } from '@manifestpay/types';

@@ -1,6 +1,6 @@
 # Structured Logging (#409)
 
-AgenticPay backend uses **Pino** for JSON structured logs with correlation IDs.
+ManifestPay backend uses **Pino** for JSON structured logs with correlation IDs.
 
 ## Fields
 
@@ -24,7 +24,7 @@ docker compose up -d loki grafana
 ```
 
 - Grafana: http://localhost:3002 (admin / admin)
-- Query: `{service="agenticpay-backend"}` in Explore → Loki
+- Query: `{service="manifestpay-backend"}` in Explore → Loki
 
 Ship production logs with Promtail or your cloud log agent targeting Loki.
 

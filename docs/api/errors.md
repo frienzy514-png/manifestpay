@@ -1,4 +1,4 @@
-# AgenticPay Error Codes
+# ManifestPay Error Codes
 
 All API errors use:
 

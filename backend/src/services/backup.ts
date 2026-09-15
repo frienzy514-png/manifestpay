@@ -36,10 +36,10 @@ export interface RestorePoint {
 }
 
 const DEFAULT_CONFIG: BackupConfig = {
-    dbUrl: process.env.DATABASE_URL || 'postgresql://localhost:5432/agenticpay',
-    s3Bucket: process.env.S3_BACKUP_BUCKET || 'agenticpay-backups',
+    dbUrl: process.env.DATABASE_URL || 'postgresql://localhost:5432/manifestpay',
+    s3Bucket: process.env.S3_BACKUP_BUCKET || 'manifestpay-backups',
     s3Region: process.env.S3_REGION || 'us-east-1',
-    backupDir: process.env.BACKUP_DIR || '/var/backups/agenticpay',
+    backupDir: process.env.BACKUP_DIR || '/var/backups/manifestpay',
     retentionDays: parseInt(process.env.BACKUP_RETENTION_DAYS || '30', 10),
     incrementalIntervalHours: 6,
 };

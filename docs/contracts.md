@@ -1,6 +1,6 @@
-# AgenticPay Smart Contract Documentation
+# ManifestPay Smart Contract Documentation
 
-The `AgenticPayContract` is a Soroban-based smart contract designed to facilitate secure payments between clients and freelancers using an escrow mechanism. It ensures funds are held securely and only released upon delivery and approval of work.
+The `ManifestPayContract` is a Soroban-based smart contract designed to facilitate secure payments between clients and freelancers using an escrow mechanism. It ensures funds are held securely and only released upon delivery and approval of work.
 
 ## Data Types
 

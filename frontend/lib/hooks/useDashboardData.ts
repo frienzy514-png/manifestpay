@@ -1,4 +1,4 @@
-import { useAgenticPay } from '@/lib/hooks/useAgenticPay';
+import { useManifestPay } from '@/lib/hooks/useManifestPay';
 import { useAccount } from 'wagmi';
 
 // Define return types for the dashboard data
@@ -34,7 +34,7 @@ export interface DashboardPayment {
 
 export function useDashboardData() {
     const { address, isConnected, isConnecting, isReconnecting } = useAccount();
-    const { useUserProjects } = useAgenticPay();
+    const { useUserProjects } = useManifestPay();
     const { projects, loading } = useUserProjects();
     const isLoading = isConnecting || isReconnecting || (isConnected && loading);
 

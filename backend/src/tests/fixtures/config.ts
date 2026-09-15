@@ -22,11 +22,11 @@ export const createTestEnv = (overrides: Partial<Env> = {}): Env => ({
 export const developmentEnv = createTestEnv({ NODE_ENV: 'development' });
 export const stagingEnv = createTestEnv({
   NODE_ENV: 'development',
-  CORS_ALLOWED_ORIGINS: 'https://staging.agenticpay.app',
+  CORS_ALLOWED_ORIGINS: 'https://staging.manifestpay.app',
 } as any);
 export const productionEnv = createTestEnv({
   NODE_ENV: 'production',
-  CORS_ALLOWED_ORIGINS: 'https://app.agenticpay.io',
+  CORS_ALLOWED_ORIGINS: 'https://app.manifestpay.io',
   STELLAR_NETWORK: 'public',
   RATE_LIMIT_FREE: 60,
   RATE_LIMIT_PRO: 300,

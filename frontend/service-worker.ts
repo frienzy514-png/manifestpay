@@ -1,5 +1,5 @@
-const SHELL_CACHE = 'agenticpay_shell_v1';
-const RUNTIME_CACHE = 'agenticpay_runtime_v1';
+const SHELL_CACHE = 'manifestpay_shell_v1';
+const RUNTIME_CACHE = 'manifestpay_runtime_v1';
 const OFFLINE_QUEUE_NAME = 'offline_payment_queue';
 
 const APP_SHELL_URLS = [
@@ -34,7 +34,7 @@ interface SyncStatus {
 
 async function openDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('agenticpay_offline', 1);
+    const request = indexedDB.open('manifestpay_offline', 1);
     request.onerror = () => reject(request.error);
     request.onsuccess = () => resolve(request.result);
     request.onupgradeneeded = () => {

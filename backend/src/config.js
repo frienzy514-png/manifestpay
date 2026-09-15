@@ -20,7 +20,7 @@ var envSchema = zod_1.z.object({
     RATE_LIMIT_ENTERPRISE: zod_1.z.string().default('1000'),
     RATE_LIMIT_WINDOW_MS: zod_1.z.string().default(String(15 * 60 * 1000)),
     COMPRESSION_THRESHOLD: zod_1.z.string().default('1024'),
-    DATABASE_URL: zod_1.z.string().default('postgresql://postgres:postgres@localhost:5432/agenticpay'),
+    DATABASE_URL: zod_1.z.string().default('postgresql://postgres:postgres@localhost:5432/manifestpay'),
     PGBOUNCER_ENABLED: zod_1.z.enum(['true', 'false']).default('false'),
     DB_POOL_MIN: zod_1.z.string().default('2'),
     DB_POOL_MAX: zod_1.z.string().default('10'),

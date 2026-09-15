@@ -1,5 +1,5 @@
 <!--
-PR Template for AgenticPay monorepo work
+PR Template for ManifestPay monorepo work
 This template guides the PR description to ensure issues are properly closed
 and changes are well documented.
 -->

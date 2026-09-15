@@ -1,13 +1,13 @@
-# AgenticPay
+# ManifestPay
 
 **AI-Powered Payment Infrastructure for Autonomous Agents on Stellar**
 
-AgenticPay is a decentralized payment platform built on the Stellar network that enables AI agents to autonomously manage escrow, verify work, and process payments through Soroban smart contracts.
+ManifestPay is a decentralized payment platform built on the Stellar network that enables AI agents to autonomously manage escrow, verify work, and process payments through Soroban smart contracts.
 
 ## Architecture
 
 ```
-agenticpay/
+manifestpay/
 ├── frontend/     # Next.js web application
 ├── backend/      # Express.js API server (AI verification & invoicing)
 ├── contracts/    # Soroban smart contracts (Rust)
@@ -109,8 +109,8 @@ Before setting up the project locally, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Smartdevs17/agenticpay.git
-cd agenticpay
+git clone https://github.com/frienzy514-png/manifestpay.git
+cd manifestpay
 ```
 
 ### 2. Backend Setup
@@ -209,7 +209,7 @@ NEXT_PUBLIC_WEB3AUTH_CLIENT_ID=your_web3auth_client_id_here
 NEXT_PUBLIC_CONTRACT_ADDRESS=0xyour_deployed_contract_address_here
 
 # Theme (optional)
-NEXT_PUBLIC_APP_NAME=AgenticPay
+NEXT_PUBLIC_APP_NAME=ManifestPay
 ```
 
 #### Environment Variables Reference
@@ -249,7 +249,7 @@ cargo build --target wasm32-unknown-unknown --release
 
 ```bash
 soroban contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/agenticpay.wasm \
+  --wasm target/wasm32-unknown-unknown/release/manifestpay.wasm \
   --network testnet \
   --source your_freighter_account
 ```
@@ -569,7 +569,7 @@ npm run lint --workspace=frontend
 
 ## Contract Verification
 
-The AgenticPay smart contract source code is published for on-chain verification. To verify the deployed contract matches the source:
+The ManifestPay smart contract source code is published for on-chain verification. To verify the deployed contract matches the source:
 
 ### Build the contract from source
 
@@ -585,7 +585,7 @@ cargo build --target wasm32-unknown-unknown --release
 soroban contract inspect --id $NEXT_PUBLIC_CONTRACT_ID --network testnet
 
 # Compute the local WASM hash
-sha256sum target/wasm32-unknown-unknown/release/agenticpay.wasm
+sha256sum target/wasm32-unknown-unknown/release/manifestpay.wasm
 ```
 
 The SHA-256 hash of the locally compiled WASM should match the on-chain contract hash, confirming the deployed bytecode was produced from this source.

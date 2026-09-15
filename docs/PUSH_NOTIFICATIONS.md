@@ -2,7 +2,7 @@
 
 ## Overview
 
-AgenticPay includes a comprehensive push notification system built on Web Push API (VAPID protocol) with PWA support. This guide covers setup, configuration, and usage.
+ManifestPay includes a comprehensive push notification system built on Web Push API (VAPID protocol) with PWA support. This guide covers setup, configuration, and usage.
 
 ## Table of Contents
 

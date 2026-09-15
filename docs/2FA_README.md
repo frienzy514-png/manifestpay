@@ -263,4 +263,4 @@ When making changes to 2FA:
 
 ## License
 
-Part of AgenticPay project. See main LICENSE file.
+Part of ManifestPay project. See main LICENSE file.

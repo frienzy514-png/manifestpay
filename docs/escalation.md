@@ -1,6 +1,6 @@
 # Automated Escalation & SLA Tracking
 
-**Issue:** [#646](https://github.com/agenticpay/agenticpay/issues/646)
+**Issue:** [#646](https://github.com/frienzy514-png/manifestpay/issues/646)
 **Status:** Implemented
 
 ---

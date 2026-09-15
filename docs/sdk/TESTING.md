@@ -2,17 +2,17 @@
 
 ## Overview
 
-The AgenticPay SDK provides comprehensive testing utilities to help you test applications that integrate with the payment platform without making real API calls.
+The ManifestPay SDK provides comprehensive testing utilities to help you test applications that integrate with the payment platform without making real API calls.
 
 ## Mock Server
 
 ### TypeScript
 
 ```typescript
-import { MockAgenticPayServer } from '@agenticpay/sdk-testing';
+import { MockManifestPayServer } from '@manifestpay/sdk-testing';
 
 // Create a mock server
-const server = await MockAgenticPayServer.create({
+const server = await MockManifestPayServer.create({
   routes: [
     {
       method: 'POST',
@@ -46,9 +46,9 @@ await server.close();
 ### Python
 
 ```python
-from agenticpay.testing import MockAgenticPayServer, MockRoute, create_test_sdk
+from manifestpay.testing import MockManifestPayServer, MockRoute, create_test_sdk
 
-server = MockAgenticPayServer()
+server = MockManifestPayServer()
 server.add_route(MockRoute(
     "POST",
     "/verification/verify",
@@ -74,7 +74,7 @@ Generate realistic mock data for your tests:
 ### TypeScript
 
 ```typescript
-import { factories } from '@agenticpay/sdk-testing';
+import { factories } from '@manifestpay/sdk-testing';
 
 const plan = factories.plan({ name: 'Enterprise', amount: 99.99 });
 const subscription = factories.subscription({ status: 'active' });
@@ -87,7 +87,7 @@ const event = factories.webhookEvent({ type: 'escrow.funded' });
 ### Python
 
 ```python
-from agenticpay.testing import factories
+from manifestpay.testing import factories
 
 plan = factories.plan(name="Enterprise", amount=99.99)
 subscription = factories.subscription(status="active")
@@ -122,7 +122,7 @@ Generate valid webhook signatures for testing your webhook handlers:
 ### TypeScript
 
 ```typescript
-import { createTestWebhookSignature } from '@agenticpay/sdk-testing';
+import { createTestWebhookSignature } from '@manifestpay/sdk-testing';
 
 const payload = JSON.stringify({ id: 'evt_1', type: 'payment.completed' });
 const { signature, timestamp } = createTestWebhookSignature(payload, 'your-secret');
@@ -144,7 +144,7 @@ Test error handling paths:
 ### TypeScript
 
 ```typescript
-import { expectApiError } from '@agenticpay/sdk-testing';
+import { expectApiError } from '@manifestpay/sdk-testing';
 
 server.addRoute({
   method: 'GET',
@@ -168,7 +168,7 @@ Verify the SDK sent the correct requests:
 ### TypeScript
 
 ```typescript
-import { expectRequest } from '@agenticpay/sdk-testing';
+import { expectRequest } from '@manifestpay/sdk-testing';
 
 await sdk.escrow.create({
   projectId: 'proj_1',

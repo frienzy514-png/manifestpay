@@ -2,7 +2,7 @@
 rules:
   - name: "High Error Rate Alert"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "any"
     frequency: 30
     conditions:
@@ -19,7 +19,7 @@ rules:
 
   - name: "Frontend Unhandled Exception Spike"
     environment: "production"
-    project: "agenticpay-frontend"
+    project: "manifestpay-frontend"
     actionMatch: "all"
     frequency: 30
     conditions:
@@ -38,7 +38,7 @@ rules:
 
   - name: "Regression Detected"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "any"
     frequency: 30
     conditions:
@@ -53,7 +53,7 @@ rules:
 
   - name: "Critical Threat Detected"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 5
     conditions:
@@ -74,7 +74,7 @@ rules:
 
   - name: "Brute Force Attack Detected"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 10
     conditions:
@@ -95,7 +95,7 @@ rules:
 
   - name: "Credential Stuffing Detected"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 5
     conditions:
@@ -116,7 +116,7 @@ rules:
 
   - name: "API Scraping Detected"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 15
     conditions:
@@ -135,7 +135,7 @@ rules:
 
   - name: "IP Auto-Block Triggered"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 5
     conditions:
@@ -156,7 +156,7 @@ rules:
 
   - name: "Emergency Credential Revocation"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "any"
     frequency: 5
     conditions:
@@ -176,7 +176,7 @@ rules:
 
   - name: "Stuck Blockchain Transaction"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 15
     conditions:
@@ -195,7 +195,7 @@ rules:
 
   - name: "Critical Blockchain Transaction Failure"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "all"
     frequency: 5
     conditions:
@@ -217,7 +217,7 @@ rules:
 
   - name: "Chain Reorg Detected"
     environment: "production"
-    project: "agenticpay-backend"
+    project: "manifestpay-backend"
     actionMatch: "any"
     frequency: 5
     conditions:

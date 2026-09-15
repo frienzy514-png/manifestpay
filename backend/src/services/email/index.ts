@@ -48,7 +48,7 @@ Transaction Details:
 
 Thank you!
 
-AgenticPay Team`,
+ManifestPay Team`,
         variables: ['recipientName', 'amount', 'currency', 'transactionHash', 'timestamp'],
         createdAt: new Date(),
       },
@@ -64,7 +64,7 @@ Invoice: {{invoiceNumber}}
 Amount: {{amount}} {{currency}}
 Date: {{date}}
 
-AgenticPay Team`,
+ManifestPay Team`,
         variables: ['recipientName', 'invoiceNumber', 'amount', 'currency', 'date'],
         createdAt: new Date(),
       },

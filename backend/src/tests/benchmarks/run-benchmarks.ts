@@ -151,7 +151,7 @@ function writeJson(filePath: string, data: unknown): void {
 }
 
 async function main(): Promise<void> {
-  console.log('AgenticPay API Benchmarks\n');
+  console.log('ManifestPay API Benchmarks\n');
   const results = await runBenchmarks();
 
   writeJson(RESULTS_PATH, results);

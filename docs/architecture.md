@@ -1,6 +1,6 @@
-# AgenticPay Architecture Documentation
+# ManifestPay Architecture Documentation
 
-This document provides a high-level overview of the AgenticPay architecture, designed to help new developers understand the system's components, data flow, and technology stack.
+This document provides a high-level overview of the ManifestPay architecture, designed to help new developers understand the system's components, data flow, and technology stack.
 
 ## System Diagram
 
@@ -47,7 +47,7 @@ graph TD
 
 ## Component Descriptions
 
-AgenticPay is composed of three main architectural pillars:
+ManifestPay is composed of three main architectural pillars:
 
 ### 1. Frontend Web Application
 The user-facing application built with Next.js. It serves as the primary gateway for clients to create projects and freelancers to submit their work.
@@ -56,7 +56,7 @@ The user-facing application built with Next.js. It serves as the primary gateway
 - **UI Components**: Built with React, Tailwind CSS, shadcn/ui, and Framer Motion for responsive and animated user interfaces.
 
 ### 2. Backend API Server
-An Express.js REST API server that acts as the off-chain processing engine for AgenticPay.
+An Express.js REST API server that acts as the off-chain processing engine for ManifestPay.
 - **AI Work Verification**: The core feature that validates freelancer code submissions (e.g., GitHub repositories) against the initial project requirements using OpenAI.
 - **Bulk Operations and Invoicing**: Manages batch verifications and automatically generates invoices for completed projects.
 - **Scheduled Jobs**: Runs background tasks for system maintenance and monitoring of on-chain states via the Stellar Horizon API.
@@ -69,7 +69,7 @@ Rust-based smart contracts deployed on the Stellar network to handle trustless a
 
 ## Data Flow
 
-The typical lifecycle of a project on AgenticPay follows this data flow:
+The typical lifecycle of a project on ManifestPay follows this data flow:
 
 1. **Project Initiation**:
    - A Client logs into the Frontend and creates a new project with specific requirements.

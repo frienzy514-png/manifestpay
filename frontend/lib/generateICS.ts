@@ -14,7 +14,7 @@ export function generateICS(events: ICSEvent[]): string {
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//AgenticPay//Calendar Export//EN',
+    'PRODID:-//ManifestPay//Calendar Export//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
   ];

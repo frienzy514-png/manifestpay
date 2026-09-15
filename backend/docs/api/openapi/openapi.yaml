@@ -1,15 +1,15 @@
 # OpenAPI Specification
-# Generated automatically from AgenticPay API
+# Generated automatically from ManifestPay API
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "AgenticPay API",
+    "title": "ManifestPay API",
     "description": "AI-Powered Payment Infrastructure for Autonomous Agents on Stellar",
     "version": "1.0.0",
     "contact": {
-      "name": "AgenticPay Team",
-      "url": "https://github.com/Smartdevs17/agenticpay",
-      "email": "hello@agenticpay.com"
+      "name": "ManifestPay Team",
+      "url": "https://github.com/frienzy514-png/manifestpay",
+      "email": "hello@manifestpay.com"
     },
     "license": {
       "name": "Apache-2.0",
@@ -22,7 +22,7 @@
       "description": "Development server"
     },
     {
-      "url": "https://api.agenticpay.com/api/v1",
+      "url": "https://api.manifestpay.com/api/v1",
       "description": "Production server"
     }
   ],
@@ -1451,7 +1451,7 @@
     }
   ],
   "externalDocs": {
-    "url": "https://docs.agenticpay.com",
+    "url": "https://docs.manifestpay.com",
     "description": "Full API documentation"
   }
 }

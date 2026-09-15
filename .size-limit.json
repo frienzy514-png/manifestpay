@@ -1,6 +1,6 @@
 {
-  "name": "agenticpay",
-  "repository": "https://github.com/Smartdevs17/agenticpay",
+  "name": "manifestpay",
+  "repository": "https://github.com/frienzy514-png/manifestpay",
   "sizeLimit": [
     {
       "name": "frontend framework chunk (gzip)",

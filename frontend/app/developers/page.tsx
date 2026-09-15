@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { BookOpen, Code2, ExternalLink, FileJson, Terminal } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Developer Portal | AgenticPay',
+  title: 'Developer Portal | ManifestPay',
   description:
-    'Explore the AgenticPay API playground, OpenAPI specification, and official SDKs for TypeScript, Python, and Go.',
+    'Explore the ManifestPay API playground, OpenAPI specification, and official SDKs for TypeScript, Python, and Go.',
 };
 
-const GITHUB_REPO = 'https://github.com/Smartdevs17/agenticpay';
+const GITHUB_REPO = 'https://github.com/frienzy514-png/manifestpay';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1';
 // The interactive docs/playground are served from the API origin, outside of /api/v1.
@@ -23,9 +23,9 @@ interface Sdk {
 }
 
 const SDKS: Sdk[] = [
-  { language: 'TypeScript', install: 'npm install @agenticpay/sdk', packagePath: 'packages/sdk' },
-  { language: 'Python', install: 'pip install agenticpay', packagePath: 'sdks/python' },
-  { language: 'Go', install: 'go get github.com/Smartdevs17/agenticpay-sdk-go', packagePath: 'sdks/go' },
+  { language: 'TypeScript', install: 'npm install @manifestpay/sdk', packagePath: 'packages/sdk' },
+  { language: 'Python', install: 'pip install manifestpay', packagePath: 'sdks/python' },
+  { language: 'Go', install: 'go get github.com/frienzy514-png/manifestpay/sdks/go', packagePath: 'sdks/go' },
 ];
 
 interface Guide {
@@ -55,7 +55,7 @@ export default function DevelopersPage() {
                   Developer Portal
                 </div>
                 <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-                  Build on AgenticPay
+                  Build on ManifestPay
                 </h1>
                 <p className="mt-4 max-w-3xl text-base leading-7 text-blue-50 sm:text-lg">
                   Explore the API in an interactive playground, browse the OpenAPI specification,
@@ -89,7 +89,7 @@ export default function DevelopersPage() {
                     Official SDKs
                   </h2>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Typed clients for the AgenticPay API, published from this repository.
+                    Typed clients for the ManifestPay API, published from this repository.
                   </p>
                   <div className="mt-6 grid gap-4 sm:grid-cols-3">
                     {SDKS.map((sdk) => (
@@ -120,7 +120,7 @@ export default function DevelopersPage() {
                     Guides
                   </h2>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Reference documentation for integrating with the AgenticPay SDKs and API.
+                    Reference documentation for integrating with the ManifestPay SDKs and API.
                   </p>
                   <ul className="mt-6 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white">
                     {GUIDES.map((guide) => (

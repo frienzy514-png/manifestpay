@@ -1,7 +1,7 @@
 use soroban_sdk::{contracttype, Address, Env, String};
 
 // ---------------------------------------------------------------------------
-// Gas-optimized storage utilities for AgenticPay contracts.
+// Gas-optimized storage utilities for ManifestPay contracts.
 //
 // # Storage slot packing
 // Soroban persistent storage uses XDR-serialized key-value pairs. Each
@@ -310,7 +310,7 @@ pub mod migration {
     #[test]
     fn test_lazy_value_operations() {
         let env = Env::default();
-        let contract_id = env.register_contract(None, crate::AgenticPayContract);
+        let contract_id = env.register_contract(None, crate::ManifestPayContract);
 
         env.as_contract(&contract_id, || {
             let lazy_lock = LazyValue::new(LazyKey::ReentrancyLock, false);

@@ -1,4 +1,4 @@
-const DB_NAME = 'agenticpay_cache';
+const DB_NAME = 'manifestpay_cache';
 const DB_VERSION = 1;
 const CACHE_STORE = 'response_cache';
 const META_STORE = 'cache_meta';

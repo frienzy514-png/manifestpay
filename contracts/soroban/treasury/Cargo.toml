@@ -1,5 +1,5 @@
 [package]
-name = "agenticpay-treasury"
+name = "manifestpay-treasury"
 version = "0.1.0"
 edition = "2021"
 description = "Soroban multi-signature timelock treasury management system"

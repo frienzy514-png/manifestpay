@@ -30,7 +30,7 @@ const swaggerOptions = {
     tagsSorter: 'alpha',
     operationsSorter: 'alpha',
   },
-  customSiteTitle: 'AgenticPay API Documentation',
+  customSiteTitle: 'ManifestPay API Documentation',
   customCss: `
     .swagger-ui .topbar { display: none }
     .swagger-ui .info { margin: 20px 0; }
@@ -44,10 +44,10 @@ const swaggerOptions = {
       const ui = SwaggerUIBundle;
       if (ui) {
         ui.initOAuth({
-          clientId: 'agenticpay-api-client',
-          clientSecret: 'agenticpay-api-secret',
-          realm: 'agenticpay',
-          appName: 'AgenticPay API',
+          clientId: 'manifestpay-api-client',
+          clientSecret: 'manifestpay-api-secret',
+          realm: 'manifestpay',
+          appName: 'ManifestPay API',
           scopeSeparator: ' ',
           additionalQueryStringParams: {}
         });

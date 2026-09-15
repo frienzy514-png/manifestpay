@@ -1,6 +1,6 @@
 # Payment Adapters — Issue #766
 
-AgenticPay supports multiple payment providers through a pluggable adapter architecture.
+ManifestPay supports multiple payment providers through a pluggable adapter architecture.
 
 ## Architecture
 

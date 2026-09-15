@@ -84,7 +84,7 @@ SMTP_HOST=smtp.example.com
 SMTP_PORT=587
 SMTP_USER=user@example.com
 SMTP_PASSWORD=password
-SMTP_FROM=noreply@agenticpay.com
+SMTP_FROM=noreply@manifestpay.com
 
 # Slack Channel
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL

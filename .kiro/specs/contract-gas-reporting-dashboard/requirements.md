@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Contract Gas Reporting and Cost Analysis Dashboard provides comprehensive gas cost tracking and optimization insights for the AgenticPay platform. This system collects transaction gas data across multiple blockchain networks, aggregates costs by contract and time period, identifies anomalies, and delivers actionable optimization recommendations through dashboards, alerts, and scheduled reports.
+The Contract Gas Reporting and Cost Analysis Dashboard provides comprehensive gas cost tracking and optimization insights for the ManifestPay platform. This system collects transaction gas data across multiple blockchain networks, aggregates costs by contract and time period, identifies anomalies, and delivers actionable optimization recommendations through dashboards, alerts, and scheduled reports.
 
 ## Glossary
 

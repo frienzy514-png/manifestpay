@@ -86,7 +86,7 @@ export class CheckoutService extends BaseService {
     const session: CheckoutSession = {
       id,
       merchantId: input.merchantId,
-      merchantName: input.brand?.brandName || 'AgenticPay Merchant',
+      merchantName: input.brand?.brandName || 'ManifestPay Merchant',
       amount: Number(input.amount.toFixed(2)),
       currency: input.currency.toUpperCase(),
       description: input.description,
@@ -243,7 +243,7 @@ export class CheckoutService extends BaseService {
     if (!session) this.notFound('Checkout session', id);
     this.validate(session.status === 'completed', 'Receipt is only available for completed transactions');
 
-    const brandName = session.brand?.brandName || 'AgenticPay Merchant';
+    const brandName = session.brand?.brandName || 'ManifestPay Merchant';
     const accentColor = session.brand?.accentColor || '#0052FF';
 
     return `<!DOCTYPE html>
@@ -302,7 +302,7 @@ export class CheckoutService extends BaseService {
   </div>
   <div class="footer">
     <p>Thank you for your purchase!</p>
-    <p>Secured by AgenticPay</p>
+    <p>Secured by ManifestPay</p>
   </div>
 </body>
 </html>`;
@@ -360,7 +360,7 @@ export class CheckoutService extends BaseService {
         `;
       }
 
-      const checkoutUrl = `https://pay.agenticpay.com/checkout/${session.id}`;
+      const checkoutUrl = `https://pay.manifestpay.com/checkout/${session.id}`;
       const renderedHtml = this.emailTemplateEngine.render(templateStr, {
         brand: session.brand,
         amount: session.amount,

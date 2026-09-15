@@ -11,7 +11,7 @@ import type {
 import type { WebSocketScalingAdapter } from './scaling.js';
 import { WebSocketConnectionPool } from './pool.js';
 
-export type AgenticPayWebSocketServer = {
+export type ManifestPayWebSocketServer = {
   wss: WebSocketServer;
   metrics: WebSocketServerMetrics;
   broadcast: (message: WebSocketOutboundMessage) => void;
@@ -54,7 +54,7 @@ export function attachWebSocketServer(params: {
   server: http.Server;
   options?: Partial<WebSocketServerOptions>;
   scaling?: WebSocketScalingAdapter;
-}): AgenticPayWebSocketServer {
+}): ManifestPayWebSocketServer {
   const options: WebSocketServerOptions = {
     path: '/ws',
     maxConnections: 250,

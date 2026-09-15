@@ -3,8 +3,8 @@ import { DashboardAuthGuard } from '@/components/layout/DashboardAuthGuard';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | AgenticPay Dashboard',
-    default: 'Dashboard | AgenticPay',
+    template: '%s | ManifestPay Dashboard',
+    default: 'Dashboard | ManifestPay',
   },
   description: 'Manage your projects, invoices, payments, and real-time analytics.',
   robots: { index: false, follow: false },

@@ -1,6 +1,6 @@
-# AgenticPay Public Roadmap
+# ManifestPay Public Roadmap
 
-AgenticPay is an AI-powered decentralized payment infrastructure built on Stellar, enabling trustless escrow and automated work verification between clients and contributors. This roadmap reflects current development priorities, upcoming features, and the long-term vision for the platform.
+ManifestPay is an AI-powered decentralized payment infrastructure built on Stellar, enabling trustless escrow and automated work verification between clients and contributors. This roadmap reflects current development priorities, upcoming features, and the long-term vision for the platform.
 
 > **Last updated:** March 2026
 > **Network:** Stellar Testnet (Mainnet launch planned — see [Long-Term Goals](#long-term-goals))
@@ -52,7 +52,7 @@ These items are planned for the next one to two milestones. Ordering reflects ro
 
 ## Long-Term Goals
 
-These represent the broader vision for where AgenticPay is headed over the next several development cycles.
+These represent the broader vision for where ManifestPay is headed over the next several development cycles.
 
 ### Stellar Mainnet Launch
 Move from Testnet to the Stellar public network with a formal security audit of the Soroban smart contracts. This includes a responsible disclosure policy, bug bounty program, and a staged rollout starting with a capped deployment.
@@ -76,7 +76,7 @@ Provide first-class support for DAOs paying contributors for bounties and grants
 
 ## How to Contribute Ideas
 
-AgenticPay is built in public through the **Stellar Wave Program via Drips**, and community input directly shapes what gets built.
+ManifestPay is built in public through the **Stellar Wave Program via Drips**, and community input directly shapes what gets built.
 
 ### Submit a Feature Request
 Open an issue on GitHub using the **Feature Request** template. A good feature request includes:

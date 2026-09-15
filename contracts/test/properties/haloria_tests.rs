@@ -1,12 +1,12 @@
-// Haloria property-based tests for AgenticPay smart contracts
-use agenticpay::{AgenticPayContract, Project, ProjectStatus};
+// Haloria property-based tests for ManifestPay smart contracts
+use manifestpay::{ManifestPayContract, Project, ProjectStatus};
 use honggfuzz::fuzz;
 use soroban_sdk::{Address, Env, String};
 
 #[derive(Clone)]
 struct TestState {
     env: Env,
-    contract: AgenticPayContract,
+    contract: ManifestPayContract,
     admin: Address,
     client: Address,
     freelancer: Address,
@@ -17,8 +17,8 @@ struct TestState {
 impl TestState {
     fn new() -> Self {
         let env = Env::default();
-        let contract_id = env.register_contract(None, AgenticPayContract);
-        let contract = AgenticPayContract::new(&env, &contract_id);
+        let contract_id = env.register_contract(None, ManifestPayContract);
+        let contract = ManifestPayContract::new(&env, &contract_id);
         
         let admin = Address::random(&env);
         let client = Address::random(&env);

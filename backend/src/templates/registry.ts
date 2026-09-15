@@ -45,15 +45,15 @@ export const TEMPLATE_REGISTRY = {
     id: 'welcome-email',
     version: 1,
     schema: welcomeSchema,
-    subject: 'Welcome to AgenticPay, {{name}}!',
+    subject: 'Welcome to ManifestPay, {{name}}!',
     contentHtml: `
       <h1 style="margin:0 0 12px;font-size:20px;">Welcome, {{name}}!</h1>
       <p>We're excited to have you on board.</p>
       {{> button url=actionUrl label="Get started"}}
     `,
     variants: [
-      { id: 'control', weight: 50, subject: 'Welcome to AgenticPay, {{name}}!', contentHtml: `<h1>Welcome, {{name}}!</h1><p>We're excited to have you on board.</p>{{> button url=actionUrl label="Get started"}}` },
-      { id: 'urgency', weight: 50, subject: '{{name}}, your AgenticPay account is ready', contentHtml: `<h1>You're all set, {{name}}</h1><p>Complete setup now to unlock instant payments.</p>{{> button url=actionUrl label="Finish setup"}}` },
+      { id: 'control', weight: 50, subject: 'Welcome to ManifestPay, {{name}}!', contentHtml: `<h1>Welcome, {{name}}!</h1><p>We're excited to have you on board.</p>{{> button url=actionUrl label="Get started"}}` },
+      { id: 'urgency', weight: 50, subject: '{{name}}, your ManifestPay account is ready', contentHtml: `<h1>You're all set, {{name}}</h1><p>Complete setup now to unlock instant payments.</p>{{> button url=actionUrl label="Finish setup"}}` },
     ],
   },
   'payment-received': {

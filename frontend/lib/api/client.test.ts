@@ -125,7 +125,7 @@ describe('apiCall', () => {
       })
     ).rejects.toBeInstanceOf(OfflineActionQueuedError);
 
-    const stored = localStorageMock.getItem('agenticpay-offline-queue');
+    const stored = localStorageMock.getItem('manifestpay-offline-queue');
     expect(stored).toBeTruthy();
     expect(JSON.parse(stored as string)).toHaveLength(1);
   });

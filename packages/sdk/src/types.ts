@@ -1,6 +1,6 @@
 export type ApiVersion = 'v1';
 
-export type AgenticPayClientOptions = {
+export type ManifestPayClientOptions = {
   baseUrl: string;
   apiKey?: string;
   apiVersion?: ApiVersion;

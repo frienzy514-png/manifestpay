@@ -1,4 +1,4 @@
-import type { DomainEventType, EventMetadata, StoredEvent } from '@agenticpay/types/events';
+import type { DomainEventType, EventMetadata, StoredEvent } from '@manifestpay/types/events';
 
 export type OutboxEventStatus = 'pending' | 'publishing' | 'published' | 'dead_letter';
 

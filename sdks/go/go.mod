@@ -1,3 +1,3 @@
-module github.com/Kappa16/agenticpay/sdks/go
+module github.com/frienzy514-png/manifestpay/sdks/go
 
 go 1.21

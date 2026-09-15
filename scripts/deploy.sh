@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# deploy.sh — AgenticPay deployment script
+# deploy.sh — ManifestPay deployment script
 #
 # Usage:
 #   ./scripts/deploy.sh [OPTIONS]
@@ -13,14 +13,14 @@
 #   --rollback                  Roll back to the previous saved backup
 #
 # Environment variables (all optional — defaults shown):
-#   APP_NAME            agenticpay
+#   APP_NAME            manifestpay
 #   APP_DIR             repo root (auto-detected)
 #   BACKEND_PORT        3001
 #   HEALTH_RETRIES      12        # attempts before declaring unhealthy
 #   HEALTH_INTERVAL     5         # seconds between health-check attempts
-#   BACKUP_DIR          /tmp/agenticpay-rollback
-#   PM2_BACKEND_NAME    agenticpay-backend
-#   PM2_FRONTEND_NAME   agenticpay-frontend
+#   BACKUP_DIR          /tmp/manifestpay-rollback
+#   PM2_BACKEND_NAME    manifestpay-backend
+#   PM2_FRONTEND_NAME   manifestpay-frontend
 #
 # Exit codes:
 #   0  — success
@@ -39,7 +39,7 @@ APP_DIR="${APP_DIR:-$(cd "$SCRIPT_DIR/.." && pwd)}"
 
 # ─── Configuration (environment-variable overrides) ──────────────────────────
 
-APP_NAME="${APP_NAME:-agenticpay}"
+APP_NAME="${APP_NAME:-manifestpay}"
 BACKEND_DIR="$APP_DIR/backend"
 FRONTEND_DIR="$APP_DIR/frontend"
 BACKEND_PORT="${BACKEND_PORT:-3001}"
@@ -148,7 +148,7 @@ backup_current() {
 
 # ─── Database migrations ─────────────────────────────────────────────────────
 
-# AgenticPay is currently a stateless service backed by the Stellar blockchain.
+# ManifestPay is currently a stateless service backed by the Stellar blockchain.
 # This function is a structured hook for future database migration tooling
 # (Prisma, TypeORM, Flyway, etc.).  Drop your migration command below when
 # a database is introduced.
@@ -261,7 +261,7 @@ invalidate_cache() {
 
   log "Invalidating CloudFront distribution $dist_id..."
 
-  local caller_ref="agenticpay-deploy-$(date +%s)"
+  local caller_ref="manifestpay-deploy-$(date +%s)"
 
   aws cloudfront create-invalidation \
     --distribution-id "$dist_id" \
@@ -293,21 +293,21 @@ health_check() {
     local http_body
     local http_code
     http_code=$(curl --silent --max-time 5 --write-out '%{http_code}' \
-      --output /tmp/agenticpay_health.json \
+      --output /tmp/manifestpay_health.json \
       "$HEALTH_ENDPOINT" 2>/dev/null) || true
 
     if [[ "$http_code" == "200" || "$http_code" == "206" ]]; then
-      status=$(python3 -c "import json,sys; d=json.load(open('/tmp/agenticpay_health.json')); print(d.get('status','unknown'))" 2>/dev/null || echo "unknown")
+      status=$(python3 -c "import json,sys; d=json.load(open('/tmp/manifestpay_health.json')); print(d.get('status','unknown'))" 2>/dev/null || echo "unknown")
 
       if [[ "$status" == "healthy" || "$status" == "degraded" ]]; then
         log "Service is ${status} (HTTP $http_code). Deploy successful."
-        rm -f /tmp/agenticpay_health.json
+        rm -f /tmp/manifestpay_health.json
         return 0
       else
         warn "Unexpected status='$status' in response. Retrying..."
       fi
     elif [[ "$http_code" == "503" ]]; then
-      status=$(python3 -c "import json,sys; d=json.load(open('/tmp/agenticpay_health.json')); print(d.get('status','unknown'))" 2>/dev/null || echo "unknown")
+      status=$(python3 -c "import json,sys; d=json.load(open('/tmp/manifestpay_health.json')); print(d.get('status','unknown'))" 2>/dev/null || echo "unknown")
       warn "Service reports status='$status' (HTTP 503). Retrying..."
     else
       warn "No response or HTTP $http_code. Service may still be starting..."
@@ -318,7 +318,7 @@ health_check() {
     fi
   done
 
-  rm -f /tmp/agenticpay_health.json
+  rm -f /tmp/manifestpay_health.json
   error "Health check failed after $HEALTH_RETRIES attempts."
   return 1
 }
@@ -377,7 +377,7 @@ rollback() {
 # ─── Main ────────────────────────────────────────────────────────────────────
 
 main() {
-  section "AgenticPay Deployment"
+  section "ManifestPay Deployment"
   info "Environment : $DEPLOY_ENV"
   info "App dir     : $APP_DIR"
   info "Backend     : $([ "$SKIP_BACKEND" == "true" ] && echo "skip" || echo "yes")"
@@ -444,7 +444,7 @@ main() {
   }
 
   section "Deploy complete"
-  log "AgenticPay ($DEPLOY_ENV) is live."
+  log "ManifestPay ($DEPLOY_ENV) is live."
   pm2 list
 }
 

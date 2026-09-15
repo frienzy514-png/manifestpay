@@ -17,7 +17,7 @@ Description: Check service health status including dependencies.
 Response (200 OK / 503 Service Unavailable):
 {
   "status": "healthy|degraded|unhealthy",
-  "service": "agenticpay-backend",
+  "service": "manifestpay-backend",
   "timestamp": "2026-03-26T07:00:00.000Z",
   "uptime": 12345.67,
   "dependencies": {

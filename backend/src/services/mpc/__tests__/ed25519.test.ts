@@ -26,7 +26,7 @@ describe('ed25519 helpers', () => {
   it('signs and verifies with the derived key pair', () => {
     const seed = generateSeed();
     const pub = publicKeyFromSeed(seed);
-    const message = Buffer.from('hello AgenticPay', 'utf-8');
+    const message = Buffer.from('hello ManifestPay', 'utf-8');
 
     const signature = sign(seed, message);
     expect(signature).toHaveLength(SIGNATURE_BYTES);

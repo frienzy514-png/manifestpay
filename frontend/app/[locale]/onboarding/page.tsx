@@ -95,7 +95,7 @@ export default function OnboardingPage() {
                   Congratulations! Your merchant account has been successfully verified and is ready to use.
                 </p>
                 <Button className="bg-green-600 hover:bg-green-700">
-                  Start Using AgenticPay
+                  Start Using ManifestPay
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>

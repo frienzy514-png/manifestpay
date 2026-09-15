@@ -52,11 +52,11 @@ export function Sidebar() {
             <div
               className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center"
               role="img"
-              aria-label="AgenticPay logo"
+              aria-label="ManifestPay logo"
             >
               <Wallet className="h-5 w-5 text-white" aria-hidden="true" />
             </div>
-            <span className="text-xl font-bold text-gray-900">AgenticPay</span>
+            <span className="text-xl font-bold text-gray-900">ManifestPay</span>
           </div>
 
           {/* Navigation */}

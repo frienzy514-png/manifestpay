@@ -41,7 +41,7 @@ jobs:
         run: |
           BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           COMMIT_SHORT="${GITHUB_SHA::8}"
-          RUN_TAG="${{ github.repository_owner }}/agenticpay:${GITHUB_REF_NAME}:${COMMIT_SHORT}:${GITHUB_RUN_NUMBER}"
+          RUN_TAG="${{ github.repository_owner }}/manifestpay:${GITHUB_REF_NAME}:${COMMIT_SHORT}:${GITHUB_RUN_NUMBER}"
 
           echo "run_tag=${RUN_TAG}"        >> "$GITHUB_OUTPUT"
           echo "build_date=${BUILD_DATE}"  >> "$GITHUB_OUTPUT"
@@ -54,7 +54,7 @@ jobs:
           # Write a machine-readable tag manifest for downstream consumers
           cat > resource-tags.json <<EOF
           {
-            "service":      "agenticpay",
+            "service":      "manifestpay",
             "environment":  "${{ github.ref_name == 'main' && 'production' || 'staging' }}",
             "version":      "${COMMIT_SHORT}",
             "run_number":   "${{ github.run_number }}",
@@ -274,7 +274,7 @@ jobs:
           EMPTY=$(python3 -c "print(20 - ${FILLED})" 2>/dev/null || echo 20)
           BAR=$(python3 -c "print('█' * ${FILLED} + '░' * ${EMPTY})" 2>/dev/null || echo "░░░░░░░░░░░░░░░░░░░░")
 
-          REPORT="## 📊 AgenticPay Cost Report
+          REPORT="## 📊 ManifestPay Cost Report
 
           **Generated:** ${BUILD_DATE}
           **Resource Tag:** \`${RUN_TAG}\`
@@ -314,7 +314,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TITLE="⚠️ Cost Alert: AgenticPay resource usage threshold exceeded"
+          TITLE="⚠️ Cost Alert: ManifestPay resource usage threshold exceeded"
           BODY="${{ steps.report.outputs.report }}
 
           ### Triggered alerts

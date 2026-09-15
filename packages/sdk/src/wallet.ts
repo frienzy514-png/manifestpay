@@ -7,7 +7,7 @@
  * to hand-roll `fetch()` calls against `/wallet/*` (as `web3Store.ts` used to).
  */
 
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 
 export type ChainType = 'stellar' | 'ethereum' | 'polygon' | 'base' | 'arbitrum' | 'optimism';
 export type AssetType = 'native' | 'token' | 'stellar_asset';
@@ -134,7 +134,7 @@ export interface WalletAdapter {
 }
 
 export class WalletApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** List all chains this wallet abstraction layer supports. */
   async getSupportedChains(): Promise<ChainConfig[]> {

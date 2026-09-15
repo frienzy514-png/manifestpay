@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Property-Based Testing Script for AgenticPay Smart Contracts
+# Property-Based Testing Script for ManifestPay Smart Contracts
 # This script runs Echidna and Haloria fuzz tests to find edge cases and vulnerabilities
 
 set -e
 
-echo "🔍 Starting Property-Based Testing for AgenticPay Smart Contracts..."
+echo "🔍 Starting Property-Based Testing for ManifestPay Smart Contracts..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -117,7 +117,7 @@ generate_report() {
 
 ## Test Summary
 - **Date**: $(date)
-- **Contract**: AgenticPay
+- **Contract**: ManifestPay
 - **Test Frameworks**: Echidna, Haloria
 - **Total Test Cases**: 10 properties
 

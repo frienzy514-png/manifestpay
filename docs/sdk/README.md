@@ -1,29 +1,29 @@
-# AgenticPay SDK Documentation
+# ManifestPay SDK Documentation
 
-Official SDKs for integrating with the AgenticPay payment platform.
+Official SDKs for integrating with the ManifestPay payment platform.
 
 ## Available SDKs
 
 | Language | Package | Version | Status |
 |----------|---------|---------|--------|
-| TypeScript | `@agenticpay/sdk` | 0.1.0 | ✅ Stable |
-| Python | `agenticpay` | 0.1.0 | ✅ Stable |
-| Go | `github.com/Kappa16/agenticpay/sdks/go` | 0.1.0 | ✅ Stable |
+| TypeScript | `@manifestpay/sdk` | 0.1.0 | ✅ Stable |
+| Python | `manifestpay` | 0.1.0 | ✅ Stable |
+| Go | `github.com/frienzy514-png/manifestpay/sdks/go` | 0.1.0 | ✅ Stable |
 
 ## Quick Start
 
 ### TypeScript
 
 ```bash
-npm install @agenticpay/sdk
+npm install @manifestpay/sdk
 ```
 
 ```typescript
-import { createAgenticPaySDK } from '@agenticpay/sdk';
+import { createManifestPaySDK } from '@manifestpay/sdk';
 
-const sdk = createAgenticPaySDK({
-  baseUrl: 'https://api.agenticpay.com/api/v1',
-  apiKey: process.env.AGENTICPAY_API_KEY,
+const sdk = createManifestPaySDK({
+  baseUrl: 'https://api.manifestpay.com/api/v1',
+  apiKey: process.env.MANIFESTPAY_API_KEY,
 });
 
 // Verify freelancer work
@@ -37,15 +37,15 @@ const result = await sdk.verification.verifyWork({
 ### Python
 
 ```bash
-pip install agenticpay
+pip install manifestpay
 ```
 
 ```python
-from agenticpay import create_agenticpay_sdk
-from agenticpay.types import VerificationRequest
+from manifestpay import create_manifestpay_sdk
+from manifestpay.types import VerificationRequest
 
-sdk = create_agenticpay_sdk(
-    base_url="https://api.agenticpay.com/api/v1",
+sdk = create_manifestpay_sdk(
+    base_url="https://api.manifestpay.com/api/v1",
     api_key="your-api-key",
 )
 
@@ -61,7 +61,7 @@ result = sdk.verification.verify_work(
 ### Go
 
 ```bash
-go get github.com/Kappa16/agenticpay/sdks/go
+go get github.com/frienzy514-png/manifestpay/sdks/go
 ```
 
 ```go
@@ -69,14 +69,14 @@ package main
 
 import (
     "context"
-    "github.com/Kappa16/agenticpay/sdks/go/agenticpay"
+    "github.com/frienzy514-png/manifestpay/sdks/go/manifestpay"
 )
 
 func main() {
-    client := agenticpay.New("https://api.agenticpay.com/api/v1", "your-api-key")
+    client := manifestpay.New("https://api.manifestpay.com/api/v1", "your-api-key")
     ctx := context.Background()
 
-    result, err := client.Verification.Verify(ctx, agenticpay.VerificationRequest{
+    result, err := client.Verification.Verify(ctx, manifestpay.VerificationRequest{
         RepositoryURL:        "https://github.com/user/repo",
         MilestoneDescription: "Implement login page",
         ProjectID:            "proj_123",
@@ -86,7 +86,7 @@ func main() {
 
 ## API Coverage
 
-All SDKs cover the following AgenticPay API areas:
+All SDKs cover the following ManifestPay API areas:
 
 | Module | Description |
 |--------|-------------|
@@ -116,7 +116,7 @@ All SDKs provide typed error hierarchies:
 ### TypeScript
 
 ```typescript
-import { AgenticPayError, ValidationError, RateLimitError } from '@agenticpay/sdk';
+import { ManifestPayError, ValidationError, RateLimitError } from '@manifestpay/sdk';
 
 try {
   await sdk.verification.verifyWork({...});
@@ -125,7 +125,7 @@ try {
     console.log('Bad input:', err.details);
   } else if (err instanceof RateLimitError) {
     // Implement backoff
-  } else if (err instanceof AgenticPayError) {
+  } else if (err instanceof ManifestPayError) {
     console.log(`Error ${err.status}: ${err.message}`);
   }
 }
@@ -134,7 +134,7 @@ try {
 ### Python
 
 ```python
-from agenticpay import AgenticPayError, ValidationError, RateLimitError
+from manifestpay import ManifestPayError, ValidationError, RateLimitError
 
 try:
     sdk.verification.verify_work(...)
@@ -143,7 +143,7 @@ except ValidationError as e:
 except RateLimitError:
     # Implement backoff
     pass
-except AgenticPayError as e:
+except ManifestPayError as e:
     print(f"Error {e.status}: {e.message}")
 ```
 
@@ -152,7 +152,7 @@ except AgenticPayError as e:
 ```go
 result, err := client.Verification.Verify(ctx, params)
 if err != nil {
-    if apiErr, ok := err.(*agenticpay.APIError); ok {
+    if apiErr, ok := err.(*manifestpay.APIError); ok {
         fmt.Printf("Error %d: %s (code=%s)\n", apiErr.StatusCode, apiErr.Message, apiErr.Code)
     }
 }
@@ -167,9 +167,9 @@ All SDKs ship with testing utilities for mocking the API in your test suite.
 #### TypeScript
 
 ```typescript
-import { MockAgenticPayServer, createTestSDK, factories } from '@agenticpay/sdk-testing';
+import { MockManifestPayServer, createTestSDK, factories } from '@manifestpay/sdk-testing';
 
-const server = await MockAgenticPayServer.create({
+const server = await MockManifestPayServer.create({
   routes: [
     { method: 'POST', path: '/verification/verify', body: factories.verification() },
   ],
@@ -188,9 +188,9 @@ await server.close();
 #### Python
 
 ```python
-from agenticpay.testing import MockAgenticPayServer, MockRoute, create_test_sdk
+from manifestpay.testing import MockManifestPayServer, MockRoute, create_test_sdk
 
-server = MockAgenticPayServer()
+server = MockManifestPayServer()
 server.add_route(MockRoute("POST", "/verification/verify", body={"id": "v_1", "status": "verified"}))
 server.start()
 
@@ -209,27 +209,27 @@ server.stop()
 
 ```typescript
 // TypeScript
-const sdk = createAgenticPaySDK({ apiKey: 'sk_live_...' });
+const sdk = createManifestPaySDK({ apiKey: 'sk_live_...' });
 ```
 
 ```python
 # Python
-sdk = create_agenticpay_sdk(api_key="sk_live_...")
+sdk = create_manifestpay_sdk(api_key="sk_live_...")
 ```
 
 ```go
 // Go
-client := agenticpay.New("https://api.agenticpay.com/api/v1", "sk_live_...")
+client := manifestpay.New("https://api.manifestpay.com/api/v1", "sk_live_...")
 ```
 
 ### OAuth / Bearer Token
 
 ```typescript
 // TypeScript
-import { createAgenticPaySDK } from '@agenticpay/sdk';
+import { createManifestPaySDK } from '@manifestpay/sdk';
 
-const sdk = createAgenticPaySDK(
-  { baseUrl: 'https://api.agenticpay.com/api/v1' },
+const sdk = createManifestPaySDK(
+  { baseUrl: 'https://api.manifestpay.com/api/v1' },
   { getAccessToken: async () => myAuthService.getToken() }
 );
 ```
@@ -240,7 +240,7 @@ All SDKs automatically retry on transient failures (429, 5xx) with exponential b
 
 ```typescript
 // TypeScript
-const sdk = createAgenticPaySDK({
+const sdk = createManifestPaySDK({
   baseUrl: '...',
   apiKey: '...',
   retry: { attempts: 3, baseDelayMs: 500 },
@@ -249,9 +249,9 @@ const sdk = createAgenticPaySDK({
 
 ```python
 # Python
-from agenticpay.client import RetryConfig
+from manifestpay.client import RetryConfig
 
-sdk = create_agenticpay_sdk(
+sdk = create_manifestpay_sdk(
     base_url="...",
     api_key="...",
     retry=RetryConfig(attempts=3, base_delay_ms=500),

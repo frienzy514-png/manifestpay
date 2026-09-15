@@ -1,8 +1,8 @@
-# AgenticPay Automated Compliance System — Guide
+# ManifestPay Automated Compliance System — Guide
 
 ## Overview
 
-The AgenticPay Compliance System has transitioned from **manual checking** to **fully automated compliance monitoring**. This guide covers architecture, features, configuration, and operational procedures.
+The ManifestPay Compliance System has transitioned from **manual checking** to **fully automated compliance monitoring**. This guide covers architecture, features, configuration, and operational procedures.
 
 This implementation fulfills all acceptance criteria:
 
@@ -310,7 +310,7 @@ Returns:
 
 ### Frontend
 
-`backend/frontend/app/dashboard/compliance/page.tsx` provides UI for:
+`frontend/app/dashboard/compliance/page.tsx` provides UI for:
 - Score gauge
 - Metrics cards
 - Jurisdiction table

@@ -1,4 +1,4 @@
-// OpenAPI Decorator for AgenticPay API
+// OpenAPI Decorator for ManifestPay API
 // Provides decorators for documenting API endpoints
 
 export interface OpenAPIOptions {

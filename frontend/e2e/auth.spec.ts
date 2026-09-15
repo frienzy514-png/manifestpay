@@ -5,7 +5,7 @@ test.describe('Auth page', () => {
     await page.goto('/auth');
 
     await expect(
-      page.getByRole('heading', { name: /Welcome to AgenticPay/i }),
+      page.getByRole('heading', { name: /Welcome to ManifestPay/i }),
     ).toBeVisible();
 
     await expect(

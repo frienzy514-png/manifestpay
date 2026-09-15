@@ -146,7 +146,7 @@ export const useReportBuilderStore = create<ReportBuilderState>()(
       },
     }),
     {
-      name: 'agenticpay-report-builder',
+      name: 'manifestpay-report-builder',
       partialize: (state) => ({ config: state.config, currentStep: state.currentStep }),
     },
   ),

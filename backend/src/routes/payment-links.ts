@@ -200,7 +200,7 @@ export function renderHostedCheckoutPage(
 ): string {
   const selectedVariant = options.variant;
   const accentColor = safeColor(selectedVariant?.accentColor || link.brand?.accentColor);
-  const brandName = escapeHtml(link.brand?.brandName || 'AgenticPay');
+  const brandName = escapeHtml(link.brand?.brandName || 'ManifestPay');
   const logoUrl = safeUrl(link.brand?.logoUrl);
   const redirectUrl = safeUrl(link.brand?.redirectUrl);
   const description = escapeHtml(selectedVariant?.description || link.description || 'Secure checkout link');

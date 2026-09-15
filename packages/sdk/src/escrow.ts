@@ -1,4 +1,4 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 
 export type EscrowStatus = 'draft' | 'funded' | 'active' | 'completed' | 'disputed' | 'cancelled';
 
@@ -78,7 +78,7 @@ export type DisputeResolveInput = {
 };
 
 export class EscrowApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** Create a new escrow agreement. */
   create(input: CreateEscrowInput) {
@@ -107,7 +107,7 @@ export class EscrowApi {
 }
 
 export class DisputesApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** File a dispute. */
   create(input: CreateDisputeInput) {

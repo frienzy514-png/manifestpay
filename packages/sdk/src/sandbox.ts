@@ -1,4 +1,4 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 
 export type SandboxStatus = {
   healthy: boolean;
@@ -23,7 +23,7 @@ export type SandboxPaymentResult = {
 };
 
 export class SandboxApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** Get sandbox environment status. */
   getStatus() {

@@ -132,7 +132,7 @@ type PersistedWeb3 = Pick<
 // ─── Lightweight XOR-based storage encryption ─────────────────────────────────
 // Obfuscates persisted data from casual localStorage inspection.
 
-const CIPHER_KEY = 'agenticpay-w3-2024';
+const CIPHER_KEY = 'manifestpay-w3-2024';
 
 function xorCipher(str: string): string {
   return str
@@ -177,7 +177,7 @@ let _channel: BroadcastChannel | null = null;
 
 function getChannel(): BroadcastChannel | null {
   if (typeof window === 'undefined' || !('BroadcastChannel' in window)) return null;
-  if (!_channel) _channel = new BroadcastChannel('agenticpay-web3-sync');
+  if (!_channel) _channel = new BroadcastChannel('manifestpay-web3-sync');
   return _channel;
 }
 
@@ -376,7 +376,7 @@ export const useWeb3Store = create<Web3Store>()(
           },
         }),
         {
-          name: 'agenticpay-web3',
+          name: 'manifestpay-web3',
           storage: encryptedStorage,
           // Only persist serialisable, non-sensitive connection markers
           partialize: (state): PersistedWeb3 => ({
@@ -392,7 +392,7 @@ export const useWeb3Store = create<Web3Store>()(
       )
     ),
     {
-      name: 'AgenticPay/Web3',
+      name: 'ManifestPay/Web3',
       enabled: process.env.NODE_ENV === 'development',
     }
   )

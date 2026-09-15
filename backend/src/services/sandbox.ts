@@ -1,4 +1,4 @@
-// Sandbox Environment Configuration for AgenticPay
+// Sandbox Environment Configuration for ManifestPay
 // Enables testing without real transactions
 
 import { Request, Response, NextFunction } from 'express';

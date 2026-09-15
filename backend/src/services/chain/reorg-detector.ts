@@ -227,7 +227,7 @@ export class ReorgDetector {
     if (!redisUrl || process.env.REDIS_ENABLED !== 'true') return;
 
     const connection = this.parseRedisUrl(redisUrl);
-    this.reorgQueue = new Queue('agenticpay:reorg-processing', {
+    this.reorgQueue = new Queue('manifestpay:reorg-processing', {
       connection,
       defaultJobOptions: {
         attempts: 5,
@@ -238,7 +238,7 @@ export class ReorgDetector {
     });
 
     this.reorgWorker = new Worker(
-      'agenticpay:reorg-processing',
+      'manifestpay:reorg-processing',
       (job: Job<ReorgJob>) => this.processReorgJob(job.data),
       { connection, concurrency: 4 },
     );

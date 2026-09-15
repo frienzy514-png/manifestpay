@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import type { Dispute } from "@agenticpay/types";
+import type { Dispute } from "@manifestpay/types";
 import type { CreateDisputeForm, ResolutionOutcome } from "@/types/disputes";
 import {
   useAddDisputeEvidenceMutation,

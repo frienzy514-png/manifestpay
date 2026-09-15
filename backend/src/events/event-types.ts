@@ -4,9 +4,9 @@ export type {
   EventHandler,
   EventMetadata,
   StoredEvent,
-} from '@agenticpay/types/events';
+} from '@manifestpay/types/events';
 
-import type { StoredEvent } from '@agenticpay/types/events';
+import type { StoredEvent } from '@manifestpay/types/events';
 
 export interface EventStream {
   streamId: string;

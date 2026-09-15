@@ -1,5 +1,5 @@
 import type http from 'node:http';
-import type { AgenticPayWebSocketServer } from './server.js';
+import type { ManifestPayWebSocketServer } from './server.js';
 import type { WebSocketServerMetrics } from './types.js';
 import { createWsAuthHandler } from '../middleware/ws-auth.js';
 
@@ -39,7 +39,7 @@ export class ConnectionManager {
   };
 
   constructor(
-    private readonly wsServer: AgenticPayWebSocketServer,
+    private readonly wsServer: ManifestPayWebSocketServer,
     options?: ConnectionManagerOptions,
   ) {
     this.options = { ...DEFAULT_OPTIONS, ...options };
@@ -103,7 +103,7 @@ export class ConnectionManager {
 
 export function createConnectionManager(
   server: http.Server,
-  wsServer: AgenticPayWebSocketServer,
+  wsServer: ManifestPayWebSocketServer,
   options?: ConnectionManagerOptions,
 ): ConnectionManager {
   const manager = new ConnectionManager(wsServer, options);

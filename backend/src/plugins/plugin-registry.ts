@@ -3,7 +3,7 @@ import { PluginHost } from './plugin-host.js';
 import type { ExtensionPoint, HookContextByExtensionPoint } from './extension-points.js';
 import type { PluginHealth, PluginPrismaClient } from './types.js';
 
-const CORE_VERSION = process.env.AGENTICPAY_VERSION ?? '0.1.0';
+const CORE_VERSION = process.env.MANIFESTPAY_VERSION ?? '0.1.0';
 
 function parseMajor(version: string): number {
   return Number(version.replace(/^[^\d]*/, '').split('.')[0] ?? 0);
@@ -35,10 +35,10 @@ export class PluginRegistry {
 
     return [
       {
-        name: 'agenticpay-fee-sample',
+        name: 'manifestpay-fee-sample',
         version: '0.1.0',
         description: 'Sample fee:calculate extension',
-        compatibility: { agenticPay: `^${CORE_VERSION}` },
+        compatibility: { manifestPay: `^${CORE_VERSION}` },
       },
     ];
   }
@@ -47,16 +47,16 @@ export class PluginRegistry {
     name: string;
     version: string;
     source: string;
-    compatibility?: { agenticPay?: string; node?: string };
+    compatibility?: { manifestPay?: string; node?: string };
     config?: Record<string, unknown>;
     actorId?: string;
   }) {
     const compatibility = {
-      agenticPay: input.compatibility?.agenticPay ?? `^${CORE_VERSION}`,
+      manifestPay: input.compatibility?.manifestPay ?? `^${CORE_VERSION}`,
       node: input.compatibility?.node ?? process.version,
     };
-    if (!isCompatible(CORE_VERSION, compatibility.agenticPay)) {
-      throw new Error(`Plugin ${input.name} is not compatible with AgenticPay ${CORE_VERSION}`);
+    if (!isCompatible(CORE_VERSION, compatibility.manifestPay)) {
+      throw new Error(`Plugin ${input.name} is not compatible with ManifestPay ${CORE_VERSION}`);
     }
 
     const record = await this.db.plugin.create({

@@ -1,5 +1,5 @@
 import type { NextFunction, Request, RequestHandler, Response } from 'express';
-import { ERROR_CODE_REGISTRY, resolveErrorCode } from '@agenticpay/error-codes';
+import { ERROR_CODE_REGISTRY, resolveErrorCode } from '@manifestpay/error-codes';
 import { AppError, PaymentError, AuthError, ProjectError, DisputeError, ValidationError, NotFoundError } from '../types/errors';
 
 type AsyncRouteHandler = (req: Request, res: Response, next: NextFunction) => Promise<unknown>;

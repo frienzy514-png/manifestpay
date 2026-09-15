@@ -9,7 +9,7 @@ import {
   PaginatedResult,
 } from "./BaseRepository.js";
 import { InMemoryRepository } from "./InMemoryRepository.js";
-import type { Project as SharedProject } from "@agenticpay/types";
+import type { Project as SharedProject } from "@manifestpay/types";
 
 export interface Project extends Pick<SharedProject, "id" | "description" | "createdAt" | "updatedAt"> {
   id: string;

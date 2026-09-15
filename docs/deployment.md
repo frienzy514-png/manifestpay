@@ -1,10 +1,10 @@
-# AgenticPay Deployment Guide
+# ManifestPay Deployment Guide
 
-This document provides a comprehensive guide for deploying all three components of AgenticPay: the Soroban Smart Contracts, the Backend API Server, and the Frontend Web Application.
+This document provides a comprehensive guide for deploying all three components of ManifestPay: the Soroban Smart Contracts, the Backend API Server, and the Frontend Web Application.
 
 ## Deployment Prerequisites
 
-Before deploying AgenticPay to a production or staging environment, ensure you have the following installed and configured:
+Before deploying ManifestPay to a production or staging environment, ensure you have the following installed and configured:
 
 - **Node.js** (v18 or higher) and npm/yarn/pnpm
 - **Rust** and **Cargo** (for building smart contracts)
@@ -54,7 +54,7 @@ NEXT_PUBLIC_SOROBAN_CONTRACT_ID=... # Updated after contract deployment
 
 ## Deployment Steps
 
-AgenticPay must be deployed in a specific order: Smart Contracts first, then Backend, and finally Frontend, ensuring that dependency references (like Contract IDs) are propagated correctly.
+ManifestPay must be deployed in a specific order: Smart Contracts first, then Backend, and finally Frontend, ensuring that dependency references (like Contract IDs) are propagated correctly.
 
 ### Step 1: Deploy Smart Contracts
 
@@ -69,7 +69,7 @@ AgenticPay must be deployed in a specific order: Smart Contracts first, then Bac
 3. Deploy the compiled contract using the Stellar CLI:
    ```bash
    stellar contract deploy \
-     --wasm target/wasm32-unknown-unknown/release/agenticpay_escrow.wasm \
+     --wasm target/wasm32-unknown-unknown/release/manifestpay_escrow.wasm \
      --source deployer \
      --network mainnet
    ```
@@ -94,7 +94,7 @@ The backend can be deployed on any standard VPS (AWS EC2, DigitalOcean, etc.) or
 4. Start the server using a process manager like PM2 to ensure it stays running:
    ```bash
    npm install -g pm2
-   pm2 start dist/index.js --name agenticpay-backend
+   pm2 start dist/index.js --name manifestpay-backend
    pm2 save
    pm2 startup
    ```
@@ -134,7 +134,7 @@ If an issue occurs after a deployment, follow these rollback procedures for the 
 
 ### Frontend Rollback
 - **Vercel**: Navigate to the "Deployments" tab in your Vercel project dashboard, find the previous stable deployment, click the vertical dots, and select "Promote to Production".
-- **Manual**: Revert your git working tree to the last stable commit (`git checkout <commit_hash>`), run `npm run build`, and restart the application (`pm2 restart agenticpay-frontend`).
+- **Manual**: Revert your git working tree to the last stable commit (`git checkout <commit_hash>`), run `npm run build`, and restart the application (`pm2 restart manifestpay-frontend`).
 
 ### Backend Rollback
 1. Revert the codebase to the last known stable state:
@@ -147,7 +147,7 @@ If an issue occurs after a deployment, follow these rollback procedures for the 
    ```
 3. Restart the backend process:
    ```bash
-   pm2 restart agenticpay-backend
+   pm2 restart manifestpay-backend
    ```
 
 ### Smart Contract Rollback

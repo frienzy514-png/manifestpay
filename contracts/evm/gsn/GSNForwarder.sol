@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 /// @title GSNForwarder
-/// @notice EIP-2771 trusted forwarder for the AgenticPay Gas Station Network.
+/// @notice EIP-2771 trusted forwarder for the ManifestPay Gas Station Network.
 ///         Verifies EIP-712 meta-transaction signatures and relays calls to
 ///         target contracts, appending the original sender address to calldata.
 ///         Supports EIP-1559 fee parameters for accurate gas accounting.
@@ -64,7 +64,7 @@ contract GSNForwarder {
                     "EIP712Domain(string name,string version,"
                     "uint256 chainId,address verifyingContract)"
                 ),
-                keccak256(bytes("AgenticPayGSN")),
+                keccak256(bytes("ManifestPayGSN")),
                 keccak256(bytes("1")),
                 block.chainid,
                 address(this)

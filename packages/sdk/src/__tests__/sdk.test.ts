@@ -1,25 +1,25 @@
 /**
- * Tests for the AgenticPay TypeScript SDK.
+ * Tests for the ManifestPay TypeScript SDK.
  */
 import http from 'node:http';
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import {
-  AgenticPaySDK,
-  createAgenticPaySDK,
-  AgenticPayError,
+  ManifestPaySDK,
+  createManifestPaySDK,
+  ManifestPayError,
   AuthenticationError,
   ValidationError,
   NotFoundError,
   RateLimitError,
   NetworkError,
 } from '../index.js';
-import { MockAgenticPayServer, createTestSDK, expectApiError } from '../testing.js';
+import { MockManifestPayServer, createTestSDK, expectApiError } from '../testing.js';
 import type { MockServerInstance } from '../testing/types.js';
 
 let server: MockServerInstance;
 
 beforeAll(async () => {
-  server = await MockAgenticPayServer.create();
+  server = await MockManifestPayServer.create();
 });
 
 afterAll(async () => {
@@ -28,9 +28,9 @@ afterAll(async () => {
 
 // ─── SDK Construction ─────────────────────────────────────────────────────────
 
-describe('AgenticPaySDK', () => {
+describe('ManifestPaySDK', () => {
   it('creates an SDK instance with all services', () => {
-    const sdk = new AgenticPaySDK({
+    const sdk = new ManifestPaySDK({
       baseUrl: 'http://localhost:3001/api/v1',
       apiKey: 'test_key',
     });
@@ -48,11 +48,11 @@ describe('AgenticPaySDK', () => {
   });
 
   it('creates via factory function', () => {
-    const sdk = createAgenticPaySDK({
+    const sdk = createManifestPaySDK({
       baseUrl: 'http://localhost:3001/api/v1',
       apiKey: 'test_key',
     });
-    expect(sdk).toBeInstanceOf(AgenticPaySDK);
+    expect(sdk).toBeInstanceOf(ManifestPaySDK);
   });
 });
 
@@ -63,7 +63,7 @@ describe('Error Classes', () => {
     const err = new AuthenticationError();
     expect(err.status).toBe(401);
     expect(err.code).toBe('AUTHENTICATION_ERROR');
-    expect(err).toBeInstanceOf(AgenticPayError);
+    expect(err).toBeInstanceOf(ManifestPayError);
   });
 
   it('ValidationError has correct status', () => {
@@ -92,7 +92,7 @@ describe('Error Classes', () => {
 
 // ─── Mock Server Integration ──────────────────────────────────────────────────
 
-describe('MockAgenticPayServer', () => {
+describe('MockManifestPayServer', () => {
   it('responds to configured routes', async () => {
     server.addRoute({
       method: 'GET',
@@ -371,7 +371,7 @@ describe('expectApiError', () => {
   });
 
   it('throws for wrong error type', () => {
-    expect(() => expectApiError(new Error('generic'))).toThrow('Expected AgenticPayError');
+    expect(() => expectApiError(new Error('generic'))).toThrow('Expected ManifestPayError');
   });
 
   it('throws for wrong status', () => {

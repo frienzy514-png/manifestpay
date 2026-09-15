@@ -1,4 +1,4 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 
 export type SubscriptionStatus = 'active' | 'paused' | 'cancelled' | 'past_due' | 'trialing';
 
@@ -59,7 +59,7 @@ export type PauseSubscriptionInput = {
 };
 
 export class SubscriptionsApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /** Create a subscription plan. */
   createPlan(input: CreatePlanInput) {

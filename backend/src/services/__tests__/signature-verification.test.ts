@@ -12,7 +12,7 @@ describe('signature-verification anti-phishing', () => {
   const account = privateKeyToAccount('0x59c6995e998f97a5a0044966f094538f9dc9e86dae88d8a8a1f4f2f4f8b95d47');
 
   beforeEach(() => {
-    process.env.AGENTICPAY_ALLOWED_SIGNATURE_ORIGINS = 'https://agenticpay.com,http://localhost:3000';
+    process.env.MANIFESTPAY_ALLOWED_SIGNATURE_ORIGINS = 'https://manifestpay.com,http://localhost:3000';
     clearSignatureStateForTests();
   });
 
@@ -20,7 +20,7 @@ describe('signature-verification anti-phishing', () => {
     const challenge = await createSignatureChallenge({
       signer: account.address,
       chainId: 1,
-      origin: 'https://agenticpay.com',
+      origin: 'https://manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '11'.repeat(32),
     });
@@ -33,7 +33,7 @@ describe('signature-verification anti-phishing', () => {
         action: 'invoice.sign',
         nonce: challenge.nonce,
         payloadHash: '0x' + '11'.repeat(32),
-        origin: 'https://agenticpay.com',
+        origin: 'https://manifestpay.com',
         expiresAt: challenge.expiresAt,
       }),
     });
@@ -43,7 +43,7 @@ describe('signature-verification anti-phishing', () => {
       signature,
       nonce: challenge.nonce,
       chainId: 1,
-      origin: 'https://agenticpay.com',
+      origin: 'https://manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '11'.repeat(32),
       expiresAt: challenge.expiresAt,
@@ -56,7 +56,7 @@ describe('signature-verification anti-phishing', () => {
       signature,
       nonce: challenge.nonce,
       chainId: 1,
-      origin: 'https://agenticpay.com',
+      origin: 'https://manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '11'.repeat(32),
       expiresAt: challenge.expiresAt,
@@ -67,7 +67,7 @@ describe('signature-verification anti-phishing', () => {
     const challenge = await createSignatureChallenge({
       signer: account.address,
       chainId: 1,
-      origin: 'https://agenticpay.com',
+      origin: 'https://manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '22'.repeat(32),
     });
@@ -80,7 +80,7 @@ describe('signature-verification anti-phishing', () => {
         action: 'invoice.sign',
         nonce: challenge.nonce,
         payloadHash: '0x' + '22'.repeat(32),
-        origin: 'https://agenticpay.com',
+        origin: 'https://manifestpay.com',
         expiresAt: challenge.expiresAt,
       }),
     });
@@ -90,7 +90,7 @@ describe('signature-verification anti-phishing', () => {
       signature,
       nonce: challenge.nonce,
       chainId: 1,
-      origin: 'https://evil-agenticpay.com',
+      origin: 'https://evil-manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '22'.repeat(32),
       expiresAt: challenge.expiresAt,
@@ -101,7 +101,7 @@ describe('signature-verification anti-phishing', () => {
     const challenge = await createSignatureChallenge({
       signer: account.address,
       chainId: 1,
-      origin: 'https://agenticpay.com',
+      origin: 'https://manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '33'.repeat(32),
       ttlSeconds: 1,
@@ -115,7 +115,7 @@ describe('signature-verification anti-phishing', () => {
         action: 'invoice.sign',
         nonce: challenge.nonce,
         payloadHash: '0x' + '33'.repeat(32),
-        origin: 'https://agenticpay.com',
+        origin: 'https://manifestpay.com',
         expiresAt: challenge.expiresAt,
       }),
     });
@@ -127,7 +127,7 @@ describe('signature-verification anti-phishing', () => {
       signature,
       nonce: challenge.nonce,
       chainId: 1,
-      origin: 'https://agenticpay.com',
+      origin: 'https://manifestpay.com',
       action: 'invoice.sign',
       payloadHash: '0x' + '33'.repeat(32),
       expiresAt: past,

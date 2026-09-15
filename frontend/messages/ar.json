@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "AgenticPay",
+    "appName": "ManifestPay",
     "loading": "جاري التحميل…",
     "save": "حفظ",
     "cancel": "إلغاء",
@@ -32,14 +32,14 @@
     "badge": "آمن / سريع / شفاف",
     "headline": "احصل على أجرك فورًا",
     "headlineAccent": "مقابل عملك",
-    "subheadline": "AgenticPay تُحدث ثورة في مدفوعات المستقلين بتقنية البلوكشين.",
+    "subheadline": "ManifestPay تُحدث ثورة في مدفوعات المستقلين بتقنية البلوكشين.",
     "activeProjects": "المشاريع النشطة",
     "paidInvoices": "الفواتير المدفوعة",
     "completedPayments": "المدفوعات المكتملة",
     "volumeSettled": "حجم التسوية"
   },
   "auth": {
-    "title": "مرحبًا بك في AgenticPay",
+    "title": "مرحبًا بك في ManifestPay",
     "subtitle": "احصل على أجرك فورًا",
     "socialLogin": "تسجيل اجتماعي",
     "walletConnect": "محفظة Web3"
@@ -90,7 +90,7 @@
     "namespace": "مساحة الاسم"
   },
   "metadata": {
-    "title": "AgenticPay - احصل على أجرك فورًا مقابل عملك",
+    "title": "ManifestPay - احصل على أجرك فورًا مقابل عملك",
     "description": "مدفوعات آمنة وسريعة وشفافة للمستقلين مدعومة بتقنية البلوكشين."
   }
 }

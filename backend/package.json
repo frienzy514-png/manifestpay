@@ -1,7 +1,7 @@
 {
-  "name": "agenticpay-backend",
+  "name": "manifestpay-backend",
   "version": "0.1.0",
-  "description": "AgenticPay API server - AI verification & invoicing for Stellar payments",
+  "description": "ManifestPay API server - AI verification & invoicing for Stellar payments",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -36,9 +36,9 @@
     "config:docs:check": "tsx scripts/config-docs.ts --check"
   },
   "dependencies": {
-    "@agenticpay/api-spec": "*",
-    "@agenticpay/error-codes": "*",
-    "@agenticpay/types": "*",
+    "@manifestpay/api-spec": "*",
+    "@manifestpay/error-codes": "*",
+    "@manifestpay/types": "*",
     "@prisma/client": "^5.22.0",
     "@sentry/node": "^10.50.0",
     "@sentry/profiling-node": "^10.50.0",

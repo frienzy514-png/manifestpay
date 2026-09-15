@@ -183,9 +183,9 @@ export function buildOpenApiDocument() {
   return {
     openapi: '3.1.0',
     info: {
-      title: 'AgenticPay API',
+      title: 'ManifestPay API',
       version: '0.1.0',
-      description: 'OpenAPI-first API contract for AgenticPay.',
+      description: 'OpenAPI-first API contract for ManifestPay.',
     },
     servers: [{ url: 'http://localhost:3001' }],
     paths,

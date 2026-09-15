@@ -1,5 +1,5 @@
 [package]
-name = "agenticpay-payment-vault"
+name = "manifestpay-payment-vault"
 version = "0.1.0"
 edition = "2021"
 

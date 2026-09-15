@@ -4,11 +4,11 @@ pragma solidity ^0.8.19;
 import "src/lib.sol";
 
 /**
- * @title Echidna Property Tests for AgenticPay
+ * @title Echidna Property Tests for ManifestPay
  * @dev Property-based tests to find edge cases, overflow conditions, and reentrancy vulnerabilities
  */
 contract EchidnaTests {
-    AgenticPayContract private target;
+    ManifestPayContract private target;
     
     // Test state
     address private owner = address(0x1);
@@ -20,7 +20,7 @@ contract EchidnaTests {
     mapping(uint256 => bool) private validProjects;
     
     constructor() {
-        target = new AgenticPayContract();
+        target = new ManifestPayContract();
         target.initialize(owner);
     }
     

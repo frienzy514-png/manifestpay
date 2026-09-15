@@ -84,7 +84,7 @@ export const useLanguageStore = create<LanguageState>()(
       markHydrated: () => set({ isHydrated: true }),
     }),
     {
-      name: 'agenticpay-locale',
+      name: 'manifestpay-locale',
       onRehydrateStorage: () => (state) => {
         // After store rehydrates from localStorage, detect browser locale
         // if no stored preference, then mark as hydrated.

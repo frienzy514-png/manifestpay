@@ -1,5 +1,5 @@
 [package]
-name = "agenticpay-swap-aggregator"
+name = "manifestpay-swap-aggregator"
 version = "0.1.0"
 edition = "2021"
 description = "Soroban swap aggregator — routes token swaps across multiple Soroban DEXs with split routing, multi-hop, slippage protection and MEV resistance"

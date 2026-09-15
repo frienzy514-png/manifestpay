@@ -6,7 +6,7 @@ import type {
   Dispute,
   ListDisputesResponse,
   ResolutionOutcome,
-} from "@agenticpay/types";
+} from "@manifestpay/types";
 import { mockDisputes } from "@/lib/mock-data/disputes";
 import { queryKeys } from "@/lib/query-keys";
 import { apiFetch } from "@/lib/queries/api";

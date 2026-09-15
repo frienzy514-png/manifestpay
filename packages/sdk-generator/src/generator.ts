@@ -70,7 +70,7 @@ export class SDKGenerator {
     const packageJson = {
       name: `${this.config.packageName}-typescript`,
       version: this.config.packageVersion,
-      description: 'Official TypeScript SDK for AgenticPay APIs',
+      description: 'Official TypeScript SDK for ManifestPay APIs',
       type: 'module',
       main: './dist/index.js',
       types: './dist/index.d.ts',
@@ -181,23 +181,23 @@ export * from './errors';
 
     // Generate README
     const readme = `
-# @agenticpay/sdk (TypeScript)
+# @manifestpay/sdk (TypeScript)
 
-Official TypeScript SDK for AgenticPay APIs.
+Official TypeScript SDK for ManifestPay APIs.
 
 ## Installation
 
 \`\`\`bash
-npm install @agenticpay/sdk
+npm install @manifestpay/sdk
 \`\`\`
 
 ## Usage
 
 \`\`\`typescript
-import { Client } from '@agenticpay/sdk';
+import { Client } from '@manifestpay/sdk';
 
 const client = new Client({
-  baseURL: 'https://api.agenticpay.com',
+  baseURL: 'https://api.manifestpay.com',
   apiKey: 'your-api-key',
 });
 
@@ -214,7 +214,7 @@ const client = new Client({
 
 ## Documentation
 
-For more information, see the [API documentation](https://docs.agenticpay.com).
+For more information, see the [API documentation](https://docs.manifestpay.com).
 `;
 
     writeFileSync(join(outputDir, 'README.md'), readme);
@@ -233,7 +233,7 @@ from setuptools import setup, find_packages
 setup(
     name="${this.config.packageName.toLowerCase()}-python",
     version="${this.config.packageVersion}",
-    description="Official Python SDK for AgenticPay APIs",
+    description="Official Python SDK for ManifestPay APIs",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[
@@ -292,39 +292,39 @@ class Client:
         return response.json()
 `;
 
-    mkdirSync(join(outputDir, 'agenticpay'), { recursive: true });
-    writeFileSync(join(outputDir, 'agenticpay', 'client.py'), clientPy);
+    mkdirSync(join(outputDir, 'manifestpay'), { recursive: true });
+    writeFileSync(join(outputDir, 'manifestpay', 'client.py'), clientPy);
 
     // Generate __init__.py
     const initPy = `
-# Official Python SDK for AgenticPay APIs
+# Official Python SDK for ManifestPay APIs
 from .client import Client
 
 __version__ = "${this.config.packageVersion}"
 __all__ = ["Client"]
 `;
 
-    writeFileSync(join(outputDir, 'agenticpay', '__init__.py'), initPy);
+    writeFileSync(join(outputDir, 'manifestpay', '__init__.py'), initPy);
 
     // Generate README.md
     const readme = `
-# agenticpay-python
+# manifestpay-python
 
-Official Python SDK for AgenticPay APIs.
+Official Python SDK for ManifestPay APIs.
 
 ## Installation
 
 \`\`\`bash
-pip install agenticpay
+pip install manifestpay
 \`\`\`
 
 ## Usage
 
 \`\`\`python
-from agenticpay import Client
+from manifestpay import Client
 
 client = Client(
-    base_url="https://api.agenticpay.com",
+    base_url="https://api.manifestpay.com",
     api_key="your-api-key"
 )
 
@@ -341,7 +341,7 @@ client = Client(
 
 ## Documentation
 
-For more information, see the [API documentation](https://docs.agenticpay.com).
+For more information, see the [API documentation](https://docs.manifestpay.com).
 `;
 
     writeFileSync(join(outputDir, 'README.md'), readme);
@@ -355,7 +355,7 @@ For more information, see the [API documentation](https://docs.agenticpay.com).
 
     // Generate go.mod
     const goMod = `
-module github.com/agenticpay/sdk-go
+module github.com/frienzy514-png/manifestpay/sdks/go
 
 go 1.21
 
@@ -369,7 +369,7 @@ require (
     // Generate client.go
     const clientGo = `
 // Generated Go SDK for ${this.config.packageName}
-package agenticpay
+package manifestpay
 
 import (
     "fmt"
@@ -419,12 +419,12 @@ func (c *Client) Do(method, path string, body interface{}) ([]byte, error) {
     const readme = `
 # sdk-go
 
-Official Go SDK for AgenticPay APIs.
+Official Go SDK for ManifestPay APIs.
 
 ## Installation
 
 \`\`\`bash
-go get github.com/agenticpay/sdk-go
+go get github.com/frienzy514-png/manifestpay/sdks/go
 \`\`\`
 
 ## Usage
@@ -432,11 +432,11 @@ go get github.com/agenticpay/sdk-go
 \`\`\`go
 package main
 
-import "github.com/agenticpay/sdk-go"
+import "github.com/frienzy514-png/manifestpay/sdks/go"
 
 func main() {
-    client := agenticpay.NewClient(agenticpay.ClientConfig{
-        BaseURL: "https://api.agenticpay.com",
+    client := manifestpay.NewClient(manifestpay.ClientConfig{
+        BaseURL: "https://api.manifestpay.com",
         APIKey:  "your-api-key",
     })
     // Use the client
@@ -453,7 +453,7 @@ func main() {
 
 ## Documentation
 
-For more information, see the [API documentation](https://docs.agenticpay.com).
+For more information, see the [API documentation](https://docs.manifestpay.com).
 `;
 
     writeFileSync(join(outputDir, 'README.md'), readme);
@@ -468,10 +468,10 @@ For more information, see the [API documentation](https://docs.agenticpay.com).
     // Generate Cargo.toml
     const cargoToml = `
 [package]
-name = "agenticpay"
+name = "manifestpay"
 version = "${this.config.packageVersion}"
 edition = "2021"
-description = "Official Rust SDK for AgenticPay APIs"
+description = "Official Rust SDK for ManifestPay APIs"
 license = "MIT"
 
 [dependencies]
@@ -530,9 +530,9 @@ impl Client {
 
     // Generate README.md
     const readme = `
-# agenticpay
+# manifestpay
 
-Official Rust SDK for AgenticPay APIs.
+Official Rust SDK for ManifestPay APIs.
 
 ## Installation
 
@@ -540,17 +540,17 @@ Add to your \`Cargo.toml\`:
 
 \`\`\`toml
 [dependencies]
-agenticpay = "0.1.0"
+manifestpay = "0.1.0"
 \`\`\`
 
 ## Usage
 
 \`\`\`rust
-use agenticpay::Client;
+use manifestpay::Client;
 
 #[tokio::main]
 async fn main() {
-    let client = Client::new(Some("https://api.agenticpay.com"), Some("your-api-key"));
+    let client = Client::new(Some("https://api.manifestpay.com"), Some("your-api-key"));
     // Use the client
 }
 \`\`\`
@@ -565,7 +565,7 @@ async fn main() {
 
 ## Documentation
 
-For more information, see the [API documentation](https://docs.agenticpay.com).
+For more information, see the [API documentation](https://docs.manifestpay.com).
 `;
 
     writeFileSync(join(outputDir, 'README.md'), readme);

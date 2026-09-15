@@ -95,7 +95,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Why Choose AgenticPay?</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Why Choose ManifestPay?</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Everything you need to get paid faster and more securely
             </p>
@@ -152,9 +152,9 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
           >
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-blue-100 mb-8">
-              Join thousands of freelancers getting paid instantly with AgenticPay
+              Join thousands of freelancers getting paid instantly with ManifestPay
             </p>
-            <Link href="/auth" aria-label="Start earning with AgenticPay">
+            <Link href="/auth" aria-label="Start earning with ManifestPay">
               <Button size="lg" className="text-lg px-8 py-6 bg-white text-blue-600 hover:bg-gray-100 shadow-xl">
                 Start Earning Today
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
@@ -168,7 +168,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <h3 className="text-xl font-bold text-white mb-2">AgenticPay</h3>
+              <h3 className="text-xl font-bold text-white mb-2">ManifestPay</h3>
               <p className="text-sm">Secure payments for freelancers</p>
             </div>
             <div className="flex gap-6 text-sm">
@@ -179,7 +179,7 @@ export function HomePageClient({ snapshot }: HomePageClientProps) {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-            <p>&copy; 2025 AgenticPay. All rights reserved.</p>
+            <p>&copy; 2025 ManifestPay. All rights reserved.</p>
           </div>
         </div>
       </footer>

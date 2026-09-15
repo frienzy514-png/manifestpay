@@ -1,4 +1,4 @@
-name = "agenticpay-edge"
+name = "manifestpay-edge"
 main = "src/index.ts"
 compatibility_date = "2026-04-23"
 

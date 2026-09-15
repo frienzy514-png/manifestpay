@@ -1,8 +1,8 @@
 [package]
-name = "agenticpay"
+name = "manifestpay"
 version = "0.1.0"
 edition = "2021"
-authors = ["AgenticPay Team"]
+authors = ["ManifestPay Team"]
 description = "AI Agent Payment Infrastructure on Stellar/Soroban"
 
 [lib]

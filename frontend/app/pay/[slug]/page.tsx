@@ -176,7 +176,7 @@ export default function PayPage() {
     );
   }
 
-  const brandName = linkData.brand?.brandName || 'AgenticPay';
+  const brandName = linkData.brand?.brandName || 'ManifestPay';
   const accentColor = selectedVariant?.accentColor || linkData.brand?.accentColor || '#6366F1';
   const description = selectedVariant?.description || linkData.description || 'Secure checkout request';
   const amountToPay = selectedVariant ? selectedVariant.amount : linkData.amount;

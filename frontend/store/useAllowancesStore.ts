@@ -225,7 +225,7 @@ export const useAllowancesStore = create<AllowancesState>()(
       clearAllowances: () => set({ allowances: [], summary: null, history: [] }),
     }),
     {
-      name: 'agenticpay-allowances',
+      name: 'manifestpay-allowances',
       partialize: (state) => ({ selectedChainIds: state.selectedChainIds }),
     }
   )

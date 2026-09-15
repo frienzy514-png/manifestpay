@@ -33,7 +33,7 @@ interface SignatureState {
   used: boolean;
 }
 
-export const SIGNATURE_DOMAIN_NAME = 'AgenticPay';
+export const SIGNATURE_DOMAIN_NAME = 'ManifestPay';
 export const SIGNATURE_DOMAIN_VERSION = '1';
 
 const MAX_TTL_SECONDS = 15 * 60;
@@ -52,7 +52,7 @@ function normalizeOrigin(origin: string): string {
 }
 
 function allowedOrigins(): string[] {
-  const raw = process.env.AGENTICPAY_ALLOWED_SIGNATURE_ORIGINS || 'https://agenticpay.com,http://localhost:3000';
+  const raw = process.env.MANIFESTPAY_ALLOWED_SIGNATURE_ORIGINS || 'https://manifestpay.com,http://localhost:3000';
   return raw.split(',').map((v) => v.trim().toLowerCase()).filter(Boolean);
 }
 

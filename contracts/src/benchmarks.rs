@@ -3,7 +3,7 @@
 #[cfg(test)]
 extern crate std;
 
-/// Gas benchmarks for AgenticPay Soroban contracts.
+/// Gas benchmarks for ManifestPay Soroban contracts.
 ///
 /// Each benchmark measures the per-operation gas cost using
 /// `env.cost_tracker()` and prints results for CI consumption.
@@ -31,11 +31,11 @@ mod benchmarks {
         fn setup() -> Self {
             let env = Env::default();
             env.mock_all_auths();
-            let contract_id = env.register_contract(None, crate::AgenticPayContract);
+            let contract_id = env.register_contract(None, crate::ManifestPayContract);
             let admin = Address::generate(&env);
             let client = Address::generate(&env);
             let freelancer = Address::generate(&env);
-            let client = crate::AgenticPayContractClient::new(&env, &contract_id);
+            let client = crate::ManifestPayContractClient::new(&env, &contract_id);
             client.initialize(&admin);
             BenchEnv { env, contract_id, admin, client, freelancer }
         }

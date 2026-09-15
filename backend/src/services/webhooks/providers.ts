@@ -194,7 +194,7 @@ export function verifyCustomProviderWebhook(req: Request, rawBody: string): Prov
   };
 }
 
-/** Dev/test helper: sign outbound webhooks with AgenticPay format */
+/** Dev/test helper: sign outbound webhooks with ManifestPay format */
 export function signTestWebhook(payload: string, secret: string, timestamp: string): string {
   return generateWebhookSignature(payload, secret, timestamp);
 }

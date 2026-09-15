@@ -14,11 +14,11 @@ export const CACHE_TAGS = {
 } as const;
 
 export const CACHE_HEADERS = {
-  status: "x-agenticpay-cache-status",
-  key: "x-agenticpay-cache-key",
-  generatedAt: "x-agenticpay-cache-generated-at",
-  age: "x-agenticpay-cache-age",
-  revalidateIn: "x-agenticpay-cache-revalidate-in",
-  tags: "x-agenticpay-cache-tags",
+  status: "x-manifestpay-cache-status",
+  key: "x-manifestpay-cache-key",
+  generatedAt: "x-manifestpay-cache-generated-at",
+  age: "x-manifestpay-cache-age",
+  revalidateIn: "x-manifestpay-cache-revalidate-in",
+  tags: "x-manifestpay-cache-tags",
 } as const;
 

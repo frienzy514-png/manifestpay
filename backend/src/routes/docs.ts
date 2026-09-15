@@ -21,7 +21,7 @@ docsRouter.get('/', (_req: Request, res: Response) => {
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>AgenticPay API</title>
+  <title>ManifestPay API</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css"/>
 </head>
 <body>

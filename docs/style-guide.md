@@ -1,6 +1,6 @@
 # Code Style Guide
 
-This document defines the coding standards and best practices for contributors to ensure consistency, readability, and maintainability across the AgenticPay codebase.
+This document defines the coding standards and best practices for contributors to ensure consistency, readability, and maintainability across the ManifestPay codebase.
 
 ---
 

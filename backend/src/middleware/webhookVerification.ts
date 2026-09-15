@@ -66,8 +66,8 @@ export const webhookJsonParser = express.json({
 
 type ProviderVerifier = (req: Request, rawBody: string) => ProviderVerificationResult;
 
-const CUSTOM_SIGNATURE_HEADERS = ['x-agenticpay-signature', 'x-signature'] as const;
-const CUSTOM_TIMESTAMP_HEADERS = ['x-agenticpay-timestamp', 'x-timestamp'] as const;
+const CUSTOM_SIGNATURE_HEADERS = ['x-manifestpay-signature', 'x-signature'] as const;
+const CUSTOM_TIMESTAMP_HEADERS = ['x-manifestpay-timestamp', 'x-timestamp'] as const;
 
 function firstHeader(req: Request, names: readonly string[]): string | undefined {
   for (const name of names) {

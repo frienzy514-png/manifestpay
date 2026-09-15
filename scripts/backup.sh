@@ -1,14 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
-# AgenticPay Backup Script
+# ManifestPay Backup Script
 # Handles daily full backups, incremental backups, and Point-In-Time Restore (PITR)
 # Usage: ./backup.sh [full|incremental|restore|verify|pitr]
 
-BACKUP_DIR="${BACKUP_DIR:-/var/backups/agenticpay}"
-S3_BUCKET="${S3_BUCKET:-agenticpay-backups}"
+BACKUP_DIR="${BACKUP_DIR:-/var/backups/manifestpay}"
+S3_BUCKET="${S3_BUCKET:-manifestpay-backups}"
 S3_REGION="${S3_REGION:-us-east-1}"
-DB_URL="${DATABASE_URL:-postgresql://localhost:5432/agenticpay}"
+DB_URL="${DATABASE_URL:-postgresql://localhost:5432/manifestpay}"
 RETENTION_DAYS="${RETENTION_DAYS:-30}"
 SLACK_WEBHOOK="${SLACK_WEBHOOK_URL:-}"
 RTO_TARGET_HOURS=4

@@ -7,7 +7,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SERVICE: agenticpay
+  SERVICE: manifestpay
   ENVIRONMENT: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
 
 jobs:

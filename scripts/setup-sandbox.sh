@@ -4,7 +4,7 @@
 
 set -e
 
-echo "🚀 Starting AgenticPay Sandbox Setup..."
+echo "🚀 Starting ManifestPay Sandbox Setup..."
 
 # ── Create directories ─────────────────────────────────────────────────────────
 echo "📁 Creating sandbox directories..."

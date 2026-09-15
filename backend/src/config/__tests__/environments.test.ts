@@ -66,7 +66,7 @@ describe('Environment Configuration', () => {
 
     it('returns staging overrides', () => {
       const overrides = getEnvironmentOverrides('staging');
-      expect(overrides.CORS_ALLOWED_ORIGINS).toBe('https://staging.agenticpay.app');
+      expect(overrides.CORS_ALLOWED_ORIGINS).toBe('https://staging.manifestpay.app');
       expect(overrides.STELLAR_NETWORK).toBe('testnet');
       expect(overrides.RATE_LIMIT_FREE).toBe('100');
       expect(overrides.AWS_SECRETS_MANAGER_ENABLED).toBe('true');
@@ -74,11 +74,11 @@ describe('Environment Configuration', () => {
 
     it('returns production overrides', () => {
       const overrides = getEnvironmentOverrides('production');
-      expect(overrides.CORS_ALLOWED_ORIGINS).toBe('https://app.agenticpay.io');
+      expect(overrides.CORS_ALLOWED_ORIGINS).toBe('https://app.manifestpay.io');
       expect(overrides.STELLAR_NETWORK).toBe('public');
       expect(overrides.RATE_LIMIT_FREE).toBe('60');
       expect(overrides.RATE_LIMIT_ENTERPRISE).toBe('2000');
-      expect(overrides.AWS_SECRETS_MANAGER_SECRET_ID).toBe('agenticpay-prod-app-secrets');
+      expect(overrides.AWS_SECRETS_MANAGER_SECRET_ID).toBe('manifestpay-prod-app-secrets');
     });
   });
 
@@ -111,7 +111,7 @@ describe('Environment Configuration', () => {
 
       applyEnvironmentFileDefaults();
 
-      expect(process.env.CORS_ALLOWED_ORIGINS).toBe('https://staging.agenticpay.app');
+      expect(process.env.CORS_ALLOWED_ORIGINS).toBe('https://staging.manifestpay.app');
       expect(process.env.STELLAR_NETWORK).toBe('testnet');
     });
 
@@ -122,7 +122,7 @@ describe('Environment Configuration', () => {
 
       applyEnvironmentFileDefaults();
 
-      expect(process.env.CORS_ALLOWED_ORIGINS).toBe('https://app.agenticpay.io');
+      expect(process.env.CORS_ALLOWED_ORIGINS).toBe('https://app.manifestpay.io');
       expect(process.env.STELLAR_NETWORK).toBe('public');
     });
   });
@@ -137,21 +137,21 @@ describe('Environment Configuration', () => {
     });
 
     it('stagingOverrides has correct values', () => {
-      expect(stagingOverrides.CORS_ALLOWED_ORIGINS).toBe('https://staging.agenticpay.app');
+      expect(stagingOverrides.CORS_ALLOWED_ORIGINS).toBe('https://staging.manifestpay.app');
       expect(stagingOverrides.STELLAR_NETWORK).toBe('testnet');
       expect(stagingOverrides.RATE_LIMIT_FREE).toBe('100');
       expect(stagingOverrides.AWS_SECRETS_MANAGER_ENABLED).toBe('true');
-      expect(stagingOverrides.AWS_SECRETS_MANAGER_SECRET_ID).toBe('agenticpay-staging-app-secrets');
+      expect(stagingOverrides.AWS_SECRETS_MANAGER_SECRET_ID).toBe('manifestpay-staging-app-secrets');
     });
 
     it('productionOverrides has correct values', () => {
-      expect(productionOverrides.CORS_ALLOWED_ORIGINS).toBe('https://app.agenticpay.io');
+      expect(productionOverrides.CORS_ALLOWED_ORIGINS).toBe('https://app.manifestpay.io');
       expect(productionOverrides.STELLAR_NETWORK).toBe('public');
       expect(productionOverrides.RATE_LIMIT_FREE).toBe('60');
       expect(productionOverrides.RATE_LIMIT_PRO).toBe('300');
       expect(productionOverrides.RATE_LIMIT_ENTERPRISE).toBe('2000');
       expect(productionOverrides.AWS_SECRETS_MANAGER_ENABLED).toBe('true');
-      expect(productionOverrides.AWS_SECRETS_MANAGER_SECRET_ID).toBe('agenticpay-prod-app-secrets');
+      expect(productionOverrides.AWS_SECRETS_MANAGER_SECRET_ID).toBe('manifestpay-prod-app-secrets');
     });
   });
 

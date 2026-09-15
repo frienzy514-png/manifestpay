@@ -1,6 +1,6 @@
 # Email Template System — Issue #727
 
-AgenticPay uses a **component-based email templating engine** built on Handlebars for composable, maintainable email generation.
+ManifestPay uses a **component-based email templating engine** built on Handlebars for composable, maintainable email generation.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ export const TEMPLATE_REGISTRY = {
       name: z.string().min(1),
       actionUrl: z.string().url(),
     }),
-    subject: 'Welcome to AgenticPay, {{name}}!',
+    subject: 'Welcome to ManifestPay, {{name}}!',
     contentHtml: `
       <h1>Welcome, {{name}}!</h1>
       <p>We're excited to have you on board.</p>

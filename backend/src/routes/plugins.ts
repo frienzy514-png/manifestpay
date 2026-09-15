@@ -25,7 +25,7 @@ pluginsRouter.post(
       name?: string;
       version?: string;
       source?: string;
-      compatibility?: { agenticPay?: string; node?: string };
+      compatibility?: { manifestPay?: string; node?: string };
       config?: Record<string, unknown>;
     };
     if (!name || !version || !source) {

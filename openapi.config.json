@@ -1,30 +1,30 @@
 {
   "openapi": "docs/api/openapi/openapi.json",
   "outputDir": "dist/sdk",
-  "packageName": "agenticpay",
+  "packageName": "manifestpay",
   "packageVersion": "0.1.0",
-  "apiBaseUrl": "https://api.agenticpay.com",
+  "apiBaseUrl": "https://api.manifestpay.com",
   "supportedLanguages": ["typescript", "python", "go", "rust"],
   "generatorConfig": {
     "typescript": {
-      "packageName": "@agenticpay/sdk",
-      "packageScope": "@agenticpay",
+      "packageName": "@manifestpay/sdk",
+      "packageScope": "@manifestpay",
       "registryUrl": "https://registry.npmjs.org"
     },
     "python": {
-      "packageName": "agenticpay",
-      "registryUrl": "https://pypi.org/project/agenticpay"
+      "packageName": "manifestpay",
+      "registryUrl": "https://pypi.org/project/manifestpay"
     },
     "go": {
-      "module": "github.com/agenticpay/sdk-go",
-      "registryUrl": "https://pkg.go.dev/github.com/agenticpay/sdk-go"
+      "module": "github.com/frienzy514-png/manifestpay/sdks/go",
+      "registryUrl": "https://pkg.go.dev/github.com/frienzy514-png/manifestpay/sdks/go"
     },
     "rust": {
-      "packageName": "agenticpay",
-      "registryUrl": "https://crates.io/crates/agenticpay"
+      "packageName": "manifestpay",
+      "registryUrl": "https://crates.io/crates/manifestpay"
     }
   },
-  "documentationUrl": "https://docs.agenticpay.com",
+  "documentationUrl": "https://docs.manifestpay.com",
   "publishConfig": {
     "npm": true,
     "pypi": true,

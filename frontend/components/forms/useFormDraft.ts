@@ -6,7 +6,7 @@ export function useFormDraft<T extends Record<string, unknown>>(
   watch: UseFormWatch<T>,
   reset: UseFormReset<T>,
 ) {
-  const storageKey = `agenticpay-form-draft:${formId}`;
+  const storageKey = `manifestpay-form-draft:${formId}`;
 
   useEffect(() => {
     if (typeof window === 'undefined') return;

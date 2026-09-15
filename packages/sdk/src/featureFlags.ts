@@ -1,8 +1,8 @@
-import { AgenticPayClient } from './client.js';
+import { ManifestPayClient } from './client.js';
 import { FeatureFlagEvaluateResponse, FeatureFlagStateResponse } from './types.js';
 
 export class FeatureFlagsApi {
-  constructor(private readonly client: AgenticPayClient) {}
+  constructor(private readonly client: ManifestPayClient) {}
 
   /**
    * Deterministically evaluates a feature flag for a user identifier.

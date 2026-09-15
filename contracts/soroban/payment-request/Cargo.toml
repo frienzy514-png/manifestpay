@@ -1,5 +1,5 @@
 [package]
-name = "agenticpay-payment-request"
+name = "manifestpay-payment-request"
 version = "0.1.0"
 edition = "2021"
 description = "Soroban payment request contract with on-chain expiration enforcement — Issue #460"

@@ -1,7 +1,7 @@
 // public/sw.js - Service Worker for Offline-First Payments
 
-const CACHE_NAME = "agenticpay-cache-v2";
-const OFFLINE_QUEUE_DB = "agenticpay-offline-db";
+const CACHE_NAME = "manifestpay-cache-v2";
+const OFFLINE_QUEUE_DB = "manifestpay-offline-db";
 const PAYMENT_QUEUE_STORE = "payment-queue";
 
 const urlsToCache = [

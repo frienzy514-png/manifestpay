@@ -151,7 +151,7 @@ pub struct ProjectInput {
     pub github_repo: String,
 }
 
-// Reentrancy/pause state is owned by `AgenticPayContract`'s gas-optimised
+// Reentrancy/pause state is owned by `ManifestPayContract`'s gas-optimised
 // `LazyValue` helpers (see lib.rs) so that every call path — the
 // `#[contractimpl]` entry points and these module functions alike — reads
 // and writes the exact same storage slot. Delegating here instead of
@@ -159,15 +159,15 @@ pub struct ProjectInput {
 // therefore silently divergent, reentrancy/pause flags.
 
 pub fn _acquire_lock(env: &Env) {
-    crate::AgenticPayContract::_acquire_lock(env)
+    crate::ManifestPayContract::_acquire_lock(env)
 }
 
 pub fn _release_lock(env: &Env) {
-    crate::AgenticPayContract::_release_lock(env)
+    crate::ManifestPayContract::_release_lock(env)
 }
 
 pub fn _require_not_paused(env: &Env) {
-    crate::AgenticPayContract::_require_not_paused(env)
+    crate::ManifestPayContract::_require_not_paused(env)
 }
 
 pub fn get_admin(env: &Env) -> Address {

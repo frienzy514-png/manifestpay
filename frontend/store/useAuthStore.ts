@@ -48,7 +48,7 @@ export const useAuthStore = create<AuthState>()(
         }),
     }),
     {
-      name: 'agenticpay-auth',
+      name: 'manifestpay-auth',
     }
   )
 );

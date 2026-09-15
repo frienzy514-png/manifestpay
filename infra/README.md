@@ -1,6 +1,6 @@
-# AgenticPay Infrastructure
+# ManifestPay Infrastructure
 
-This directory contains the Infrastructure as Code (IaC) for AgenticPay using Terraform. It provisions AWS resources for the Next.js frontend (AWS Amplify), Express.js backend (AWS App Runner), and underlying networking (VPC).
+This directory contains the Infrastructure as Code (IaC) for ManifestPay using Terraform. It provisions AWS resources for the Next.js frontend (AWS Amplify), Express.js backend (AWS App Runner), and underlying networking (VPC).
 
 ## Architecture
 - **State Management**: Remote state stored securely in AWS S3 with DynamoDB state locking.

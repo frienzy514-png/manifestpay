@@ -67,7 +67,7 @@ var PushService = /** @class */ (function () {
             else {
                 this.vapidKeys = (0, vapid_js_1.generateVapidKeys)();
             }
-            (0, webpush_1.setVapidDetails)('mailto:security@agenticpay.com', this.vapidKeys.publicKey, this.vapidKeys.privateKey);
+            (0, webpush_1.setVapidDetails)('mailto:security@manifestpay.com', this.vapidKeys.publicKey, this.vapidKeys.privateKey);
             console.log('[Push] VAPID keys initialized');
         }
         catch (error) {

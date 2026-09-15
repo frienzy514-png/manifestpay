@@ -98,10 +98,10 @@ const result = registry.verify({
 
 Signature/timestamp headers are read from either convention:
 
-| Role      | AgenticPay outbound                    | Third-party custom                  |
+| Role      | ManifestPay outbound                    | Third-party custom                  |
 | --------- | -------------------------------------- | ----------------------------------- |
-| signature | `X-AgenticPay-Signature`               | `X-Signature`                       |
-| timestamp | `X-AgenticPay-Timestamp`               | `X-Timestamp`                       |
+| signature | `X-ManifestPay-Signature`               | `X-Signature`                       |
+| timestamp | `X-ManifestPay-Timestamp`               | `X-Timestamp`                       |
 | keyId     | `X-Webhook-Key-Id` (optional)          | `X-Webhook-Key-Id` (optional)       |
 
 Failure surfaces as `401 WEBHOOK_VERIFICATION_FAILED`; duplicate event deliveries surface

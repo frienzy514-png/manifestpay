@@ -334,7 +334,7 @@ if (config.queue.enabled) {
 registerDefaultPaymentProviders();
 
 const server = app.listen(config.server.port, () => {
-  console.log(`AgenticPay backend running on port ${config.server.port} [${config.env}]`);
+  console.log(`ManifestPay backend running on port ${config.server.port} [${config.env}]`);
 });
 
 // Graceful shutdown

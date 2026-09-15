@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ..:/workspaces/agenticpay:cached
+      - ..:/workspaces/manifestpay:cached
     command: sleep infinity
     depends_on:
       postgres:
@@ -16,7 +16,7 @@ services:
       redis:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/agenticpay
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/manifestpay
       REDIS_URL: redis://redis:6379
 
   postgres:
@@ -25,11 +25,11 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: agenticpay
+      POSTGRES_DB: manifestpay
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres -d agenticpay']
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d manifestpay']
       interval: 5s
       timeout: 5s
       retries: 10

@@ -47,21 +47,21 @@ emailTemplates.set('payment_receipt', {
     id: 'payment_receipt',
     name: 'Payment Receipt',
     subject: 'Payment Receipt - {{amount}} {{currency}}',
-    body: "Dear {{customerName}},\n\nThank you for your payment of {{amount}} {{currency}}.\n\nPayment Details:\n- Transaction ID: {{transactionId}}\n- Amount: {{amount}} {{currency}}\n- Date: {{date}}\n- Status: {{status}}\n\n{{#if projectName}}\nProject: {{projectName}}\n{{/if}}\n\nIf you have any questions, please contact support.\n\nBest regards,\nAgenticPay Team",
+    body: "Dear {{customerName}},\n\nThank you for your payment of {{amount}} {{currency}}.\n\nPayment Details:\n- Transaction ID: {{transactionId}}\n- Amount: {{amount}} {{currency}}\n- Date: {{date}}\n- Status: {{status}}\n\n{{#if projectName}}\nProject: {{projectName}}\n{{/if}}\n\nIf you have any questions, please contact support.\n\nBest regards,\nManifestPay Team",
     variables: ['customerName', 'amount', 'currency', 'transactionId', 'date', 'status', 'projectName'],
 });
 emailTemplates.set('payment_confirmation', {
     id: 'payment_confirmation',
     name: 'Payment Confirmation',
     subject: 'Payment Confirmed - {{amount}} {{currency}}',
-    body: "Dear {{customerName}},\n\nYour payment has been confirmed!\n\nAmount: {{amount}} {{currency}}\nTransaction Hash: {{transactionHash}}\nTimestamp: {{timestamp}}\n\nThis email serves as your official receipt.\n\nBest regards,\nAgenticPay Team",
+    body: "Dear {{customerName}},\n\nYour payment has been confirmed!\n\nAmount: {{amount}} {{currency}}\nTransaction Hash: {{transactionHash}}\nTimestamp: {{timestamp}}\n\nThis email serves as your official receipt.\n\nBest regards,\nManifestPay Team",
     variables: ['customerName', 'amount', 'currency', 'transactionHash', 'timestamp'],
 });
 emailTemplates.set('refund_notification', {
     id: 'refund_notification',
     name: 'Refund Notification',
     subject: 'Refund Processed - {{amount}} {{currency}}',
-    body: "Dear {{customerName}},\n\nYour refund of {{amount}} {{currency}} has been processed.\n\nOriginal Transaction: {{originalTransactionId}}\nRefund Amount: {{amount}} {{currency}}\nRefund ID: {{refundId}}\n\nThe funds should appear in your account within 5-7 business days.\n\nBest regards,\nAgenticPay Team",
+    body: "Dear {{customerName}},\n\nYour refund of {{amount}} {{currency}} has been processed.\n\nOriginal Transaction: {{originalTransactionId}}\nRefund Amount: {{amount}} {{currency}}\nRefund ID: {{refundId}}\n\nThe funds should appear in your account within 5-7 business days.\n\nBest regards,\nManifestPay Team",
     variables: ['customerName', 'amount', 'currency', 'originalTransactionId', 'refundId'],
 });
 function interpolateTemplate(template, variables) {

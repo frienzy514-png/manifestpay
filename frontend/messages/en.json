@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "AgenticPay",
+    "appName": "ManifestPay",
     "loading": "Loading…",
     "save": "Save",
     "cancel": "Cancel",
@@ -32,14 +32,14 @@
     "badge": "Secure / Fast / Transparent",
     "headline": "Get Paid Instantly for",
     "headlineAccent": "Your Work",
-    "subheadline": "AgenticPay revolutionizes freelancer payments with blockchain technology. Get paid instantly, securely, and transparently.",
+    "subheadline": "ManifestPay revolutionizes freelancer payments with blockchain technology. Get paid instantly, securely, and transparently.",
     "activeProjects": "Active Projects",
     "paidInvoices": "Paid Invoices",
     "completedPayments": "Completed Payments",
     "volumeSettled": "Volume Settled"
   },
   "auth": {
-    "title": "Welcome to AgenticPay",
+    "title": "Welcome to ManifestPay",
     "subtitle": "Get paid instantly for your work",
     "socialLogin": "Social Login",
     "walletConnect": "Wallet Connect"
@@ -90,7 +90,7 @@
     "namespace": "Namespace"
   },
   "metadata": {
-    "title": "AgenticPay - Get Paid Instantly for Your Work",
+    "title": "ManifestPay - Get Paid Instantly for Your Work",
     "description": "Secure, fast, and transparent payments for freelancers powered by blockchain technology."
   }
 }

@@ -110,7 +110,7 @@ exports.healthRouter.get('/health', function (_req, res) { return __awaiter(void
                 }
                 res.status(overallStatus === 'unhealthy' ? 503 : 200).json({
                     status: overallStatus,
-                    service: 'agenticpay-backend',
+                    service: 'manifestpay-backend',
                     timestamp: new Date().toISOString(),
                     uptime: process.uptime(),
                     dependencies: dependencies,

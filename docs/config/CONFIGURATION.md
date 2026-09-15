@@ -21,8 +21,8 @@
 | Key | development | staging | production |
 |-----|---|---|---|
 | `AWS_SECRETS_MANAGER_ENABLED` | false | true | true |
-| `AWS_SECRETS_MANAGER_SECRET_ID` | — | agenticpay-staging-app-secrets | agenticpay-prod-app-secrets |
-| `CORS_ALLOWED_ORIGINS` | * | https://staging.agenticpay.app | https://app.agenticpay.io |
+| `AWS_SECRETS_MANAGER_SECRET_ID` | — | manifestpay-staging-app-secrets | manifestpay-prod-app-secrets |
+| `CORS_ALLOWED_ORIGINS` | * | https://staging.manifestpay.app | https://app.manifestpay.io |
 | `JOBS_ENABLED` | true | true | true |
 | `QUEUE_ENABLED` | true | true | true |
 | `RATE_LIMIT_ENTERPRISE` | — | 1000 | 2000 |

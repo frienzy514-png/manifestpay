@@ -21,11 +21,11 @@ mkdirSync(outDir, { recursive: true });
 writeFileSync(
   outFile,
   [
-    `# @agenticpay/types ${version} Migration Guide`,
+    `# @manifestpay/types ${version} Migration Guide`,
     '',
     '## Summary',
     '',
-    'Review the type surface changes below and update backend, frontend, and SDK imports to use @agenticpay/types.',
+    'Review the type surface changes below and update backend, frontend, and SDK imports to use @manifestpay/types.',
     '',
     '## Type Diff',
     '',
@@ -36,8 +36,8 @@ writeFileSync(
     '## Checklist',
     '',
     '- Update package semver according to removed, changed, or added public fields.',
-    '- Run `npm run check:breaking -w @agenticpay/types`.',
-    '- Run `npm run check:duplicates -w @agenticpay/types`.',
+    '- Run `npm run check:breaking -w @manifestpay/types`.',
+    '- Run `npm run check:duplicates -w @manifestpay/types`.',
     '',
   ].join('\n')
 );

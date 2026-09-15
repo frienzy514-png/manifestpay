@@ -4,7 +4,7 @@ import { QueryClient } from "@tanstack/react-query";
 
 declare global {
   interface Window {
-    __AGENTICPAY_QUERY_CLIENT__?: QueryClient;
+    __MANIFESTPAY_QUERY_CLIENT__?: QueryClient;
   }
 }
 
@@ -15,7 +15,7 @@ export const queryStaleTimes = {
   admin: 15_000,
 } as const;
 
-export function createAgenticPayQueryClient() {
+export function createManifestPayQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: {
@@ -39,6 +39,6 @@ export function createAgenticPayQueryClient() {
 
 export function exposeQueryClientForDevtools(queryClient: QueryClient) {
   if (process.env.NODE_ENV === "development" && typeof window !== "undefined") {
-    window.__AGENTICPAY_QUERY_CLIENT__ = queryClient;
+    window.__MANIFESTPAY_QUERY_CLIENT__ = queryClient;
   }
 }

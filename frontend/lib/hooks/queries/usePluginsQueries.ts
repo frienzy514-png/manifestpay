@@ -32,7 +32,7 @@ export function useInstallPluginMutation() {
       name: string;
       version: string;
       source: string;
-      compatibility?: { agenticPay?: string; node?: string };
+      compatibility?: { manifestPay?: string; node?: string };
       config?: Record<string, unknown>;
     }) =>
       apiFetch<PluginRecord>("/api/v1/admin/plugins", {

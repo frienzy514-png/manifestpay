@@ -16,7 +16,7 @@ exports.legacyRouter = (0, express_1.Router)();
 exports.legacyRouter.get('/legacy-data', (0, deprecation_js_1.deprecationMiddleware)({
     deprecationDate: '2023-10-01',
     sunsetDate: '2024-12-31',
-    alternativeUrl: 'https://agenticpay.io/docs/api/v2/data'
+    alternativeUrl: 'https://manifestpay.io/docs/api/v2/data'
 }), function (req, res) {
     res.json({
         message: 'This is legacy data. Please migrate to the new API.',

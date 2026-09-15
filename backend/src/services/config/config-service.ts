@@ -14,7 +14,7 @@ import {
 } from './config-schema.js';
 import { ConfigStore, PrismaConfigStore, type StoredConfiguration } from './config-store.js';
 
-const CONFIG_CHANGE_CHANNEL = 'agenticpay:config:changed';
+const CONFIG_CHANGE_CHANNEL = 'manifestpay:config:changed';
 
 export interface ConfigChangeEvent {
   key: string;

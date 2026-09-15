@@ -1,21 +1,21 @@
-# @agenticpay/sdk
+# @manifestpay/sdk
 
-Official TypeScript SDK for AgenticPay APIs.
+Official TypeScript SDK for ManifestPay APIs.
 
 ## Install
 
 ```bash
-npm install @agenticpay/sdk
+npm install @manifestpay/sdk
 ```
 
 ## Usage
 
 ```ts
-import { createAgenticPaySDK } from '@agenticpay/sdk';
+import { createManifestPaySDK } from '@manifestpay/sdk';
 
-const sdk = createAgenticPaySDK({
-  baseUrl: 'https://api.agenticpay.com/api/v1',
-  apiKey: process.env.AGENTICPAY_API_KEY,
+const sdk = createManifestPaySDK({
+  baseUrl: 'https://api.manifestpay.com/api/v1',
+  apiKey: process.env.MANIFESTPAY_API_KEY,
 });
 
 const split = await sdk.payments.createSplitConfig({

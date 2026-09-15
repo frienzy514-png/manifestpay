@@ -18,7 +18,7 @@ export const SUPPORTED_LANGUAGES = [
 
 export type SupportedLocale = (typeof SUPPORTED_LANGUAGES)[number]['code'];
 
-const STORAGE_KEY = 'agenticpay-locale';
+const STORAGE_KEY = 'manifestpay-locale';
 const DEFAULT_LOCALE: SupportedLocale = 'en';
 
 function detectBrowserLocale(): SupportedLocale {

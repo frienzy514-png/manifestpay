@@ -1,5 +1,5 @@
 # CDN-powered geo-distributed API edge caching (#502)
-# Provisions a CloudFront distribution in front of the AgenticPay API with
+# Provisions a CloudFront distribution in front of the ManifestPay API with
 # configurable TTLs per behaviour, origin shield, and geo-routing.
 
 # ─── Variables ────────────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@ variable "origin_shield_region" {
 # ─── Cache policies ───────────────────────────────────────────────────────────
 
 resource "aws_cloudfront_cache_policy" "static_assets" {
-  name        = "agenticpay-${var.environment}-static-assets"
+  name        = "manifestpay-${var.environment}-static-assets"
   comment     = "Static frontend assets: 1 year TTL, immutable"
   default_ttl = 86400
   max_ttl     = 31536000
@@ -58,7 +58,7 @@ resource "aws_cloudfront_cache_policy" "static_assets" {
 }
 
 resource "aws_cloudfront_cache_policy" "static_data" {
-  name        = "agenticpay-${var.environment}-static-data"
+  name        = "manifestpay-${var.environment}-static-data"
   comment     = "Static API data: 5 min TTL (config, metadata)"
   default_ttl = 300
   max_ttl     = 600
@@ -83,7 +83,7 @@ resource "aws_cloudfront_cache_policy" "static_data" {
 }
 
 resource "aws_cloudfront_cache_policy" "user_data" {
-  name        = "agenticpay-${var.environment}-user-data"
+  name        = "manifestpay-${var.environment}-user-data"
   comment     = "Per-user API data: 30 s TTL (payments, invoices)"
   default_ttl = 30
   max_ttl     = 60
@@ -108,7 +108,7 @@ resource "aws_cloudfront_cache_policy" "user_data" {
 }
 
 resource "aws_cloudfront_cache_policy" "no_cache" {
-  name        = "agenticpay-${var.environment}-no-cache"
+  name        = "manifestpay-${var.environment}-no-cache"
   comment     = "Real-time / mutation endpoints — never cache"
   default_ttl = 0
   max_ttl     = 0
@@ -132,7 +132,7 @@ resource "aws_cloudfront_cache_policy" "no_cache" {
 # ─── Origin request policy ────────────────────────────────────────────────────
 
 resource "aws_cloudfront_origin_request_policy" "api" {
-  name    = "agenticpay-${var.environment}-api-origin"
+  name    = "manifestpay-${var.environment}-api-origin"
   comment = "Forward necessary headers and query strings to the API origin"
 
   cookies_config {
@@ -165,13 +165,13 @@ resource "aws_cloudfront_origin_request_policy" "api" {
 resource "aws_cloudfront_distribution" "api" {
   enabled         = true
   is_ipv6_enabled = true
-  comment         = "AgenticPay API CDN — ${var.environment}"
+  comment         = "ManifestPay API CDN — ${var.environment}"
   price_class     = var.cdn_price_class
   aliases         = var.cdn_aliases
 
   origin {
     domain_name = var.api_origin_domain
-    origin_id   = "agenticpay-api-origin"
+    origin_id   = "manifestpay-api-origin"
 
     custom_origin_config {
       http_port              = 80
@@ -195,7 +195,7 @@ resource "aws_cloudfront_distribution" "api" {
 
   # ── Default: no cache (mutations, auth, websockets) ───────────────────────
   default_cache_behavior {
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
@@ -212,7 +212,7 @@ resource "aws_cloudfront_distribution" "api" {
   # ── Static assets (_next/static, fonts, images) ──────────────────────────
   ordered_cache_behavior {
     path_pattern           = "/_next/static/*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -222,7 +222,7 @@ resource "aws_cloudfront_distribution" "api" {
 
   ordered_cache_behavior {
     path_pattern           = "/fonts/*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -232,7 +232,7 @@ resource "aws_cloudfront_distribution" "api" {
 
   ordered_cache_behavior {
     path_pattern           = "/images/*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -243,7 +243,7 @@ resource "aws_cloudfront_distribution" "api" {
   # ── Static / public API data (GET /api/v1/config, /api/v1/currencies …) ──
   ordered_cache_behavior {
     path_pattern           = "/api/v1/config*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -254,7 +254,7 @@ resource "aws_cloudfront_distribution" "api" {
 
   ordered_cache_behavior {
     path_pattern           = "/api/v1/currencies*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -266,7 +266,7 @@ resource "aws_cloudfront_distribution" "api" {
   # ── User-scoped read data (GET /api/v1/payments, /api/v1/invoices …) ──────
   ordered_cache_behavior {
     path_pattern           = "/api/v1/payments*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
@@ -277,7 +277,7 @@ resource "aws_cloudfront_distribution" "api" {
 
   ordered_cache_behavior {
     path_pattern           = "/api/v1/invoices*"
-    target_origin_id       = "agenticpay-api-origin"
+    target_origin_id       = "manifestpay-api-origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
@@ -318,14 +318,14 @@ resource "aws_cloudfront_distribution" "api" {
   }
 
   tags = {
-    Name = "agenticpay-api-cdn-${var.environment}"
+    Name = "manifestpay-api-cdn-${var.environment}"
   }
 }
 
 # ─── CloudFront function: hash Authorization before caching ──────────────────
 
 resource "aws_cloudfront_function" "auth_hash" {
-  name    = "agenticpay-${var.environment}-auth-hash"
+  name    = "manifestpay-${var.environment}-auth-hash"
   runtime = "cloudfront-js-2.0"
   comment = "Replace Authorization header with a SHA-256 prefix for cache-key safety"
   publish = true
@@ -352,10 +352,10 @@ resource "aws_cloudfront_function" "auth_hash" {
 # ─── CDN access log bucket ────────────────────────────────────────────────────
 
 resource "aws_s3_bucket" "cdn_logs" {
-  bucket = "agenticpay-cdn-logs-${var.environment}-${data.aws_caller_identity.current.account_id}"
+  bucket = "manifestpay-cdn-logs-${var.environment}-${data.aws_caller_identity.current.account_id}"
 
   tags = {
-    Name    = "agenticpay-cdn-logs-${var.environment}"
+    Name    = "manifestpay-cdn-logs-${var.environment}"
     Purpose = "CloudFront access logs"
   }
 }
@@ -381,7 +381,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "cdn_logs" {
 
 data "aws_ssm_parameter" "cdn_secret" {
   count = var.environment == "prod" ? 1 : 0
-  name  = "/agenticpay/${var.environment}/cdn-origin-secret"
+  name  = "/manifestpay/${var.environment}/cdn-origin-secret"
 }
 
 data "aws_caller_identity" "current" {}

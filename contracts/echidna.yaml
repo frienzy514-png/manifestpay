@@ -1,7 +1,7 @@
-# Echidna configuration for AgenticPay smart contract fuzzing
+# Echidna configuration for ManifestPay smart contract fuzzing
 
 # Contract to test
-contract: "src/lib.rs:AgenticPayContract"
+contract: "src/lib.rs:ManifestPayContract"
 
 # Test configuration
 testLimit: 50000

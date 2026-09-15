@@ -24,7 +24,7 @@ export const emailV2Router = Router();
 // ── Component-based template registry (preview / A-B testing) ──────────────
 
 const SAMPLE_DATA: Record<TemplateId, Record<string, unknown>> = {
-  'welcome-email': { name: 'Alex Rivera', actionUrl: 'https://app.agenticpay.com/onboarding' },
+  'welcome-email': { name: 'Alex Rivera', actionUrl: 'https://app.manifestpay.com/onboarding' },
   'payment-received': { name: 'Alex Rivera', amount: 250, currency: 'USD', sender: 'Jordan Lee', transactionId: 'tx_9f2c1a' },
 };
 

@@ -6,7 +6,7 @@
   "excludePrivate": true,
   "excludeInternal": true,
   "readme": "README.md",
-  "name": "@agenticpay/sdk",
+  "name": "@manifestpay/sdk",
   "includeVersion": true,
   "categorizeByGroup": true
 }

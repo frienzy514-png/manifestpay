@@ -13,11 +13,11 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: agenticpay
+      POSTGRES_DB: manifestpay
     volumes:
-      - agenticpay-postgres:/var/lib/postgresql/data
+      - manifestpay-postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres -d agenticpay']
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d manifestpay']
       interval: 5s
       timeout: 5s
       retries: 10
@@ -29,7 +29,7 @@ services:
       - '6379:6379'
     command: redis-server --save 60 1 --loglevel warning
     volumes:
-      - agenticpay-redis:/data
+      - manifestpay-redis:/data
     healthcheck:
       test: ['CMD', 'redis-cli', 'ping']
       interval: 5s
@@ -43,7 +43,7 @@ services:
       - '3100:3100'
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
-      - agenticpay-loki:/loki
+      - manifestpay-loki:/loki
 
   grafana:
     image: grafana/grafana:11.0.0
@@ -55,7 +55,7 @@ services:
       GF_SECURITY_ADMIN_PASSWORD: admin
       GF_USERS_ALLOW_SIGN_UP: 'false'
     volumes:
-      - agenticpay-grafana:/var/lib/grafana
+      - manifestpay-grafana:/var/lib/grafana
       - ./infra/logging/grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
     depends_on:
       - loki
@@ -68,7 +68,7 @@ services:
       - '4000:4000'
     environment:
       NODE_ENV: development
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/agenticpay
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/manifestpay
       REDIS_URL: redis://redis:6379
       LOG_API_URL: http://loki:3100
     volumes:
@@ -113,7 +113,7 @@ services:
           path: ./frontend/package.json
 
 volumes:
-  agenticpay-postgres:
-  agenticpay-redis:
-  agenticpay-loki:
-  agenticpay-grafana:
+  manifestpay-postgres:
+  manifestpay-redis:
+  manifestpay-loki:
+  manifestpay-grafana:
