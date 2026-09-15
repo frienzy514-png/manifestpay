@@ -25,30 +25,6 @@
     "paths": {
       "@/*": [
         "./*"
-      ],
-      "@payments/*": [
-        "./src/domains/payments/*"
-      ],
-      "@merchants/*": [
-        "./src/domains/merchants/*"
-      ],
-      "@wallets/*": [
-        "./src/domains/wallets/*"
-      ],
-      "@analytics/*": [
-        "./src/domains/analytics/*"
-      ],
-      "@settings/*": [
-        "./src/domains/settings/*"
-      ],
-      "@developers/*": [
-        "./src/domains/developers/*"
-      ],
-      "@shared/*": [
-        "./src/shared/*"
-      ],
-      "@ui/*": [
-        "./src/ui/*"
       ]
     }
   },
@@ -66,8 +42,6 @@
     "**/*.stories.tsx",
     ".storybook",
     "lib/wallet-connect.ts",
-    "service-worker.ts",
-    "src/wallets/hardware/**/*",
-    "src/components/hardware-wallet-connect.tsx"
+    "service-worker.ts"
   ]
 }
