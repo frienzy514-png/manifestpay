@@ -1,318 +1,225 @@
 # Sandbox Environment Guide
 
-## Overview
-
-The ManifestPay Sandbox provides a complete testing environment for API development without requiring real transactions on the blockchain.
+The ManifestPay sandbox provides a complete, isolated testing environment — mock payments, mock blockchain, wallet generation, webhook simulation, test-data seeding, and a sandbox-to-production migration wizard — without touching real funds or the actual blockchain.
 
 ## Quick Start
 
-### 1. Setup Sandbox
+### 1. Setup
 
 ```bash
 bash scripts/setup-sandbox.sh
 ```
 
-This will:
-- Create sandbox directories
-- Copy environment template
-- Install dependencies
-- Generate API documentation
+This creates sandbox directories, copies the environment template, installs dependencies, and generates API documentation.
 
 ### 2. Configure Environment
-
-Edit `.env.sandbox`:
 
 ```bash
 cp .env.sandbox.example .env.sandbox
 ```
 
 Key settings:
-- `SANDBOX_MODE=true` - Enable sandbox features
-- `FAKE_PAYMENTS_ENABLED=true` - Use mock payment processing
-- `TEST_DATA_SEEDING_ENABLED=true` - Generate test data
-- `MOCK_WEBHOOKS_ENABLED=true` - Simulate webhook delivery
-
-### 3. Start Services
-
-**Backend:**
-```bash
-cd backend
-npm run dev
-```
-
-**Frontend (in another terminal):**
-```bash
-cd frontend
-npm run dev
-```
-
-**API is now available at:** `http://localhost:3000/api/v1`
-
-## Sandbox Features
-
-### Mock Payments
-
-Process payments without Stellar transactions:
 
 ```bash
-curl -X POST http://localhost:3000/api/v1/sandbox/payments/process \
-  -H "Content-Type: application/json" \
-  -d '{
-    "projectId": "proj-123",
-    "clientAddress": "GCLIENT...",
-    "freelancerAddress": "GFREELANCER...",
-    "amount": 100,
-    "currency": "XLM",
-    "delay": 1000
-  }'
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "payment": {
-    "transactionId": "mock_1234567890_abc123",
-    "status": "success",
-    "timestamp": 1234567890
-  }
-}
-```
-
-### Test Data Generation
-
-Seed realistic test data:
-
-```bash
-curl -X POST http://localhost:3000/api/v1/sandbox/testdata/seed \
-  -H "Content-Type: application/json" \
-  -d '{
-    "users": 10,
-    "projects": 20,
-    "payments": 50,
-    "invoices": 30
-  }'
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "seeded": {
-    "userCount": 10,
-    "projectCount": 20,
-    "paymentCount": 50,
-    "invoiceCount": 30
-  }
-}
-```
-
-### Generate Testnet Wallets
-
-Create test wallets without funding:
-
-```bash
-curl -X POST http://localhost:3000/api/v1/sandbox/wallets/generate
-```
-
-**Response:**
-```json
-{
-  "wallet": {
-    "address": "GXXXXXXXXX...",
-    "seed": "SXXXXXXXXX...",
-    "publicKey": "GXXXXXXXXX...",
-    "privateKey": "SXXXXXXXXX..."
-  },
-  "environment": "testnet",
-  "fundingUrl": "https://friendbot.stellar.org/?addr=GXXXXXXXXX..."
-}
-```
-
-### Mock Webhooks
-
-Simulate webhook delivery:
-
-```bash
-curl -X POST http://localhost:3000/api/v1/sandbox/webhooks/simulate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "event": "payment.completed",
-    "data": {
-      "projectId": "proj-123",
-      "amount": 100,
-      "status": "success"
-    },
-    "webhookUrl": "https://your-webhook-url.com/hook"
-  }'
-```
-
-### Query Test Data
-
-List generated test data:
-
-```bash
-# Get all users
-curl http://localhost:3000/api/v1/sandbox/testdata/users
-
-# Get all projects
-curl http://localhost:3000/api/v1/sandbox/testdata/projects
-
-# Get statistics
-curl http://localhost:3000/api/v1/sandbox/testdata/statistics
-
-# Clear all sandbox data
-curl -X DELETE http://localhost:3000/api/v1/sandbox/testdata/clear
-```
-
-## API Playground
-
-Interactive API explorer available at:
-- **Swagger UI:** http://localhost:3000/docs
-- **OpenAPI Spec:** http://localhost:3000/docs/openapi.json
-
-Try API endpoints directly in the browser without writing code!
-
-## Environment Variables
-
-### Sandbox-Specific
-
-```bash
-# Enable sandbox mode
 SANDBOX_MODE=true
-
-# Features
 FAKE_PAYMENTS_ENABLED=true
-MOCK_WEBHOOKS_ENABLED=true
 TEST_DATA_SEEDING_ENABLED=true
-
-# Logging
+MOCK_WEBHOOKS_ENABLED=true
 SANDBOX_LOG_WEBHOOKS=true
 LOG_LEVEL=debug
+RATE_LIMIT_ENABLED=false          # relaxed in sandbox
 
-# Rate limiting (relaxed in sandbox)
-RATE_LIMIT_ENABLED=false
-```
-
-### Testnet Configuration
-
-```bash
 STELLAR_NETWORK=testnet
 STELLAR_HORIZON_URL=https://horizon-testnet.stellar.org
 ```
 
-## Common Workflows
+`NODE_ENV` must also be `sandbox` or `development` for sandbox routes to activate.
 
-### Workflow 1: Test Invoice Generation
+### 3. Start Services
 
-1. Seed test data:
 ```bash
-curl -X POST http://localhost:3000/api/v1/sandbox/testdata/seed \
-  -H "Content-Type: application/json" \
-  -d '{"projects": 5}'
+cd backend && npm run dev      # http://localhost:3000/api/v1 (or :3001, see below)
+cd frontend && npm run dev     # in another terminal
 ```
 
-2. Generate invoice:
+## Features
+
+### Sandbox Accounts
+
+Create merchant accounts with a pre-funded fake balance:
+
 ```bash
-curl -X POST http://localhost:3000/api/v1/invoice/generate \
-  -H "Authorization: Bearer your-token" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "projectId": "proj-id",
-    "workDescription": "Development work",
-    "hoursWorked": 10,
-    "hourlyRate": 50
-  }'
+POST /api/v1/sandbox/accounts
+{
+  "tenantId": "your-tenant-id",
+  "name": "Test Merchant",
+  "email": "test@merchant.com",
+  "walletAddress": "GXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "fakeBalance": 10000,
+  "currency": "XLM",
+  "expiresAt": "2024-12-31T23:59:59Z"
+}
 ```
 
-### Workflow 2: Test Payment Processing
+### Mock Payments
 
-1. Generate testnet wallet:
-```bash
-curl -X POST http://localhost:3000/api/v1/sandbox/wallets/generate
-```
+Process a payment without a real Stellar transaction:
 
-2. Process mock payment:
 ```bash
 curl -X POST http://localhost:3000/api/v1/sandbox/payments/process \
   -H "Content-Type: application/json" \
-  -d '{
-    "projectId": "proj-123",
-    "clientAddress": "GCLIENT...",
-    "freelancerAddress": "GFREELANCER...",
-    "amount": 100
-  }'
+  -d '{"projectId":"proj-123","clientAddress":"GCLIENT...","freelancerAddress":"GFREELANCER...","amount":100,"currency":"XLM","delay":1000}'
+# → { "success": true, "payment": { "transactionId": "mock_...", "status": "success", "timestamp": ... } }
 ```
 
-3. Check payment status:
+Check status: `GET /api/v1/sandbox/payments/:transactionId`
+
+### Mock Blockchain
+
+Simulate Stellar operations without real on-chain cost:
+
 ```bash
-curl http://localhost:3000/api/v1/sandbox/payments/mock_1234567890_abc123
+POST /api/v1/sandbox/blockchain/submit          # submit a mock transaction
+GET  /api/v1/sandbox/blockchain/tx/:txHash      # transaction status
+POST /api/v1/sandbox/blockchain/account/:address/fund   # fund an account, like Friendbot
+GET  /api/v1/sandbox/blockchain/account/:address        # account info
+GET  /api/v1/sandbox/blockchain/stats                    # network statistics
 ```
 
-### Workflow 3: Test Batch Verification
+Mock transactions have a ~2s confirmation delay by default.
 
-1. Seed test data
-2. Batch verify submissions:
+### Generate Testnet Wallets
+
 ```bash
-curl -X POST http://localhost:3000/api/v1/verification/verify/batch \
-  -H "Authorization: Bearer your-token" \
+curl -X POST http://localhost:3000/api/v1/sandbox/wallets/generate
+# → { "wallet": { "address": "G...", "seed": "S...", ... }, "environment": "testnet",
+#     "fundingUrl": "https://friendbot.stellar.org/?addr=G..." }
+```
+
+### Mock Webhooks
+
+```bash
+curl -X POST http://localhost:3000/api/v1/sandbox/webhooks/simulate \
   -H "Content-Type: application/json" \
-  -d '{
-    "verifications": [
-      {"projectId": "proj-1", "status": "approved"},
-      {"projectId": "proj-2", "status": "rejected"}
-    ]
-  }'
+  -d '{"event":"payment.completed","data":{"projectId":"proj-123","amount":100,"status":"success"},"webhookUrl":"https://your-webhook-url.com/hook"}'
 ```
 
-## Troubleshooting
+### Test Data Seeding
 
-### Sandbox Mode Not Working
-
-Check environment variables:
 ```bash
-curl http://localhost:3000/api/v1/sandbox/status
+POST /api/v1/sandbox/testdata/seed
+{ "users": 10, "projects": 20, "payments": 50, "invoices": 30 }
+
+GET  /api/v1/sandbox/testdata/users
+GET  /api/v1/sandbox/testdata/projects
+GET  /api/v1/sandbox/testdata/statistics
+DELETE /api/v1/sandbox/testdata/clear
 ```
 
-If you get 403, sandbox is disabled. Update `.env.sandbox`:
+Sandbox data is in-memory by default and clears on server restart. To persist it, point `DATABASE_URL` at a local sandbox database (e.g. `postgresql://user:password@localhost:5432/manifestpay_sandbox`).
+
+### Sandbox-to-Production Migration Wizard
+
 ```bash
-SANDBOX_MODE=true
+POST /api/v1/sandbox/migration/start
+{ "tenantId": "your-tenant-id", "sourceAccountId": "sandbox-account-id", "targetUserId": "production-user-id", "migrateTransactions": true, "dryRun": false }
+
+GET  /api/v1/sandbox/migration/:migrationId
+GET  /api/v1/sandbox/migration?tenantId=your-tenant-id
+POST /api/v1/sandbox/migration/:migrationId/cancel
 ```
 
-### Test Data Not Persisting
+Always try `dryRun: true` first.
 
-Sandbox data is in-memory by default. It will clear on server restart.
+### Rate Limit Relaxation
 
-To persist test data, configure a local database:
-```bash
-DATABASE_URL=postgresql://user:password@localhost:5432/manifestpay_sandbox
-```
+Sandbox mode automatically relaxes rate limits — Free 1000 req/min (vs 60 in production), Pro 5000 (vs 300), Enterprise 20000 (vs 1200). Responses carry `X-Sandbox-Rate-Limit: relaxed` when active.
 
-### Webhook Simulation Fails
+### Periodic Cleanup
 
-Enable mock webhooks in `.env.sandbox`:
-```bash
-MOCK_WEBHOOKS_ENABLED=true
-SANDBOX_LOG_WEBHOOKS=true
-```
+- Expired account cleanup — every 6 hours
+- Old data cleanup (>30 days) — daily at 2 AM
+- Maintenance statistics — daily at midnight
+
+## API Endpoints Summary
+
+| Area | Endpoints |
+|---|---|
+| Status | `GET /sandbox/status`, `GET /sandbox/info` |
+| Accounts | `POST /sandbox/accounts`, `GET /sandbox/accounts/:id`, `GET /sandbox/accounts`, `PATCH /sandbox/accounts/:id/balance`, `DELETE /sandbox/accounts/:id` |
+| Payments | `POST /sandbox/payments/process`, `GET /sandbox/payments/:transactionId` |
+| Wallets | `POST /sandbox/wallets/generate` |
+| Webhooks | `POST /sandbox/webhooks/simulate` |
+| Mock blockchain | `POST /sandbox/blockchain/submit`, `GET /sandbox/blockchain/tx/:txHash`, `GET /sandbox/blockchain/account/:address`, `POST /sandbox/blockchain/account/:address/fund`, `GET /sandbox/blockchain/stats` |
+| Test data | `POST /sandbox/testdata/seed`, `GET /sandbox/testdata/{users,projects,statistics}`, `DELETE /sandbox/testdata/clear` |
+| Migration | `POST /sandbox/migration/start`, `GET /sandbox/migration/:id`, `GET /sandbox/migration`, `POST /sandbox/migration/:id/cancel` |
+| Statistics | `GET /sandbox/stats` |
+
+(all prefixed with `/api/v1`)
+
+## API Playground
+
+- Swagger UI: `http://localhost:3000/docs`
+- OpenAPI spec: `http://localhost:3000/docs/openapi.json`
+
+## Database Schema
+
+**SandboxAccount** — `id`, `tenantId`, `userId?`, `name`, `email`, `walletAddress` (unique), `fakeBalance`, `currency`, `isActive`, `expiresAt?`, timestamps, `deletedAt?` (soft delete)
+
+**SandboxTransaction** — `id`, `accountId`, `txHash` (unique), `amount`, `currency`, `fromAddress`, `toAddress`, `status`, `type`, `mockData` (JSON), `confirmedAt`, timestamps, `deletedAt?`
+
+**SandboxMigration** — `id`, `tenantId`, `sourceAccountId`, `targetAccountId?`, `status`, `steps` (JSON), `error?`, `startedAt`, `completedAt`, timestamps
+
+## Common Workflows
+
+**Invoice generation:** seed test data with `{"projects": 5}` → `POST /api/v1/invoice/generate` with `projectId`, `workDescription`, `hoursWorked`, `hourlyRate`.
+
+**End-to-end payment:** generate a testnet wallet → fund it → `POST /sandbox/payments/process` → check status at `GET /sandbox/payments/:transactionId`.
+
+**Batch verification:** seed test data → `POST /api/v1/verification/verify/batch` with a `verifications` array of `{projectId, status}`.
+
+**Account + migration:** create a sandbox account → fund it via `/blockchain/account/:address/fund` → submit a mock transaction → seed test data → check `/sandbox/stats` → optionally `POST /sandbox/migration/start` with `dryRun: true`.
 
 ## Best Practices
 
-1. **Isolation:** Always use sandbox for development
-2. **Data:** Seed fresh test data between test runs
-3. **Cleanup:** Clear sandbox data when done (`DELETE /sandbox/testdata/clear`)
-4. **Logging:** Enable webhook logging for debugging (`SANDBOX_LOG_WEBHOOKS=true`)
-5. **Documentation:** Keep `.env.sandbox.example` up to date
+1. Always use sandbox for development; never point it at production credentials
+2. Seed fresh test data between test runs; clear it when done
+3. Use descriptive account names and unique wallet addresses to avoid conflicts
+4. Set expiration dates on temporary test accounts
+5. Enable webhook logging (`SANDBOX_LOG_WEBHOOKS=true`) when debugging
+6. Use `dryRun: true` before running a real migration, and verify results before applying to production
+7. Monitor rate limits even in sandbox mode — they're relaxed, not disabled
+
+## Troubleshooting
+
+**Sandbox mode not working / 403 responses:** check `GET /api/v1/sandbox/status`; ensure `NODE_ENV` is `sandbox` or `development` and `SANDBOX_MODE=true` in `.env.sandbox`.
+
+**Rate limits still strict:** verify the `X-Sandbox-Rate-Limit: relaxed` response header is present.
+
+**Test data not persisting:** sandbox data is in-memory by default and clears on restart — point `DATABASE_URL` at a local database to persist it.
+
+**Webhook simulation fails:** set `MOCK_WEBHOOKS_ENABLED=true` and `SANDBOX_LOG_WEBHOOKS=true`.
+
+**Transactions not confirming:** mock transactions have a ~2s confirmation delay — check status again after waiting.
+
+**Migration fails:** verify the source account exists and is active, confirm the target user is in the same tenant, review the migration's `steps` for the specific error, and retry with `dryRun: true` first.
+
+## Security Considerations
+
+- Sandbox accounts and mock transactions are fully isolated from production and never touch the real blockchain
+- Sandbox data is cleaned up automatically (see Periodic Cleanup above)
+- Rate limits are relaxed but still enforced
+- Migration to production requires explicit confirmation and is logged
+- All sandbox operations are logged
 
 ## Next Steps
 
-- Explore API endpoints in Swagger UI
+- Explore endpoints in Swagger UI
 - Review auto-generated SDKs in `backend/docs/api/sdks/`
-- Check OpenAPI specification: `backend/docs/api/openapi/openapi.json`
-- Read full API docs: `backend/docs/api/INDEX.md`
+- Check the OpenAPI spec: `backend/docs/api/openapi/openapi.json`
 
 ## Support
 
-- 📖 Full documentation: https://docs.manifestpay.com
-- 🐛 Issue tracker: https://github.com/frienzy514-png/manifestpay/issues
-- 💬 Discussion: https://github.com/frienzy514-png/manifestpay/discussions
+- Full documentation: https://docs.manifestpay.com
+- Issue tracker: https://github.com/frienzy514-png/manifestpay/issues
+- Discussions: https://github.com/frienzy514-png/manifestpay/discussions
