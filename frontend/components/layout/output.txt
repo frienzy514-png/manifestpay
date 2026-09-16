@@ -1,7 +1,0 @@
-C:\Users\USER\desktop\king\clones\manifestpay\frontend\components\layout
-├── Header.tsx
-├── PageBreadcrumb.tsx
-└── Sidebar.tsx
-
-file: 3
-
