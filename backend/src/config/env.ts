@@ -10,9 +10,10 @@ const envSchema = z.object({
   PORT: z.coerce.number().default(3001),
   CORS_ALLOWED_ORIGINS: z.string().default('*'),
   STELLAR_NETWORK: z.enum(['testnet', 'public']).default('testnet'),
-  OPENAI_API_KEY: z.string({
-    required_error: 'OPENAI_API_KEY is required for verification and invoicing services',
-  }).min(1, 'OPENAI_API_KEY cannot be empty'),
+  AI_PROVIDER: z.enum(['openai', 'anthropic']).default('openai'),
+  AI_MODEL: z.string().min(1).optional(),
+  OPENAI_API_KEY: z.string().min(1, 'OPENAI_API_KEY cannot be empty').optional(),
+  ANTHROPIC_API_KEY: z.string().min(1, 'ANTHROPIC_API_KEY cannot be empty').optional(),
   JOBS_ENABLED: z.coerce.string().transform((val) => val !== 'false').default('true'),
   QUEUE_ENABLED: z.coerce.string().transform((val) => val !== 'false').default('true'),
   RATE_LIMIT_FREE: z.coerce.number().default(100),
@@ -23,6 +24,16 @@ const envSchema = z.object({
   IP_ALLOWLIST_ENABLED: z.coerce.string().transform((val) => val === 'true').default('false'),
   IP_ALLOWLIST_BYPASS_ENABLED: z.coerce.string().transform((val) => val === 'true').default('false'),
   IP_ALLOWLIST_BYPASS_EXPIRY_MS: z.coerce.number().default(30 * 60 * 1000),
+}).superRefine((env, ctx) => {
+  // Only the key for the selected AI provider is required.
+  const keyName = env.AI_PROVIDER === 'anthropic' ? 'ANTHROPIC_API_KEY' : 'OPENAI_API_KEY';
+  if (!env[keyName]) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: [keyName],
+      message: `${keyName} is required when AI_PROVIDER=${env.AI_PROVIDER} (used by verification and invoicing services)`,
+    });
+  }
 });
 
 export type Env = z.infer<typeof envSchema>;

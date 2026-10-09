@@ -1,11 +1,9 @@
-import OpenAI from 'openai';
 import { randomUUID } from 'node:crypto';
-import { config } from '../config/env.js';
 import { withQueryProfiling } from '../config/database.js';
 import { EmailDeliveryService } from './email-delivery.js';
 import { fxService } from './fx/index.js';
+import { getLLMProvider } from './ai/index.js';
 
-let openaiClient: OpenAI | null = null;
 const emailService = new EmailDeliveryService();
 
 const TAX_RATES: Record<string, number> = {
@@ -19,16 +17,6 @@ const TAX_RATES: Record<string, number> = {
   NL: 0.21,
   ES: 0.21,
   IT: 0.22,
-};
-
-const getOpenAIClient = () => {
-  const apiKey = config().OPENAI_API_KEY;
-
-  if (!openaiClient) {
-    openaiClient = new OpenAI({ apiKey });
-  }
-
-  return openaiClient;
 };
 
 export type InvoiceStatus = 'draft' | 'sent' | 'paid' | 'overdue' | 'cancelled';
@@ -221,23 +209,11 @@ export async function generateInvoice(request: InvoiceRequest): Promise<InvoiceR
   let summary = 'Invoice generated for completed work.';
 
   try {
-    const completion = await getOpenAIClient().chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        {
-          role: 'system',
-          content:
-            'You are an invoice generator. Given a work description, hours, and rate, generate professional line items. Respond with JSON containing lineItems (array of {description, hours, rate, amount}), summary (brief invoice summary).',
-        },
-        {
-          role: 'user',
-          content: `Work: ${request.workDescription}\nHours: ${request.hoursWorked}\nRate: $${request.hourlyRate}/hr`,
-        },
-      ],
-      response_format: { type: 'json_object' },
+    const generated = await getLLMProvider().completeJson({
+      system:
+        'You are an invoice generator. Given a work description, hours, and rate, generate professional line items. Respond with JSON containing lineItems (array of {description, hours, rate, amount}), summary (brief invoice summary).',
+      user: `Work: ${request.workDescription}\nHours: ${request.hoursWorked}\nRate: $${request.hourlyRate}/hr`,
     });
-
-    const generated = JSON.parse(completion.choices[0].message.content || '{}');
     if (Array.isArray(generated.lineItems) && generated.lineItems.length > 0) {
       lineItems = generated.lineItems.map((item: any) => ({
         description: item.description || request.workDescription,

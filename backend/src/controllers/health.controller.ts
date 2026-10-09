@@ -37,7 +37,10 @@ export class HealthController {
     };
 
     // OpenAI Configuration Check
-    checks.openai = !!process.env.OPENAI_API_KEY;
+    // AI provider key check (field name kept for API compatibility)
+    checks.openai = !!(process.env.AI_PROVIDER === 'anthropic'
+      ? process.env.ANTHROPIC_API_KEY
+      : process.env.OPENAI_API_KEY);
 
     // Scheduler Initialization Check
     checks.scheduler = !!process.env.JOB_SCHEDULER_ENABLED;

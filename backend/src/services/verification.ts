@@ -1,17 +1,5 @@
-import OpenAI from 'openai';
 import { config } from '../config/env.js';
-
-let openaiClient: OpenAI | null = null;
-
-const getOpenAIClient = () => {
-  const apiKey = config().OPENAI_API_KEY;
-
-  if (!openaiClient) {
-    openaiClient = new OpenAI({ apiKey });
-  }
-
-  return openaiClient;
-};
+import { getLLMProvider } from './ai/index.js';
 
 export interface CodeQualityMetrics {
   linesOfCode: number;
@@ -127,12 +115,8 @@ export async function verifyWork(request: VerificationRequest): Promise<Verifica
   const codeQuality = analyzeCodeQuality(repoContents);
   const plagiarism = await detectPlagiarism(repoContents, request.repositoryUrl);
 
-  const completion = await getOpenAIClient().chat.completions.create({
-    model: 'gpt-4o-mini',
-    messages: [
-      {
-        role: 'system',
-        content: `You are a senior code reviewer and quality assurance expert. Given repository contents and a milestone description, provide a thorough verification assessment.
+  const assessment = await getLLMProvider().completeJson({
+    system: `You are a senior code reviewer and quality assurance expert. Given repository contents and a milestone description, provide a thorough verification assessment.
 
 Analyze:
 1. Whether the code fulfills the milestone requirements
@@ -146,10 +130,7 @@ Respond with a JSON object containing:
 - summary (one sentence overall assessment)
 - details (array of specific observations, both positive and negative)
 - recommendation (approve, request_changes, or needs_review)`,
-      },
-      {
-        role: 'user',
-        content: `Repository: ${request.repositoryUrl}
+    user: `Repository: ${request.repositoryUrl}
 Milestone: ${request.milestoneDescription}
 
 Code Quality Metrics:
@@ -164,12 +145,7 @@ Plagiarism Analysis:
 - External Matches: ${plagiarism.externalMatches.length}
 
 ${repoContents ? `Repository Contents:\n${repoContents.slice(0, 8000)}` : 'Repository contents could not be fetched.'}`,
-      },
-    ],
-    response_format: { type: 'json_object' },
   });
-
-  const assessment = JSON.parse(completion.choices[0].message.content || '{}');
 
   const result: VerificationResult = {
     id,
@@ -239,12 +215,8 @@ async function detectPlagiarism(contents: string, repoUrl: string): Promise<Plag
   }
 
   try {
-    const completion = await getOpenAIClient().chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        {
-          role: 'system',
-          content: `Analyze the following code for potential plagiarism indicators. Look for:
+    const analysis = await getLLMProvider().completeJson({
+      system: `Analyze the following code for potential plagiarism indicators. Look for:
 1. Common open-source code patterns that might indicate copying
 2. Boilerplate code vs original implementation
 3. Suspiciously similar implementations to well-known projects
@@ -253,16 +225,8 @@ Respond with JSON containing:
 - overallSimilarity (0-100 percentage estimate of non-original code)
 - duplicateSegments (array of {source, similarity, lines} for code blocks that look copied)
 - externalMatches (array of {repository, similarity, description} for potential matches to public repos)`,
-        },
-        {
-          role: 'user',
-          content: `Repository: ${repoUrl}\n\nCode to analyze:\n${contents.slice(0, 6000)}`,
-        },
-      ],
-      response_format: { type: 'json_object' },
+      user: `Repository: ${repoUrl}\n\nCode to analyze:\n${contents.slice(0, 6000)}`,
     });
-
-    const analysis = JSON.parse(completion.choices[0].message.content || '{}');
     return {
       overallSimilarity: analysis.overallSimilarity || 0,
       duplicateSegments: analysis.duplicateSegments || [],

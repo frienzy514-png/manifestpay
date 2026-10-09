@@ -36,6 +36,7 @@
     "config:docs:check": "tsx scripts/config-docs.ts --check"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.132.1",
     "@manifestpay/api-spec": "*",
     "@manifestpay/error-codes": "*",
     "@manifestpay/types": "*",

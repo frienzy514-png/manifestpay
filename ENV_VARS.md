@@ -8,7 +8,10 @@
 | CORS_ALLOWED_ORIGINS | Allowed origins for CORS            | \*      | No       |
 | JOBS_ENABLED         | Enable/disable background jobs      | true    | No       |
 | STELLAR_NETWORK      | Stellar network (testnet or public) | testnet | No       |
-| OPENAI_API_KEY       | OpenAI API key for AI services      | -       | **Yes**  |
+| AI_PROVIDER          | AI backend for verification and invoicing (`openai` or `anthropic`) | openai | No |
+| AI_MODEL             | Model override for the selected provider | gpt-4o-mini / claude-opus-5-5 | No |
+| OPENAI_API_KEY       | OpenAI API key for AI services      | -       | When `AI_PROVIDER=openai` |
+| ANTHROPIC_API_KEY    | Anthropic API key for AI services   | -       | When `AI_PROVIDER=anthropic` |
 | MANIFESTPAY_ALLOWED_SIGNATURE_ORIGINS | Allowed origins for EIP-712 signature verification | https://manifestpay.com,http://localhost:3000 | No |
 | VAPID_PUBLIC_KEY     | VAPID public key for Web Push API   | auto-generated | No       |
 | VAPID_PRIVATE_KEY    | VAPID private key for Web Push API  | auto-generated | No       |
@@ -36,7 +39,9 @@ PORT=3001
 CORS_ALLOWED_ORIGINS=http://localhost:3000
 JOBS_ENABLED=true
 STELLAR_NETWORK=testnet
+AI_PROVIDER=openai
 OPENAI_API_KEY=sk-your-openai-api-key
+# ANTHROPIC_API_KEY=your-anthropic-api-key
 MANIFESTPAY_ALLOWED_SIGNATURE_ORIGINS=https://manifestpay.com,http://localhost:3000
 VAPID_PUBLIC_KEY=your-vapid-public-key
 VAPID_PRIVATE_KEY=your-vapid-private-key
