@@ -1,5 +1,7 @@
 node_modules/
 dist/
+# tsc emits to dist/; stray compiled output in src/ shadows the .ts sources
+src/**/*.js
 .env
 *.log
 .migration-state.json

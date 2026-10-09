@@ -109,7 +109,7 @@ export function getDevLogStats(): { connections: number; bufferSize: number } {
  *
  * Usage in logger config:
  *   transport: {
- *     target: './logger/dev-transport.js',
+ *     target: './logging/dev-transport.js',
  *     options: { level: 'debug' }
  *   }
  */

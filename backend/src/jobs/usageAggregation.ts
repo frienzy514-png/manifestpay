@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import * as stripeService from '../services/stripe.js';
-import { logger } from '../logging/logger.js';
+import { logger } from '../utils/logger.js';
 
 const prisma = new PrismaClient();
 
