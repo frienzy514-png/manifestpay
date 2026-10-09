@@ -21,7 +21,7 @@ import {
   listRefundJobs,
   getRefundJob,
 } from '../services/refund-engine.js';
-import { refundQueue } from '../queue/refund-queue.js';
+import { refundQueue } from '../queues/refund-queue.js';
 import { refundNotificationService } from '../services/refund-notifications.js';
 import {
   refundEnginePolicySchema,

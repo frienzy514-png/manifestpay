@@ -49,7 +49,7 @@ router.post('/reload', (req: Request, res: Response) => {
  */
 router.get('/logs', (req: Request, res: Response) => {
   try {
-    const { getLogBuffer, getDevLogStats } = require('../../logger/dev-transport.js');
+    const { getLogBuffer, getDevLogStats } = require('../../logging/dev-transport.js');
     res.json({
       logs: getLogBuffer().slice(-200),
       stats: getDevLogStats(),
@@ -66,7 +66,7 @@ router.get('/logs', (req: Request, res: Response) => {
  */
 router.delete('/logs', (_req: Request, res: Response) => {
   try {
-    const { clearLogBuffer } = require('../../logger/dev-transport.js');
+    const { clearLogBuffer } = require('../../logging/dev-transport.js');
     clearLogBuffer();
     res.json({ cleared: true });
   } catch {

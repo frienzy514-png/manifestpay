@@ -4,7 +4,7 @@
  */
 
 import { Router } from 'express';
-import { paymentQueue, PaymentStatus, CreatePaymentInput } from '../queue/payment-queue.js';
+import { paymentQueue, PaymentStatus, CreatePaymentInput } from '../queues/payment-queue.js';
 import { asyncHandler, AppError } from '../middleware/errorHandler.js';
 
 export const paymentQueueRouter = Router();

@@ -215,7 +215,7 @@ It displays:
 
 ### Disputes
 
-The existing dispute system (`backend/disputes/`) can be enhanced to call the escalation API when disputes are created or updated:
+The existing dispute system (`backend/src/disputes/`) can be enhanced to call the escalation API when disputes are created or updated:
 
 ```typescript
 // In dispute creation

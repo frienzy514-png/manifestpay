@@ -42,7 +42,10 @@ healthRouter.get('/health', async (_req: Request, res: Response) => {
       });
 
     // 2. OpenAI Configuration Check
-    checks.openai = !!process.env.OPENAI_API_KEY;
+    // AI provider key check (field name kept for API compatibility)
+    checks.openai = !!(process.env.AI_PROVIDER === 'anthropic'
+      ? process.env.ANTHROPIC_API_KEY
+      : process.env.OPENAI_API_KEY);
 
     // 3. Scheduler Initialization Check
     checks.scheduler = !!getJobScheduler();

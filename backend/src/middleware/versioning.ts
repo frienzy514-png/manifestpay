@@ -120,6 +120,40 @@ export function apiVersioning(config: VersioningConfig) {
   };
 }
 
+function extractVersionFromContentType(contentType: string | undefined): string | null {
+  if (!contentType) return null;
+  const match =
+    contentType.match(/application\/vnd\.manifestpay\.v(\d+)\+json/i) ||
+    contentType.match(/;\s*version=v?(\d+)/i);
+  return match ? match[1] : null;
+}
+
+/**
+ * Lenient version detection: resolves the version from headers, Content-Type,
+ * or the URL and tags the request, without rejecting unknown versions.
+ */
+export function versionMiddleware(req: Request, res: Response, next: NextFunction): void {
+  const headerVersion =
+    req.headers["api-version"] ||
+    req.headers["x-api-version"] ||
+    req.headers["accept-version"] ||
+    extractVersionFromContentType(req.headers["content-type"]);
+
+  let version = "v1";
+  if (headerVersion) {
+    version = `v${headerVersion.toString().replace(/^v/i, "")}`;
+  } else {
+    const match = req.originalUrl.match(/^\/api\/(v\d+)\//);
+    if (match) {
+      version = match[1];
+    }
+  }
+
+  req.apiVersion = version;
+  res.setHeader("X-API-Version", version);
+  next();
+}
+
 export function versionedRoute(
   version: string,
   handler: (req: Request, res: Response, next: NextFunction) => void,

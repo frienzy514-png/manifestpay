@@ -27,6 +27,19 @@ describe('Config Module', () => {
       expect(process.exit).toHaveBeenCalledWith(1);
     });
 
+    it('requires ANTHROPIC_API_KEY instead of OPENAI_API_KEY when AI_PROVIDER=anthropic', () => {
+      process.env.AI_PROVIDER = 'anthropic';
+      delete process.env.OPENAI_API_KEY;
+      delete process.env.ANTHROPIC_API_KEY;
+
+      expect(() => validateEnv()).toThrow();
+      expect(process.exit).toHaveBeenCalledWith(1);
+
+      process.env.ANTHROPIC_API_KEY = 'test-anthropic-key';
+      clearEnvCache();
+      expect(validateEnv().AI_PROVIDER).toBe('anthropic');
+    });
+
     it('successfully parses valid environment variables', () => {
       process.env.OPENAI_API_KEY = 'test-key';
       process.env.PORT = '4000';
